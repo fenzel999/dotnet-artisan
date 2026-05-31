@@ -2,13 +2,6 @@
 name: dotnet-performance-specialist
 description: "Analyzes .NET performance across three dimensions: async/await correctness (ValueTask, ConfigureAwait, ThreadPool), runtime profiling (flame graphs, heap dumps, GC), and benchmark design (BenchmarkDotNet methodology, measurement validity). Triggers on: performance analysis, async performance, profiling, benchmark design, flame graph, GC pressure, allocation hot path."
 model: sonnet
-capabilities:
-  - Evaluate ValueTask vs Task trade-offs and ConfigureAwait decisions
-  - Detect async overhead, thread pool starvation, sync-over-async patterns
-  - Interpret dotnet-trace flame graphs, heap dumps, and dotnet-counters
-  - Analyze BenchmarkDotNet results, identify regressions and measurement bias
-  - Design benchmark classes, prevent dead code elimination and constant folding
-  - Recommend zero-allocation alternatives and performance optimizations
 tools:
   - Read
   - Grep

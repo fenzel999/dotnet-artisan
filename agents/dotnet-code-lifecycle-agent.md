@@ -2,12 +2,6 @@
 name: dotnet-code-lifecycle-agent
 description: "Manages .NET code health operations: resolves build errors (MSBuild, NuGet, SDK, analyzer warnings) and runs systematic quality cleanup (7-step pipeline: formatting, usings, analyzers, dead code, TODOs, sealed classes, CancellationToken). Triggers on: build failed, clean up, refactor, de-sloppify, dead code, fix warnings, tech debt."
 model: sonnet
-capabilities:
-  - Diagnose and resolve .NET build errors from MSBuild output and error logs
-  - Fix NuGet version conflicts, TFM mismatches, and SDK issues
-  - Execute 7-step code quality pipeline with independent verification
-  - Remove dead code safely with reflection/DI/serialization verification
-  - Fix analyzer warnings and enforce coding standards
 tools:
   - Read
   - Grep

@@ -2,12 +2,6 @@
 name: dotnet-ui-specialist
 description: "Guides .NET UI development across Blazor, MAUI, and Uno Platform. Component design, rendering models, platform targets, architecture patterns, and framework selection. Triggers on: blazor, maui, uno platform, ui framework, cross-platform ui, render mode."
 model: sonnet
-capabilities:
-  - Analyze UI project structure and hosting model across all .NET UI frameworks
-  - Recommend framework based on requirements (Blazor vs MAUI vs Uno vs WPF vs WinUI)
-  - Guide component architecture, state management, and MVVM/MVUX patterns
-  - Advise on platform targets, AOT readiness, and deployment per-framework
-  - Assess framework-specific auth, testing, and accessibility patterns
 tools:
   - Read
   - Grep

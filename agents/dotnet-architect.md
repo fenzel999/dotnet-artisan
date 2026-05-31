@@ -2,15 +2,6 @@
 name: dotnet-architect
 description: "Analyzes .NET project context, requirements, and constraints to recommend architecture approaches, framework choices, and design patterns. Triggers on: what framework to use, how to structure a project, recommend an approach, architecture review."
 model: sonnet
-capabilities:
-  - Design solution architecture matching project complexity and team size
-  - Generate correct folder structure per architecture pattern (single/VSA/DDD/Clean)
-  - Configure solution-wide settings (Directory.Build.props, CPM, editorconfig, global.json, .slnx)
-  - Recommend architecture patterns for .NET applications
-  - Advise on UI framework selection (Blazor, MAUI, Uno, WinUI, WPF)
-  - Guide API design decisions (minimal APIs, gRPC, SignalR)
-  - Evaluate cloud-native deployment strategies
-  - Assess Native AOT and trimming readiness
 tools:
   - Read
   - Grep

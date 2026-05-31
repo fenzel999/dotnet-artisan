@@ -2,12 +2,6 @@
 name: dotnet-learning-agent
 description: "Captures user corrections, generalizes them into reusable rules, and manages project-specific knowledge in MEMORY.md. Detects when the user says 'remember', 'don't do that', 'we always/never', or corrects output. Triggers on: remember this, learn this, save this rule, correction capture, pattern learning."
 model: sonnet
-capabilities:
-  - Detect user corrections and output critiques in real-time
-  - Generalize specific fixes into reusable project rules
-  - Manage MEMORY.md with categorized, deduplicated entries
-  - Track confidence levels for project-specific instincts
-  - Review and audit stored memories for accuracy
 tools:
   - Read
   - Grep

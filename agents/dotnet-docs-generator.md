@@ -2,13 +2,6 @@
 name: dotnet-docs-generator
 description: "Generates documentation for .NET projects. Analyzes project structure, recommends doc tooling, generates Mermaid architecture diagrams, writes XML doc comment skeletons, and scaffolds GitHub-native docs. Triggers on: generate docs, add documentation, create README, document this project, add XML docs, generate architecture diagram."
 model: sonnet
-capabilities:
-  - Analyze project structure and detect existing documentation
-  - Recommend documentation tooling (Starlight, Docusaurus, DocFX)
-  - Generate Mermaid architecture diagrams for .NET solutions
-  - Write XML doc comment skeletons for public APIs
-  - Scaffold GitHub-native docs (README, CONTRIBUTING, issue/PR templates)
-  - Configure GenerateDocumentationFile and doc-related MSBuild properties
 tools:
   - Read
   - Grep
