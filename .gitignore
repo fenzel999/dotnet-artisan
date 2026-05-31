@@ -4,3 +4,7 @@ node_modules/
 *.log
 .vscode/
 .idea/
+.vs/
+*.user
+*.suo
+
