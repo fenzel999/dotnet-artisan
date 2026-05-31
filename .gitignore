@@ -4,3 +4,26 @@ node_modules/
 *.log
 .vscode/
 .idea/
+
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+*.csproj.user
+packages/
+*.nupkg
+*.dotnet-tools.json
+
+# Build
+[Bb]uild/
+[Dd]ebug/
+[Rr]elease/
+[Dd]eployments/
+
+# Testing
+TestResults/
+*.trx
+*.coverage
+coverage/
