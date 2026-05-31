@@ -26,7 +26,7 @@ Load path: `using-dotnet` → `dotnet-advisor` → domain skills. `dotnet-csharp
 | Any .NET code | [anti-patterns.md](skills/dotnet-csharp/references/anti-patterns.md) — 10 most common BAD/GOOD patterns |
 | Choosing packages | [package-choices.md](skills/dotnet-csharp/references/package-choices.md) — commercial→free alternatives |
 | Architecture decisions | [DECISIONS.md](skills/DECISIONS.md) — "when to use what" quick lookups |
-| Find a reference | [INDEX.md](skills/INDEX.md) — all 166 reference files by domain |
+| Find a reference | [INDEX.md](skills/INDEX.md) — all 173 reference files by domain |
 | Code quality + project setup | [dotnet-tooling](skills/dotnet-tooling/SKILL.md) — build, AOT, CLI, cleanup |
 | Workflow optimization + learning | [dotnet-workflow](skills/dotnet-workflow/SKILL.md) — worktrees, context, corrections |
 | AI/ML features | [dotnet-ai](skills/dotnet-ai/SKILL.md) — MCP, RAG, Semantic Kernel |
