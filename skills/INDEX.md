@@ -206,4 +206,5 @@ Quick navigation for all reference files. Each file contains implementation patt
 | File | Topic |
 |------|-------|
 | [plugin-verification.md](dotnet-workflow/references/plugin-verification.md) | Plugin installation verification and troubleshooting |
-| [plugin-usage-best-practices.md](dotnet-workflow/references/plugin-usage-best-practices.md) | Best practices for daily dotnet-artisan usage |
+| [plugin-usage-best-practices.md](dotnet-workflow/references/plugin-usage-best-practices.md) | Best practices for daily dotnet-artisan usage (English) |
+| [plugin-usage-best-practices.zh.md](dotnet-workflow/references/plugin-usage-best-practices.zh.md) | Best practices for daily dotnet-artisan usage (中文) |

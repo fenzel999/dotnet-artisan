@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.2 (2026-05-31) — Chinese best practices guide
+
+### Added
+- **`plugin-usage-best-practices.zh.md`** — Comprehensive Chinese guide covering: plugin internals, effective prompting for each skill, advanced techniques (worktrees, token budget, plan mode), real-world scenarios, and troubleshooting. Follows the reference file format (Core Principles → Patterns → Anti-patterns → Decision Guide).
+- Updated INDEX.md, dotnet-workflow SKILL.md routing table, and READMEs to register the new Chinese reference.
+- Total reference files: 175 → 176
+
 ## 1.0.1 (2026-05-31) — Content quality and infrastructure
 
 Fixed stale reference counts, added missing infrastructure files, created verification and best practices guides.
