@@ -1,0 +1,81 @@
+# dotnet-artisan CI — validates plugin structure and file quality
+# Runs on PRs and pushes to main
+
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  format-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check plugin.json is valid JSON
+        run: python3 -m json.tool .claude-plugin/plugin.json > /dev/null
+
+      - name: Check marketplace.json is valid JSON
+        run: python3 -m json.tool .claude-plugin/marketplace.json > /dev/null
+
+      - name: Check hooks.json is valid JSON
+        run: python3 -m json.tool hooks.json > /dev/null
+
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Check Markdown files exist for all skills in plugin.json
+        run: |
+          for skill in $(python3 -c "import json; d=json.load(open('.claude-plugin/plugin.json')); [print(s.strip('./').replace('/','/')) for s in d['skills']]" 2>/dev/null); do
+            if [ ! -f "skills/$skill/SKILL.md" ]; then
+              echo "Missing SKILL.md for skill: $skill"
+              exit 1
+            fi
+            echo "✓ $skill/SKILL.md exists"
+          done
+
+      - name: Check all agent files exist
+        run: |
+          for agent in $(python3 -c "import json; d=json.load(open('.claude-plugin/plugin.json')); [print(a.strip('./')) for a in d['agents']]" 2>/dev/null); do
+            if [ ! -f "$agent" ]; then
+              echo "Missing agent file: $agent"
+              exit 1
+            fi
+            echo "✓ $agent exists"
+          done
+
+      - name: Verify README counts match plugin.json
+        run: |
+          SKILL_COUNT=$(python3 -c "import json; print(len(json.load(open('.claude-plugin/plugin.json'))['skills']))")
+          AGENT_COUNT=$(python3 -c "import json; print(len(json.load(open('.claude-plugin/plugin.json'))['agents']))")
+          echo "Skills: $SKILL_COUNT | Agents: $AGENT_COUNT"
+
+  structure-validation:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate required root files exist
+        run: |
+          for f in CLAUDE.md AGENTS.md USAGE.md SELF_DOCUMENTING.md BEHAVIORS.md CHANGELOG.md LICENSE README.md; do
+            if [ ! -f "$f" ]; then
+              echo "Missing required root file: $f"
+              exit 1
+            fi
+            echo "✓ $f exists"
+          done
+
+      - name: Validate skill directories have SKILL.md
+        run: |
+          for dir in skills/*/; do
+            if [ ! -f "${dir}SKILL.md" ]; then
+              echo "Missing SKILL.md in ${dir}"
+              exit 1
+            fi
+            echo "✓ ${dir}SKILL.md exists"
+          done
