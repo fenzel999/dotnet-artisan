@@ -13,6 +13,8 @@ CI/CD, packaging, Git workflow, release management, and operational tooling for 
 
 ## Routing Table
 
+> **Path resolution**: The Companion File column lists filenames relative to this skill's  directory. Use Glob to locate the file (pattern: ), then pass the returned absolute path to the Read tool. Do NOT use bare relative paths — the Read tool resolves them relative to the user's project directory, not this skill's location.
+
 | Topic | Keywords | Description | Companion File |
 |-------|----------|-------------|----------------|
 | GHA build/test | setup-dotnet, NuGet cache, reporting | GitHub Actions .NET build/test (setup-dotnet, NuGet cache, reporting) | references/gha-build-test.md |

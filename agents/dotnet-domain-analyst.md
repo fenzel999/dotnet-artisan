@@ -19,7 +19,9 @@ Strategic DDD analysis subagent. Runs BEFORE any code is written. Produces a dom
 
 ## Preloaded Skill
 
-- [skill:dotnet-tooling] (read `references/domain-analysis.md`) — Full workflow: event storming, bounded contexts, aggregates, output templates
+> **IMPORTANT — Path resolution**: The \`read references/xxx.md\` instruction uses a path relative to the skill's directory, NOT your CWD. Use Glob to locate the file first (pattern: \`**/dotnet-tooling/references/<filename>\`), then pass the absolute path to Read.
+
+- [skill:dotnet-tooling] (read \`references/domain-analysis.md\`) — Full workflow: event storming, bounded contexts, aggregates, output templates
 
 ## Workflow
 

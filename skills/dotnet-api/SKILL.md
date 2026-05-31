@@ -17,6 +17,8 @@ Most-shared companion: `references/architecture-patterns.md` covers vertical sli
 
 ## Routing Table
 
+> **Path resolution**: The Companion File column lists filenames relative to this skill's  directory. Use Glob to locate the file (pattern: ), then pass the returned absolute path to the Read tool. Do NOT use bare relative paths — the Read tool resolves them relative to the user's project directory, not this skill's location.
+
 | Topic | Keywords | Description | Companion File |
 |-------|----------|-------------|----------------|
 | Minimal APIs | endpoint, route group, filter, TypedResults | Minimal API route groups, filters, TypedResults, OpenAPI | references/minimal-apis.md |

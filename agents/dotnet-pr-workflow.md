@@ -17,7 +17,9 @@ PR lifecycle orchestrator for .NET projects. Load the reference file for detaile
 
 ## Preloaded Skill
 
-- [skill:dotnet-tooling] (read `references/pr-workflow.md`) — full PR workflow: analyze → create → validate → review → merge → release
+> **IMPORTANT — Path resolution**: The \`read references/xxx.md\` instruction uses a path relative to the skill's directory, NOT your CWD. Use Glob to locate the file first (pattern: \`**/dotnet-tooling/references/<filename>\`), then pass the absolute path to Read.
+
+- [skill:dotnet-tooling] (read \`references/pr-workflow.md\`) — full PR workflow: analyze → create → validate → review → merge → release
 
 ## Quick Flow
 

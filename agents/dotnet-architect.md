@@ -15,6 +15,10 @@ Architecture advisor subagent for .NET projects. Performs read-only analysis of 
 
 ## Preloaded Skills
 
+> **IMPORTANT — Path resolution**: The instructions say to `read references/xxx.md`. This path is relative to the referenced skill's directory, NOT to your current working directory (which is the user's project). The Read tool needs an absolute path. Before Reading, use Glob to locate the file — pattern: `**/<skill-name>/references/<filename>`. For example, to load dotnet-csharp's coding-standards.md, Glob for `**/dotnet-csharp/references/coding-standards.md` first, then pass the returned absolute path to Read.
+
+
+
 Always load these foundation skills before analysis:
 
 - [skill:dotnet-advisor] -- router/index for all .NET skills; consult its catalog to find specialist skills

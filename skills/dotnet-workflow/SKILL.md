@@ -59,6 +59,8 @@ After every code change, run the verification chain:
 
 ## Routing Table
 
+> **Path resolution**: The Companion File column lists filenames relative to this skill's `references/` directory. Use Glob to locate the file (pattern: `**/dotnet-workflow/references/<filename>`), then pass the returned absolute path to Read tool.
+
 | Topic | Keywords | Description | Companion File |
 |-------|----------|-------------|----------------|
 | Plugin verification | test, verify, working, installed, check plugin | How to verify dotnet-artisan is installed and working correctly | references/plugin-verification.md |
