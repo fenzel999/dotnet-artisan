@@ -43,10 +43,11 @@ try {
     /^I[A-Z]\w*Repository\.cs$/, /^[A-Z]\w*DbContext\.cs$/,
     /^.*Configuration\.cs$/, /^.*Middleware\.cs$/,
   ];
-  for (const p of skipPatterns) {
-    if (p instanceof RegExp && p.test(fileName)) { process.exit(0); }
-    if (typeof p === "string" && fileName === p) { process.exit(0); }
-  }
+  const shouldSkip = skipPatterns.some(p =>
+    (p instanceof RegExp && p.test(fileName)) ||
+    (typeof p === "string" && fileName === p)
+  );
+  if (shouldSkip) { console.log(JSON.stringify({ additionalContext: "" })); process.exit(0); }
 
   // Skip existing project files — if the file has pre-existing namespace
   // from an established project, the AI didn't create it from scratch.
@@ -54,7 +55,7 @@ try {
   try {
     content = fs.readFileSync(filePath, "utf8");
   } catch {
-    process.exit(0);
+    console.log(JSON.stringify({ additionalContext: "" })); process.exit(0);
   }
 
   // Skip existing project files. Check if this file has a class or record
@@ -65,13 +66,13 @@ try {
     `(class |record |struct |interface )\\s*${className}\\b`
   ).test(content);
   if (!hasMatchingClass) {
-    process.exit(0);
+    console.log(JSON.stringify({ additionalContext: "" })); process.exit(0);
   }
 
   // At this point it's likely a new domain file created by the AI.
   const hasDomainCode = content.includes(" class ") || content.includes(" record ");
   if (!hasDomainCode) {
-    process.exit(0);
+    console.log(JSON.stringify({ additionalContext: "" })); process.exit(0);
   }
 
   const lines = content.split("\n").slice(0, 10);

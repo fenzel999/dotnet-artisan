@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.0.1 (2026-05-31) — Content quality and infrastructure
+
+Fixed stale reference counts, added missing infrastructure files, created verification and best practices guides.
+
+### Fixed
+- **USAGE.md reference counts** — Updated dotnet-api (32→33), dotnet-testing (13→14), dotnet-devops (18→19), dotnet-tooling (34→41) to match actual INDEX.md
+- **CLAUDE.md agent count** — 13→14 specialist agent files (was missing dotnet-pr-workflow from count)
+- **check-self-doc.js hook** — All early-exit paths now emit valid JSON before returning
+
+### Added
+- **`.gitattributes`** — Consistent line ending normalization for all file types (.cs, .md, .json, .sh, etc.)
+- **`.github/ISSUE_TEMPLATE/bug_report.md`** — Bug report template with affected file, expected vs actual behavior
+- **`.github/ISSUE_TEMPLATE/feature_request.md`** — Feature request template with scope checkboxes
+- **`.github/PULL_REQUEST_TEMPLATE.md`** — PR template with content quality, consistency, and technical checklists
+- **`plugin-verification.md`** — Step-by-step guide to verify plugin installation, harness hooks, skill loading, and iron rules enforcement
+- **`plugin-usage-best-practices.md`** — Comprehensive daily workflow patterns, skill-specific tips, and troubleshooting guide
+
+### Updated
+- All reference count numbers across AGENTS.md, CLAUDE.md, README.md, README.en.md, INDEX.md (173→175)
+- dotnet-workflow SKILL.md now has a Routing Table referencing the 2 new companion files
+
 ## 1.0.0 (2026-05-29) — Updated release
 
 Major restructuring: skill/agent consolidation, strategic DDD support, solution architect, decision-maker enhancement.

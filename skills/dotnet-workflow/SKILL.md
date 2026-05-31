@@ -57,6 +57,13 @@ After every code change, run the verification chain:
 3. Manual inspection — spot-check the diff for obvious issues
 4. If any step fails, fix before proceeding — never batch fixes
 
+## Routing Table
+
+| Topic | Keywords | Description | Companion File |
+|-------|----------|-------------|----------------|
+| Plugin verification | test, verify, working, installed, check plugin | How to verify dotnet-artisan is installed and working correctly | references/plugin-verification.md |
+| Best practices | usage, tips, how to use, guide, workflow | Comprehensive guidance for getting the most out of dotnet-artisan | references/plugin-usage-best-practices.md |
+
 ## Anti-patterns
 
 - **Reading files preemptively** — "I might need this later" burns context for no reason

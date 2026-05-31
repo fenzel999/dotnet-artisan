@@ -214,11 +214,11 @@ Employee: internal staff member (from existing AD/Azure AD, not a new user syste
   │
   └─ dotnet-advisor routes:
       ├─ Always loaded: dotnet-csharp (C# patterns, async, DI, LINQ)
-      ├─ Backend/API/database   → dotnet-api (32 refs)
+      ├─ Backend/API/database   → dotnet-api (33 refs)
       ├─ UI/Blazor/MAUI/WPF     → dotnet-ui (20 refs)
-      ├─ Testing/xUnit/Playwright → dotnet-testing (13 refs)
-      ├─ CI/CD/Docker/NuGet     → dotnet-devops (18 refs)
-      ├─ Project setup/MSBuild  → dotnet-tooling (34 refs)
+      ├─ Testing/xUnit/Playwright → dotnet-testing (14 refs)
+      ├─ CI/CD/Docker/NuGet     → dotnet-devops (19 refs)
+      ├─ Project setup/MSBuild  → dotnet-tooling (41 refs)
       ├─ Crash/deadlock/memory  → dotnet-debugging (17 refs)
       ├─ MCP/Semantic Kernel    → dotnet-ai
       ├─ Framework migration    → dotnet-devops

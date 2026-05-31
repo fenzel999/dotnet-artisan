@@ -1,7 +1,7 @@
 # Skill Reference Index
 Quick navigation for all reference files. Each file contains implementation patterns + anti-patterns.
 
-**Jump to:** [API & Backend](#api--backend) · [C# Language](#c-language) · [Debugging](#debugging) · [DevOps](#devops) · [Testing](#testing) · [Tooling](#tooling) · [UI](#ui)
+**Jump to:** [API & Backend](#api--backend) · [C# Language](#c-language) · [Debugging](#debugging) · [DevOps](#devops) · [Testing](#testing) · [Tooling](#tooling) · [UI](#ui) · [Workflow](#workflow)
 
 ## API & Backend
 | File | Topic |
@@ -201,3 +201,9 @@ Quick navigation for all reference files. Each file contains implementation patt
 | [winui.md](dotnet-ui/references/winui.md) | WinUI 3 development patterns |
 | [wpf-migration.md](dotnet-ui/references/wpf-migration.md) | WPF migration guidance |
 | [wpf-modern.md](dotnet-ui/references/wpf-modern.md) | Modern WPF on .NET 8+ |
+
+## Workflow
+| File | Topic |
+|------|-------|
+| [plugin-verification.md](dotnet-workflow/references/plugin-verification.md) | Plugin installation verification and troubleshooting |
+| [plugin-usage-best-practices.md](dotnet-workflow/references/plugin-usage-best-practices.md) | Best practices for daily dotnet-artisan usage |
