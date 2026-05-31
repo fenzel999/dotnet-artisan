@@ -2,7 +2,7 @@
 
 **Makes your AI coding agent actually good at .NET.** Install and go. Zero config.
 
-[![中文](https://img.shields.io/badge/中文-README-red)](README.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 11 skills · 14 agents · 176 references · 30+ behaviors
+[![中文](https://img.shields.io/badge/中文-README-red)](README.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 11 skills · 14 agents · 174 references · 30+ behaviors
 
 ---
 
@@ -165,13 +165,13 @@ Chain: dotnet-learning-agent → detect correction → generalize rule →
 | Operate | [dotnet-devops](skills/dotnet-devops/SKILL.md) | CI/CD, containers, migration, Git workflow | 19 |
 | | [dotnet-tooling](skills/dotnet-tooling/SKILL.md) | Project structure, AOT, CLI, performance, quality, templates | 41 |
 | Augment | [dotnet-ai](skills/dotnet-ai/SKILL.md) | MCP servers, Semantic Kernel, RAG | — |
-| | [dotnet-workflow](skills/dotnet-workflow/SKILL.md) | Parallel workflows, context management, verification loops | 3 |
+| | [dotnet-workflow](skills/dotnet-workflow/SKILL.md) | Parallel workflows, context management, verification loops | 1 |
 
 ---
 
 ## Reference Files
 
-176 reference files across 9 domains. Each file: Core Principles → Patterns → Anti-patterns → Decision Guide.
+174 reference files across 9 domains. Each file: Core Principles → Patterns → Anti-patterns → Decision Guide.
 
 | Domain | Skill | Count | Covers |
 |--------|------|-------|--------|
@@ -183,7 +183,7 @@ Chain: dotnet-learning-agent → detect correction → generalize rule →
 | Tooling | dotnet-tooling | 41 | MSBuild, AOT, CLI, profiling, template engine, PR workflow |
 | UI | dotnet-ui | 20 | Blazor, MAUI, Uno, WPF, WinUI, WinForms |
 | Routing | dotnet-advisor | 2 | Requirements alignment, architecture discovery |
-| Workflow | dotnet-workflow | 3 | Plugin verification, best practices guide (EN & 中文) |
+| Workflow | dotnet-workflow | 1 | Plugin verification |
 
 Full index: [INDEX.md](skills/INDEX.md)
 
@@ -245,6 +245,6 @@ Execute specific technical deep-dives. Focus on a single domain.
 - [Design Principles](skills/CHEATSHEET.md) — DbContext as repository, no FluentValidation, TimeProvider everywhere
 - [BEHAVIORS.md](BEHAVIORS.md) — Full behavior catalog, routing logic, agent triggers
 - [CLAUDE.md](CLAUDE.md) — Plugin architecture, file map, session recovery protocol
-- [SELF_DOCUMENTING.md](SELF_DOCUMENTING.md) — 30-second rule: write code any AI can read
+- [GUIDE.en.md](GUIDE.en.md) — **Plugin best practices guide**: installation, verification, per-skill tips, advanced techniques, real-world scenarios
 
 ---
