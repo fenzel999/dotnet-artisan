@@ -31,9 +31,14 @@ dotnet-artisan/
 ├── AGENTS.md              ← Iron rules. Read second.
 ├── USAGE.md               ← How to use skills. Read third.
 ├── README.md              ← Chinese (default). README.en.md for English.
+├── CONTRIBUTING.md        ← How to contribute to this plugin
+├── SECURITY.md            ← Security policy
 ├── .claude-plugin/
 │   ├── plugin.json        ← Skill + agent registry (single source of truth)
 │   └── marketplace.json   ← Publication metadata
+├── .github/
+│   └── workflows/
+│       └── ci.yml         ← GitHub Actions CI for the plugin itself
 ├── skills/
 │   ├── CHEATSHEET.md      ← One-page all-rules
 │   ├── DECISIONS.md       ← "When to use what"
@@ -49,7 +54,7 @@ dotnet-artisan/
 │   ├── dotnet-debugging/  ← WinDbg/crash dumps (17 refs)
 │   ├── dotnet-ai/         ← MCP/Semantic Kernel/RAG
 │   ├── dotnet-workflow/   ← Parallel worktrees, context, corrections, learning
-├── agents/                ← 13 specialist agent .md files
+├── agents/                ← 14 specialist agent .md files
 ├── docs/                  ← GitHub Pages (index.html = Chinese, index.en.html = English)
 ├── scripts/hooks/         ← Node.js hook scripts
 └── hooks.json             ← Hook configuration
