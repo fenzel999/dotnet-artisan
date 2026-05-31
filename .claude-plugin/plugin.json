@@ -1,6 +1,6 @@
 {
   "name": "dotnet-artisan",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Comprehensive .NET development skills and agents for Claude Code — covering C#, ASP.NET Core, Blazor, MAUI, EF Core, testing, debugging, DevOps, and more",
   "author": {
     "name": "Yatao Feng",
