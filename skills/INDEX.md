@@ -1,7 +1,7 @@
 # Skill Reference Index
 Quick navigation for all reference files. Each file contains implementation patterns + anti-patterns.
 
-**Jump to:** [API & Backend](#api--backend) · [C# Language](#c-language) · [Debugging](#debugging) · [DevOps](#devops) · [Testing](#testing) · [Tooling](#tooling) · [UI](#ui)
+**Jump to:** [API & Backend](#api--backend) · [C# Language](#c-language) · [Debugging](#debugging) · [DevOps](#devops) · [Routing](#routing) · [Testing](#testing) · [Tooling](#tooling) · [UI](#ui)
 
 ## API & Backend
 | File | Topic |
@@ -114,6 +114,12 @@ Quick navigation for all reference files. Each file contains implementation patt
 | [observability.md](dotnet-devops/references/observability.md) | OpenTelemetry observability patterns |
 | [release-management.md](dotnet-devops/references/release-management.md) | Release lifecycle management |
 | [structured-logging.md](dotnet-devops/references/structured-logging.md) | Structured logging pipeline design |
+
+## Routing
+| File | Topic |
+|------|-------|
+| [requirements-alignment.md](dotnet-advisor/references/requirements-alignment.md) | 4-round dialogue framework for requirements alignment |
+| [architecture-discovery.md](dotnet-advisor/references/architecture-discovery.md) | Architecture pattern decision and bounded context discovery |
 
 ## Testing
 | File | Topic |
