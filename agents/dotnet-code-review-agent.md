@@ -25,6 +25,10 @@ This agent's guidance is grounded in publicly available content from:
 
 ## Preloaded Skills
 
+> **IMPORTANT — Path resolution**: The instructions say to `read references/xxx.md`. This path is relative to the referenced skill's directory, NOT to your current working directory (which is the user's project). The Read tool needs an absolute path. Before Reading, use Glob to locate the file — pattern: `**/<skill-name>/references/<filename>`. For example, to load dotnet-csharp's coding-standards.md, Glob for `**/dotnet-csharp/references/coding-standards.md` first, then pass the returned absolute path to Read.
+
+
+
 Always load these skills before review:
 
 - [skill:dotnet-csharp] (read `references/coding-standards.md`) -- naming conventions, formatting, language usage rules

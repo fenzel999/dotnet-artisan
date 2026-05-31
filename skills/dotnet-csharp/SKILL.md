@@ -15,15 +15,17 @@ C# language patterns, coding standards, and .NET runtime features for idiomatic,
 
 These references define correctness and quality standards that apply to all C# code — load them by default whenever producing or reviewing code, regardless of what the user asked for:
 
-- `references/coding-standards.md` — naming conventions, file layout, style rules
-- `references/async-patterns.md` — async/await correctness, ConfigureAwait, cancellation propagation (nearly all .NET code uses async)
-- `references/solid-principles.md` — SOLID, DRY, single responsibility, dependency inversion, anti-pattern detection
-- `references/code-smells.md` — common mistakes the agent should avoid without being told (async void, DI lifetime misuse, swallowed exceptions)
-- `references/anti-patterns.md` — side-by-side BAD/GOOD code: DateTime.Now→TimeProvider, N+1 queries, DI lifetime mismatch, .Result deadlocks, CancellationToken propagation
-- `references/package-choices.md` — always prefer free/open-source: MediatR→Mediator(MIT), FluentValidation→AddValidation(), AutoMapper→Mapperly, Newtonsoft→STJ, Swashbuckle→Microsoft.AspNetCore.OpenApi
-- `../DECISIONS.md` — when to use what: consolidated decision guides for architecture, data access, caching, DI, observability, testing, deployment
-- `../CHEATSHEET.md` — one-page summary of all non-negotiable rules, patterns, and package alternatives. Load as quick context refresher.
-- `references/dotnet-releases.md` — .NET 10/11 and C# 14/15 features, version matrix, TFM-specific code generation rules (compensates for training data cutoff)
+> **Path resolution note**: The filenames below are relative to the  subdirectory of this skill. The Read tool needs an absolute path. Use Glob to locate each file (pattern: ), then pass the absolute path to Read.  and  are in the parent  directory — Glob for  and .
+
+-  — naming conventions, file layout, style rules
+-  — async/await correctness, ConfigureAwait, cancellation propagation (nearly all .NET code uses async)
+-  — SOLID, DRY, single responsibility, dependency inversion, anti-pattern detection
+-  — common mistakes the agent should avoid without being told (async void, DI lifetime misuse, swallowed exceptions)
+-  — side-by-side BAD/GOOD code: DateTime.Now→TimeProvider, N+1 queries, DI lifetime mismatch, .Result deadlocks, CancellationToken propagation
+-  — always prefer free/open-source: MediatR→Mediator(MIT), FluentValidation→AddValidation(), AutoMapper→Mapperly, Newtonsoft→STJ, Swashbuckle→Microsoft.AspNetCore.OpenApi
+-  — when to use what: consolidated decision guides for architecture, data access, caching, DI, observability, testing, deployment (Glob: )
+-  — one-page summary of all non-negotiable rules, patterns, and package alternatives (Glob: )
+-  — .NET 10/11 and C# 14/15 features, version matrix, TFM-specific code generation rules
 
 ### On-Demand References
 

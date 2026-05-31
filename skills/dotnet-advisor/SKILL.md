@@ -57,20 +57,19 @@ Load `references/requirements-alignment.md` for the 4-round dialogue framework (
 
 For any task that may produce, change, or review C#/.NET code:
 
-1. Invoke [skill:dotnet-csharp] and **Read()** its always-load baseline references (use the Read tool to open each file, don't just scan the list):
-   - `references/coding-standards.md`
-   - `references/async-patterns.md`
-   - `references/solid-principles.md`
-   - `references/code-smells.md`
-   - `references/anti-patterns.md`
-   - `references/package-choices.md`
-   - `../DECISIONS.md`
-   - `../CHEATSHEET.md`
-   - `references/dotnet-releases.md`
-   
-   These are correctness concerns the agent handles by default — the user should not need to ask for correct async/await usage, thread safety, or avoiding anti-patterns.
-2. Apply standards throughout planning and implementation, not only in final cleanup.
-3. Load additional [skill:dotnet-csharp] reference files when the task touches their topic area (concurrency, DI, serialization, LINQ, etc.).
+1. Invoke [skill:dotnet-csharp] and **Read()** its always-load baseline references. These files are under the plugin's dotnet-csharp skill directory. Use Glob with the pattern `**/dotnet-csharp/references/*.md` to locate them, then Read each one (don't just scan the list):
+   - `coding-standards.md`
+   - `async-patterns.md`
+   - `solid-principles.md`
+   - `code-smells.md`
+   - `anti-patterns.md`
+   - `package-choices.md`
+   - Also load: `../DECISIONS.md` and `../CHEATSHEET.md` from the `skills/` root directory (Glob for `**/CHEATSHEET.md` and `**/DECISIONS.md`)
+   - `dotnet-releases.md` (under dotnet-csharp/references/)
+
+   > **IMPORTANT — Path resolution**: The Read tool MUST receive an absolute path. These files are inside the plugin's `skills/<skill-name>/references/` directory. Use Glob to find them from CWD, then pass the returned absolute path to Read. Do NOT use bare relative paths like `references/xxx.md` — they resolve relative to the user's project directory, which is wrong.
+
+
 
 ## Step 3: .NET-First Defaults
 

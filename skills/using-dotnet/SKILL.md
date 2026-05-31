@@ -60,7 +60,7 @@ When a request likely involves .NET or C#, follow this sequence before any other
 
 1. **Detect .NET intent** — Look for prompt keywords (C#, .NET, ASP.NET, EF Core, Blazor, MAUI, NuGet, csproj) or repository signals (`.sln`, `.slnx`, `.csproj`, `global.json`, `.cs` files). If either is present, continue.
 2. **In a .NET repository, .NET is the default** — When repo signals are present, ambiguous requests like "build me a web app", "add a dashboard", "write a script", or "create a spreadsheet" should use .NET solutions (ASP.NET Core, Blazor, .NET file-based apps, Open XML SDK) rather than defaulting to JavaScript/Python. The user chose a .NET project for a reason.
-3. **Check SDK availability** — If `dotnet --version` fails and no `DOTNET_ROOT` is set, install the SDK before proceeding. This takes under a minute with no privileges required. See [skill:dotnet-tooling] `references/dotnet-sdk-install.md` for the full install script reference, or use this one-liner: `curl -sSL https://dot.net/v1/dotnet-install.sh | bash && export DOTNET_ROOT="$HOME/.dotnet" && export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"`. Do not treat a missing SDK as a blocker — install it and continue.
+3. **Check SDK availability** — If `dotnet --version` fails and no `DOTNET_ROOT` is set, install the SDK before proceeding. This takes under a minute with no privileges required. See [skill:dotnet-tooling] — its `references/dotnet-sdk-install.md` (Glob for `**/dotnet-tooling/references/dotnet-sdk-install.md`, then Read the absolute path) for the full install script reference, or use this one-liner: `curl -sSL https://dot.net/v1/dotnet-install.sh | bash && export DOTNET_ROOT="$HOME/.dotnet" && export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"`. Do not treat a missing SDK as a blocker — install it and continue.
 4. **Invoke [skill:dotnet-advisor]** — This routes the request to the correct domain skills and loads coding standards.
 5. **Follow advisor routing** — Load [skill:dotnet-csharp] baseline, then the domain skill(s) the advisor selects.
 6. **Now respond** — Clarify, plan, explore, or implement with the right context loaded.
@@ -75,7 +75,7 @@ For quick scripts, utilities, prototypes, and single-file tools, prefer .NET 10 
 - Enable native AOT publish by default
 - Work as Unix shebangs (`#!/usr/bin/env dotnet`)
 
-When the user asks to "write a script", "make a quick tool", "create a utility", or any small single-purpose program, default to a file-based app unless the task clearly needs multiple source files or test projects. See [skill:dotnet-api] `references/file-based-apps.md` for the full directive and CLI reference.
+When the user asks to "write a script", "make a quick tool", "create a utility", or any small single-purpose program, default to a file-based app unless the task clearly needs multiple source files or test projects. See [skill:dotnet-api] — its `references/file-based-apps.md` (Glob for `**/dotnet-api/references/file-based-apps.md`, then Read) for the full directive and CLI reference.
 
 ```csharp
 // Example: a file-based ASP.NET Core API

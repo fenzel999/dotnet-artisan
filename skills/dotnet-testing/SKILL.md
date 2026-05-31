@@ -17,6 +17,8 @@ Most-shared companion: `references/xunit.md` covers xUnit v3 framework features 
 
 ## Routing Table
 
+> **Path resolution**: The Companion File column lists filenames relative to this skill's  directory. Use Glob to locate the file (pattern: ), then pass the returned absolute path to the Read tool. Do NOT use bare relative paths — the Read tool resolves them relative to the user's project directory, not this skill's location.
+
 | Topic | Keywords | Description | Companion File |
 |-------|----------|-------------|----------------|
 | Strategy | unit vs integration vs E2E, test doubles | Unit vs integration vs E2E decision tree, test doubles selection | references/testing-strategy.md |

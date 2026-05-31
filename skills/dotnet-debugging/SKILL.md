@@ -15,6 +15,8 @@ Windows and Linux/macOS debugging using WinDbg MCP tools (Windows), dotnet-dump,
 
 ## Routing Table
 
+> **Path resolution**: The Companion File column lists filenames relative to this skill's  directory. Use Glob to locate the file (pattern: ), then pass the returned absolute path to the Read tool. Do NOT use bare relative paths — the Read tool resolves them relative to the user's project directory, not this skill's location.
+
 | Topic | Keywords | Description | Companion File |
 |-------|----------|-------------|----------------|
 | MCP setup | MCP server, WinDbg, configuration | MCP server configuration | references/mcp-setup.md |
