@@ -2,13 +2,6 @@
 name: dotnet-aspnetcore-specialist
 description: "Analyzes ASP.NET Core middleware, request pipelines, minimal API design, DI lifetime selection, and diagnostic scenarios. Routes UI framework questions to [skill:dotnet-ui-specialist], security to [skill:dotnet-security-reviewer], performance to [skill:dotnet-performance-specialist]."
 model: sonnet
-capabilities:
-  - Evaluate middleware vs endpoint filter trade-offs for cross-cutting concerns
-  - Analyze minimal APIs vs controllers for API surface design
-  - Detect DI lifetime mismatches and captive dependency anti-patterns
-  - Optimize request pipeline ordering and short-circuiting
-  - Identify diagnostic scenarios from Fowler's AspNetCoreDiagnosticScenarios
-  - Guide HTTP client factory and resilience integration patterns
 tools:
   - Read
   - Grep

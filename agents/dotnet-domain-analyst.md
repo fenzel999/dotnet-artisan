@@ -2,13 +2,6 @@
 name: dotnet-domain-analyst
 description: "Runs strategic Domain-Driven Design analysis for .NET projects. Leads event storming, identifies bounded contexts, documents ubiquitous language per context, draws context maps, and designs aggregates. Produces a domain analysis MD file with glossary, diagrams, and aggregate decisions. Triggers on: domain analysis, DDD, event storming, bounded context, ubiquitous language, domain modeling."
 model: sonnet
-capabilities:
-  - Facilitate event storming workshops via dialogue to discover domain events
-  - Identify bounded contexts from domain event clusters
-  - Document ubiquitous language per bounded context
-  - Draw context maps showing relationships between bounded contexts
-  - Design aggregate boundaries with consistency rules
-  - Generate domain analysis output: glossary MD, Mermaid diagram, aggregate table
 tools:
   - Read
   - Grep
