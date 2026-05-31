@@ -1,5 +1,23 @@
 # Changelog
 
+## 1.1.0 (2026-05-31) — Repository optimization
+
+Repository structure and documentation improvements.
+
+### Fixed
+- **INDEX.md** — Added missing dotnet-advisor references section (2 files: requirements-alignment.md, architecture-discovery.md). Total reference count now correctly shows 173.
+- **CLAUDE.md** — Fixed agent count from 13 to 14 to match actual plugin.json registry.
+- **AGENTS.md** — Fixed reference file count from 166 to 173.
+- **.gitignore** — Expanded from 6 entries to comprehensive .NET development ignores (bin/, obj/, packages/, TestResults/, build artifacts).
+
+### Added
+- **GitHub Actions CI** — `.github/workflows/ci.yml`: auto-format check, markdown linting, structure validation run on every PR and push to main.
+- **CONTRIBUTING.md** — Contribution guide with PR process, coding standards, and skill/agent addition guide.
+- **SECURITY.md** — Security policy with vulnerability reporting process.
+
+### Changed
+- **plugin.json** — Version bumped from 1.0.0 to 1.1.0.
+
 ## 1.0.0 (2026-05-29) — Updated release
 
 Major restructuring: skill/agent consolidation, strategic DDD support, solution architect, decision-maker enhancement.
