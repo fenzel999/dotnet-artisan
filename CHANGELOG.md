@@ -1,11 +1,14 @@
 # Changelog
 
-## 1.0.2 (2026-05-31) — Chinese best practices guide
+## 1.0.2 (2026-05-31) — Fix: move user guides out of skills/ to root
 
-### Added
-- **`plugin-usage-best-practices.zh.md`** — Comprehensive Chinese guide covering: plugin internals, effective prompting for each skill, advanced techniques (worktrees, token budget, plan mode), real-world scenarios, and troubleshooting. Follows the reference file format (Core Principles → Patterns → Anti-patterns → Decision Guide).
-- Updated INDEX.md, dotnet-workflow SKILL.md routing table, and READMEs to register the new Chinese reference.
-- Total reference files: 175 → 176
+### Fixed
+- **Category error: user-facing guides were placed in `skills/dotnet-workflow/references/`** — The `skills/` directory is for AI-agent-facing reference files. User guides for human developers belong at the project root.
+- **Moved** `plugin-usage-best-practices.zh.md` → `GUIDE.md` (Chinese, root)
+- **Moved** `plugin-usage-best-practices.md` → `GUIDE.en.md` (English, root)
+- **Removed** routing table entries from dotnet-workflow SKILL.md and INDEX.md
+- **Updated** reference counts: workflow 3→1, total 176→174
+- **Updated** README "Further Reading" sections to link to new GUIDE files
 
 ## 1.0.1 (2026-05-31) — Content quality and infrastructure
 

@@ -62,8 +62,6 @@ After every code change, run the verification chain:
 | Topic | Keywords | Description | Companion File |
 |-------|----------|-------------|----------------|
 | Plugin verification | test, verify, working, installed, check plugin | How to verify dotnet-artisan is installed and working correctly | references/plugin-verification.md |
-| Best practices (EN) | usage, tips, how to use, guide | English guide for daily dotnet-artisan usage | references/plugin-usage-best-practices.md |
-| Best practices (中文) | 使用指南, 满血使用, 最佳实践, 攻略 | 中文完整使用指南：安装、各技能技巧、高级功能、实战场景、常见问题 | references/plugin-usage-best-practices.zh.md |
 
 ## Anti-patterns
 

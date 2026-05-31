@@ -2,7 +2,7 @@
 
 **让你的 AI 编码代理真正精通 .NET。** 即装即用，零配置。
 
-[![English](https://img.shields.io/badge/English-README-blue)](README.en.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 11 技能 · 14 代理 · 176 参考文件 · 30+ 行为
+[![English](https://img.shields.io/badge/English-README-blue)](README.en.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 11 技能 · 14 代理 · 174 参考文件 · 30+ 行为
 
 ---
 
@@ -164,13 +164,13 @@ AI：已捕获规则：TimeProvider 构造函数注入优先。
 | 运维 | [dotnet-devops](skills/dotnet-devops/SKILL.md) | CI/CD、容器、版本迁移、Git 工作流 | 19 |
 | | [dotnet-tooling](skills/dotnet-tooling/SKILL.md) | 项目结构、AOT、CLI、性能、代码质量、模板引擎 | 41 |
 | 增强 | [dotnet-ai](skills/dotnet-ai/SKILL.md) | MCP 服务器、Semantic Kernel、RAG | — |
-| | [dotnet-workflow](skills/dotnet-workflow/SKILL.md) | 并行工作流、上下文管理、验证循环 | 3 |
+| | [dotnet-workflow](skills/dotnet-workflow/SKILL.md) | 并行工作流、上下文管理、验证循环 | 1 |
 
 ---
 
 ## 参考文件
 
-176 个参考文件，横跨 9 个领域。每个文件：核心原则 → 模式 → 反模式 → 决策指南。
+174 个参考文件，横跨 9 个领域。每个文件：核心原则 → 模式 → 反模式 → 决策指南。
 
 | 领域 | 技能 | 数量 | 覆盖 |
 |------|------|------|------|
@@ -182,7 +182,7 @@ AI：已捕获规则：TimeProvider 构造函数注入优先。
 | 工具链 | dotnet-tooling | 41 | MSBuild、AOT、CLI、性能分析、模板引擎、PR 工作流 |
 | UI | dotnet-ui | 20 | Blazor、MAUI、Uno、WPF、WinUI、WinForms |
 | 路由 | dotnet-advisor | 2 | 需求对齐、架构发现 |
-| 工作流 | dotnet-workflow | 3 | 插件验证、最佳实践指南（中英文） |
+| 工作流 | dotnet-workflow | 1 | 插件验证 |
 
 完整索引：[INDEX.md](skills/INDEX.md)
 
@@ -244,6 +244,6 @@ AI：已捕获规则：TimeProvider 构造函数注入优先。
 - [设计原则](skills/CHEATSHEET.md) — DbContext 即仓储、禁止 FluentValidation、TimeProvider 等核心规范
 - [BEHAVIORS.md](BEHAVIORS.md) — 全部行为目录、决策者路由逻辑、代理触发词
 - [CLAUDE.md](CLAUDE.md) — 插件架构、文件地图、上下文恢复协议
-- [SELF_DOCUMENTING.md](SELF_DOCUMENTING.md) — 30 秒法则：让代码自文档化
+- [GUIDE.md](GUIDE.md) — **插件满血使用指南**：安装验证、各技能技巧、高级功能、实战场景、常见问题
 
 ---
