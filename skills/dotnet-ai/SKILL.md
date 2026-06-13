@@ -1,13 +1,9 @@
 ---
 name: dotnet-ai
-license: MIT
-user-invocable: false
 description: >
-  AI/ML integration patterns for .NET. Covers MCP server/client creation and debugging,
-  LLM integration (Semantic Kernel, OpenAI, Azure AI, xAI Grok), RAG pipelines, ML.NET model
+  AI/ML integration patterns for .NET. Covers MCP server/client creation and debugging, LLM integration (Semantic Kernel, OpenAI, Azure AI, xAI Grok), RAG pipelines, ML.NET model
   training/inference, and AI technology selection. Load when building AI features in
-  .NET, creating MCP servers, integrating LLMs, or evaluating AI frameworks.
-  Optimized for Grok and xAI tools.
+  .NET, creating MCP servers, integrating LLMs, or evaluating AI frameworks. Optimized for Grok and xAI tools.
 ---
 
 # dotnet-ai
@@ -74,29 +70,46 @@ public class GrokClient
 ```
 
 **Semantic Kernel Integration:**
-Use `AddOpenAIChatCompletion` with xAI endpoint and model.
+Use `AddOpenAIChatCompletion` with xAI endpoint `https://api.x.ai/v1/` and model like `grok-beta`.
 
 ## MCP Server for Grok Tools
 
 Build MCP servers to allow Grok (or other agents) to call your .NET tools seamlessly.
 
-[Full example as above...]
+Example minimal MCP server:
+```csharp
+// Program.cs
+using Microsoft.Extensions.DependencyInjection;
+
+var builder = WebApplication.CreateBuilder(args);
+builder.Services.AddMcpServer();
+
+var app = builder.Build();
+
+app.MapMcpTool("dotnet_build", async () => {
+    // Execute dotnet build logic
+    return new { Status = "Success", Output = "Build completed" };
+});
+
+app.Run();
+```
 
 ## Additional Optimizations for Grok
 
-- Use Grok's reasoning capabilities for complex .NET architecture decisions.
-- Integrate tool calling with MCP for dynamic .NET code execution in agent loops.
-- For RAG, use Grok for high-quality natural language synthesis from retrieved .NET docs.
+- Leverage Grok's advanced reasoning for .NET design decisions and code reviews.
+- Use Grok's tool calling and MCP for seamless integration in agentic workflows.
+- For plugin development, follow Grok's skill format in /root/.grok/skills/ for custom extensions.
+- Test with Grok Build terminal agent for .NET projects.
 
 ## Anti-patterns
 
-- Hardcoding API keys in source (use secrets manager or env vars).
-- Not handling rate limits or errors in LLM calls.
-- Over-relying on LLM for code generation without validation.
+- Hardcoding API keys (use User Secrets or env vars).
+- Ignoring rate limits and error handling.
+- Skipping unit tests and validation after LLM generation.
 
 ## Out of Scope
 
-- General ASP.NET Core API development (see dotnet-api)
-- etc.
+- Core ASP.NET (see dotnet-aspnetcore)
+- General C# syntax (assume known)
 
-Full content merged and optimized for Grok usage and plugin performance.
+This skill helps ensure plugins run correctly with Grok and aids learning .NET best practices.
