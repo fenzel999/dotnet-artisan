@@ -22,27 +22,28 @@ dotnet-artisan 是一个支持 Claude Code、Grok (xAI)、Cursor 等 AI 编码�
 
 ## Grok 使用指南
 
-Grok 用户可直接加载 skills/ 目录下的技能。
+Grok 用户可直接使用 skills/ 目录下的技能文件，并通过 MCP 集成 .NET 项目工具。
 
-1. 克隆仓库到本地。
-2. 使用 Grok 的插件/技能管理加载 dotnet-artisan。
-3. dotnet-advisor 将自动路由 .NET 任务。
+1. 克隆仓库。
+2. 在 Grok 环境中加载相关 skills 或使用 MCP 服务器暴露 .NET 功能。
+3. dotnet-advisor 自动路由。
 
-MCP 支持允许 .NET 项目暴露工具给 Grok。
+MCP 支持让 .NET 项目作为工具服务于 Grok。
 
-## 安装 (Claude)
+## 安装与使用
 
+对于 Claude：
 ```bash
 claude plugins marketplace add fenzel999/dotnet-artisan
 claude plugins install dotnet-artisan
 ```
 
-通用结构适用于 Grok 等。
+对于 Grok：加载 skills 并配置 MCP 工具。
 
-## 工作目标
+## 优化目标
 
-- **插件正常运行**：Hooks 和 skills 确保上下文加载。
-- **帮助人类使用**：详细文档和自动路由。
-- **项目学习新知识**：通过 learning-agent 和 references 持续优化。
+- **插件正常运行**：Hooks、skills 确保兼容。
+- **帮助人类**：详细文档。
+- **学习新知识**：通过 learning-agent 和 MCP 集成。
 
-详见 [GUIDE.md](GUIDE.md) 和 [USAGE.md](USAGE.md)。
+详见 [GUIDE.md](GUIDE.md)。
