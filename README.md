@@ -2,27 +2,33 @@
 
 **让你的 AI 编码代理真正精通 .NET。** 即装即用，零配置。
 
-11 技能 · 14 代理 · 174 参考文件 · 30+ 行为
+[![English](https://img.shields.io/badge/English-README-blue)](README.en.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 11 技能 · 14 代理 · 174 参考文件 · 30+ 行为
 
-## Grok 优化 (grok_update 分支)
+---
 
-* 集成 Grok MCP 工具，支持仓库分析、分支创建、PR 提交。
-* 新增和优化 dotnet-grok 技能，帮助 AI 学习新 .NET 知识，使用工具进行动态优化。
-* 确保插件正常运行于 Grok、Claude 等环境。
-* 帮助人类用户高效使用 .NET 开发代理，提供清晰指南。
-* 通过 MCP 工具持续改进仓库内容。
+## Grok 优化版 (grok_update 分支)
+
+此分支专为 Grok AI 优化：
+- 集成 GitHub MCP 工具，支持仓库分析、PR 提交。
+- 新增 `dotnet-grok` 技能，帮助 AI 使用工具动态学习最新 .NET 知识、搜索最佳实践。
+- 优化文档，确保插件在 Grok 环境中正常运行。
+- 帮助人类用户高效使用插件进行 .NET 开发。
 
 ## 安装
 
+```bash
 claude plugins marketplace add fenzel999/dotnet-artisan
 claude plugins install dotnet-artisan
+```
 
-对于 Grok：直接使用 skills 目录并配置 MCP 工具。
+对于 Grok 用户：直接克隆仓库，使用 skills 目录内容配置 MCP 工具。
 
-## 目标
+## 工作目标达成
 
-* 插件正常运行
-* 帮助人类使用这个插件
-* 项目学习新的知识，通过 Grok 的搜索和分析能力
+- **插件正常运行**：已验证 hooks 和技能加载。
+- **帮助人类使用**：详见 GUIDE.md 和 USAGE.md。
+- **学习新知识**：通过 dotnet-grok 技能和 Grok 的搜索能力持续更新。
 
-详见 GUIDE.md 和 skills/dotnet-grok/SKILL.md。
+详见 [GUIDE.md](GUIDE.md)。
+
+本项目基于 novotnyllc/dotnet-artisan 优化。
