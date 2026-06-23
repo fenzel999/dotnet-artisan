@@ -1,16 +1,8 @@
 # Changelog
 
-## Unreleased (Grok Update)
+## Unreleased - Grok Enhancements
 
-### Added
-- Enhanced Grok MCP integration for repository analysis, optimization, and PR submission.
-- dotnet-grok skill fully documented for dynamic learning and tool usage.
-- Verified plugin compatibility with Grok environment.
+- Further optimized via Grok MCP: repository analysis complete, files updated for better integration.
+- Plugin verified to run normally.
 
-### Optimized
-- Updated documentation for better usability.
-- Ensured all skills support latest .NET practices.
-
-Refer to previous entries for history.
-
-## 1.0.2 (2026-05-31) — ... (previous)
+## Previous versions... (keep history)
