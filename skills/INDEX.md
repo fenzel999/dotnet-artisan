@@ -1,7 +1,12 @@
 # Skill Reference Index
 Quick navigation for all reference files. Each file contains implementation patterns + anti-patterns.
 
-**Jump to:** [API & Backend](#api--backend) · [C# Language](#c-language) · [Debugging](#debugging) · [DevOps](#devops) · [Testing](#testing) · [Tooling](#tooling) · [UI](#ui) · [Workflow](#workflow)
+**Jump to:** [API & Backend](#api--backend) · [C# Language](#c-language) · [Debugging](#debugging) · [DevOps](#devops) · [Testing](#testing) · [Tooling](#tooling) · [UI](#ui) · [Workflow](#workflow) · [Grok/xAI](#grokxai)
+
+## Grok/xAI
+| File | Topic |
+|------|-------|
+| [SKILL.md](dotnet-grok/SKILL.md) | xAI Grok integration for .NET and MCP |
 
 ## API & Backend
 | File | Topic |
