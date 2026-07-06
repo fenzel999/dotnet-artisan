@@ -1,8 +1,14 @@
 # Changelog
 
-## Unreleased - Grok Enhancements
+## Unreleased - Grok Enhancements (via Grok MCP)
 
-- Further optimized via Grok MCP: repository analysis complete, files updated for better integration.
-- Plugin verified to run normally.
+- Analyzed repository using GitHub tools.
+- Enhanced dotnet-grok skill with detailed Grok capabilities, MCP integration, and learning focus.
+- Updated docs and README for Grok users.
+- Verified plugin functionality for normal operation.
+- Goal: Help humans use the plugin effectively, ensure it runs, and aid in learning new knowledge.
 
-## Previous versions... (keep history)
+## Previous
+- Initial Grok integration in dotnet-ai.
+
+(Keep full history from main)
