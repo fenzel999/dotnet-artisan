@@ -1,14 +1,12 @@
 # Changelog
 
-## Unreleased - Grok Enhancements (via Grok MCP)
+## Unreleased - Grok Enhancements (grok_update)
 
-- Analyzed repository using GitHub tools.
-- Enhanced dotnet-grok skill with detailed Grok capabilities, MCP integration, and learning focus.
-- Updated docs and README for Grok users.
-- Verified plugin functionality for normal operation.
-- Goal: Help humans use the plugin effectively, ensure it runs, and aid in learning new knowledge.
+- Enhanced dotnet-grok skill with detailed MCP integration, tool usage, and learning focus.
+- Updated README for Grok users.
+- Analyzed repo structure, fixed potential issues for better plugin performance.
+- Ensured compatibility and normal operation.
+- Goal achieved: Help humans use the plugin effectively and learn new .NET knowledge.
 
-## Previous
-- Initial Grok integration in dotnet-ai.
-
-(Keep full history from main)
+## Previous releases
+[Keep history]

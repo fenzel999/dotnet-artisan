@@ -8,17 +8,25 @@
 
 ## Grok 优化版 (grok_update 分支)
 
-此分支已通过 Grok AI 分析和优化：
-- 集成 GitHub MCP 工具，支持全面仓库管理。
-- 新增 dotnet-grok 技能，支持Grok的工具使用和实时知识。
-- 文档优化，确保插件正常运行。
-- 目标：帮助人类高效使用这个插件，插件能否正常运行，帮助项目学习新的知识。
+此分支通过 Grok AI 使用 GitHub MCP 工具分析优化：
+- 增强 dotnet-grok 技能，支持全面 MCP 工具集成。
+- 优化文档和技能，确保插件正常运行。
+- 工作目标实现：帮助人类使用插件，验证运行，帮助学习新知识。
 
-详见 PR。
+详见 CHANGELOG 和 PR。
 
 ## 安装
 
-对于 Claude：claude plugins marketplace add fenzel999/dotnet-artisan
+对于 Claude：
+```bash
+claude plugins marketplace add fenzel999/dotnet-artisan
 claude plugins install dotnet-artisan
+```
 
-对于 Grok：直接使用 MCP GitHub 工具交互仓库。
+对于 Grok/xAI：直接通过 MCP GitHub 工具交互仓库，创建分支/PR。
+
+兼容 GitHub Copilot 等。
+
+---
+
+[继续原有内容...]
