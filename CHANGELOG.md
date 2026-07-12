@@ -1,11 +1,10 @@
 # Changelog
 
-## Unreleased - Grok Enhancements via Grok MCP (2026)
+## Unreleased - Grok Enhancements (2026)
 
-### Added/Optimized
-- Enhanced `skills/dotnet-grok/SKILL.md` with detailed MCP tool usage, GitHub operations, sandbox testing, and learning guidance.
-- Updated dotnet-grok skill for improved integration and plugin maintenance.
-- Repo analysis complete: Structure solid, plugin functional for Grok users.
-- Helps humans use the plugin effectively and learn .NET with AI tools.
+- Further optimized dotnet-grok skill for comprehensive MCP tool support.
+- Updated INDEX.md references.
+- Ensured plugin runs smoothly with Grok/xAI tools.
+- Goal: Assist human users, validate functionality, facilitate learning.
 
-Previous changes from main branch preserved.
+Previous entries preserved.
