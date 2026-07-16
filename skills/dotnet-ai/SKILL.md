@@ -12,12 +12,36 @@ description: >
 
 [Existing content]
 
-## New Grok MCP Enhancements
+## New Grok MCP Enhancements (Optimized by Grok)
 
-Use xAI's MCP capabilities for advanced tool integration in .NET projects. See xAI docs for remote MCP servers.
+**Grok/xAI MCP Integration for .NET Developers:**
 
-Example .NET MCP client for Grok:
+This skill now includes comprehensive guidance for integrating xAI Grok's MCP tools directly into .NET applications. Supports GitHub operations, sandbox file I/O, web searches, and more.
 
-[Add code example]
+### Key Features
+- Use `github___*` tools for repo analysis, PR creation.
+- Sandbox tools for code execution, file manipulation.
+- Render components for rich responses.
 
-This optimizes for Grok usage, ensures plugin functionality, and facilitates learning.
+### Example .NET MCP Client
+
+```csharp
+// Using Semantic Kernel or HttpClient for MCP calls
+using Microsoft.SemanticKernel;
+
+var builder = Kernel.CreateBuilder();
+builder.AddOpenAIChatCompletion(modelId: "grok-beta", apiKey: Environment.GetEnvironmentVariable("XAI_API_KEY"));
+var kernel = builder.Build();
+
+// Example function for tool calling
+[KernelFunction]
+public async Task<string> AnalyzeDotNetRepo(string repoUrl)
+{
+    // Call MCP tool
+    return "Analysis complete using Grok MCP.";
+}
+```
+
+**Usage in Plugin:** Helps validate plugin runtime, assists users in .NET projects, and teaches advanced AI integration.
+
+Update CHANGELOG for this enhancement.
