@@ -1,10 +1,10 @@
 # Changelog
 
-## Unreleased - Grok Optimizations (2026-07-19)
+## Unreleased - Grok Optimizations (2026-07-22)
 
-- Further optimized integration with Grok MCP tools, including enhanced examples for sandbox usage, GitHub operations via MCP.
-- Updated plugin docs and skills for better .NET + Grok compatibility.
-- Verified plugin runs normally, supports human users in learning and development.
-- PR ready for merge to main.
+- Enhanced dotnet-ai and added Grok-specific MCP integration examples.
+- Optimized for seamless use with Grok's tools in .NET projects.
+- Verified plugin functionality for human users.
+- Ready for PR to main.
 
-## Previous entries... (preserved)
+## Previous entries preserved.
