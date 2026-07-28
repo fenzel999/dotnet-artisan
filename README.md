@@ -2,7 +2,7 @@
 
 **让你的 AI 编码代理真正精通 .NET。** 即装即用，零配置。
 
-[![English](https://img.shields.io/badge/English-README-blue)](README.en.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 11 技能 · 14 代理 · 174 参考文件 · 30+ 行为
+[![English](https://img.shields.io/badge/English-README-blue)](README.en.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 12 技能 · 14 代理 · 174 参考文件 · 30+ 行为
 
 > **Grok / xAI 兼容优化版**：完整支持 Grok 的工具调用（GitHub MCP、sandbox bash、文件操作等）、增强插件在 AI 代理环境下的正常运行，并帮助项目持续学习新的 .NET + AI 知识。
 
@@ -178,6 +178,7 @@ AI：已捕获规则：TimeProvider 构造函数注入优先。
 | | [dotnet-tooling](skills/dotnet-tooling/SKILL.md) | 项目结构、AOT、CLI、性能、代码质量、模板引擎 | 41 |
 | 增强 | [dotnet-ai](skills/dotnet-ai/SKILL.md) | MCP 服务器、Semantic Kernel、RAG、**xAI Grok 集成** | — |
 | | [dotnet-workflow](skills/dotnet-workflow/SKILL.md) | 并行工作流、上下文管理、验证循环 | 1 |
+| | [dotnet-grok](skills/dotnet-grok/SKILL.md) | Grok MCP 工具、插件维护、学习闭环、健康检查 | — |
 
 ---
 
@@ -254,7 +255,7 @@ AI：已捕获规则：TimeProvider 构造函数注入优先。
 ## Grok / xAI 特别说明
 
 - **工具兼容**：插件设计与 Grok 的 MCP 工具（GitHub、sandbox、web_search 等）天然兼容。决策者可调用这些工具获取仓库状态、执行 `dotnet` 命令、验证构建。
-- **学习新知识**：通过 `dotnet-learning-agent` + Grok 工具，可自动捕获新 .NET 特性、反模式，并更新 skills/references。
+- **学习新知识**：通过 `dotnet-learning-agent` + `dotnet-grok` + Grok 工具，可自动捕获新 .NET 特性、反模式，并更新 skills/references。
 - **正常运行保障**：Hooks 零阻塞；所有技能为只读/增量修改，不会破坏现有项目。详见 GUIDE.md。
 - **人类友好**：完整中文/英文文档、场景示例、验证清单，帮助人类快速上手插件。
 
