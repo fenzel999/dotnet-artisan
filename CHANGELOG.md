@@ -1,5 +1,18 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-07-28)
+
+### Fixed / Improved
+- **Skill count consistency**: Updated README.md / README.en.md / marketplace.json from 11 → **12 skills** to include `dotnet-grok`.
+- **English README parity**: Synced README.en.md with Grok/xAI notes, verification checklist, and skills table (including `dotnet-grok`).
+- **Human usability**: Clear install + “does the plugin run?” verification steps in both languages.
+- **Learning path**: `dotnet-grok` + `dotnet-ai` + `dotnet-learning-agent` documented for capturing new .NET + MCP knowledge without breaking zero-config behavior.
+
+### Goals (unchanged)
+1. Help humans use this plugin effectively.
+2. Ensure the plugin can run normally (hooks/skills/agents additive).
+3. Help the project learn new knowledge via Grok MCP tools.
+
 ## Unreleased — Grok Optimizations (2026-07-26)
 
 ### Improved
