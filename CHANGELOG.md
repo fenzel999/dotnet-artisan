@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-07-29)
+
+### Fixed / Improved
+- **CLAUDE.md consistency**: Updated skill count 11→12, added `dotnet-grok` to file map, fixed INDEX reference (173→174), corrected hooks path to `hooks/hooks.json`, added Grok additive rule.
+- **plugin.json**: Bumped version `1.0.2` → `1.0.3`, expanded description to mention Grok (xAI) and zero-config decision-maker.
+
+### Goals (unchanged)
+1. Help humans use this plugin effectively.
+2. Ensure the plugin can run normally (hooks/skills/agents additive).
+3. Help the project learn new knowledge via Grok MCP tools.
+
 ## Unreleased — Grok Optimizations (2026-07-28)
 
 ### Fixed / Improved
