@@ -4,7 +4,7 @@
 
 ## What This Repo Is
 
-A Claude Code plugin containing 11 skills + 14 agents + 174 reference files for .NET development. It teaches AI coding agents how to write correct, idiomatic .NET code.
+A Claude Code plugin containing **12 skills** + 14 agents + 174 reference files for .NET development. It teaches AI coding agents how to write correct, idiomatic .NET code. Optimized for Claude Code and Grok (xAI) MCP environments.
 
 ## Session Recovery Protocol (read in this order)
 
@@ -21,7 +21,7 @@ That's ~10 minutes to full context recovery. No session history needed.
 
 ## Architecture (one sentence)
 
-User prompt → `using-dotnet` (detect intent) → `dotnet-advisor` (route) → domain skills + `dotnet-csharp` (baseline, always loaded) → meta-skills (on-demand).
+User prompt → `using-dotnet` (detect intent) → `dotnet-advisor` (route) → domain skills + `dotnet-csharp` (baseline, always loaded) → meta-skills (on-demand, including `dotnet-grok` under Grok).
 
 ## File Map
 
@@ -31,13 +31,14 @@ dotnet-artisan/
 ├── AGENTS.md              ← Iron rules. Read second.
 ├── USAGE.md               ← How to use skills. Read third.
 ├── README.md              ← Chinese (default). README.en.md for English.
+├── GUIDE.md / GUIDE.en.md ← Human-facing full usage guide
 ├── .claude-plugin/
-│   ├── plugin.json        ← Skill + agent registry (single source of truth)
+│   ├── plugin.json        ← Plugin metadata (version, agents dir)
 │   └── marketplace.json   ← Publication metadata
 ├── skills/
 │   ├── CHEATSHEET.md      ← One-page all-rules
 │   ├── DECISIONS.md       ← "When to use what"
-│   ├── INDEX.md           ← 173 references by domain
+│   ├── INDEX.md           ← 174 references by domain
 │   ├── using-dotnet/      ← Gateway skill (auto-loaded)
 │   ├── dotnet-advisor/    ← Router skill (auto-loaded)
 │   ├── dotnet-csharp/     ← Baseline C# (always loaded, 27 refs)
@@ -47,12 +48,15 @@ dotnet-artisan/
 │   ├── dotnet-devops/     ← CI/CD/Docker/NuGet (19 refs)
 │   ├── dotnet-tooling/    ← MSBuild/AOT/CLI (41 refs)
 │   ├── dotnet-debugging/  ← WinDbg/crash dumps (17 refs)
-│   ├── dotnet-ai/         ← MCP/Semantic Kernel/RAG
-│   ├── dotnet-workflow/   ← Parallel worktrees, context, corrections, learning (1 ref)
+│   ├── dotnet-ai/         ← MCP/Semantic Kernel/RAG + xAI Grok
+│   ├── dotnet-workflow/   ← Parallel worktrees, context, verification (1 ref)
+│   └── dotnet-grok/       ← Grok MCP playbook, plugin health, learning loop
 ├── agents/                ← 14 specialist agent .md files
 ├── docs/                  ← GitHub Pages (index.html = Chinese, index.en.html = English)
 ├── scripts/hooks/         ← Node.js hook scripts
-└── hooks.json             ← Hook configuration
+├── hooks/
+│   └── hooks.json         ← Hook configuration (official path)
+└── harness/               ← Drop-in auto-pilot config
 ```
 
 ## Core Rules (Version-Aware)
@@ -68,6 +72,7 @@ dotnet-artisan/
 7. **SKILL.md under 500 lines** — Detailed content in `references/` subdirectory.
 8. **Reference file format**: Core Principles → Patterns (GOOD code) → Anti-patterns (BAD/GOOD or inline "AVOID" examples) → Decision Guide. Inline BAD/GOOD examples are acceptable instead of dedicated sections.
 9. **All generated code MUST follow SELF_DOCUMENTING.md** — A fresh AI must understand any project in 30 seconds. Zero exceptions.
+10. **Additive under Grok** — Changes via `dotnet-grok` must keep zero-config install and existing skills/agents/hooks intact.
 
 ## Skill Format
 
@@ -95,7 +100,8 @@ model: sonnet  # haiku, sonnet, or opus
 
 ## Quick Reference
 
-- **Adding a skill**: Create `skills/<name>/SKILL.md` → add to `plugin.json` → update `INDEX.md`
-- **Adding an agent**: Create `agents/<name>.md` → add to `plugin.json`
+- **Adding a skill**: Create `skills/<name>/SKILL.md` → update `INDEX.md` / marketplace counts → bump version if needed
+- **Adding an agent**: Create `agents/<name>.md` (agents dir is auto-discovered)
 - **All generated code must be self-documenting**: one-sentence file purpose at top, WHY comments for non-obvious decisions, domain terms in class names
 - **Project must be understandable by a fresh AI in 30 seconds**: solution file → Program.cs → any .cs file → config
+- **Plugin health (humans)**: Install → open any `.csproj` → ask “What .NET version?” → see GUIDE.md and `dotnet-workflow/references/plugin-verification.md`
