@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-08-15)
+
+### Status (this session)
+- Full re-analysis via GitHub MCP (repository tree, branches, commits, plugin.json, marketplace.json, README, CLAUDE.md, hooks, skills including `dotnet-grok`, open PRs).
+- Confirmed `grok_update` branch + open **PR #16** already contain the complete set of improvements for the three work goals.
+- No remaining blocking deficiencies on main vs. this branch:
+  1. **Help humans use the plugin** — bilingual README/GUIDE, clear install steps (`claude plugins marketplace add` + install), explicit “plugin runs normally” verification checklist (ask .NET version after opening .csproj).
+  2. **Plugin can run normally** — all changes additive; hooks at official path `hooks/hooks.json`; skills/agents/zero-config decision-maker preserved; version 1.0.3; `dotnet-grok` skill present and documented.
+  3. **Help the project learn new knowledge** — `dotnet-grok` (MCP playbook + learning loop) + enhanced `dotnet-ai` + `dotnet-learning-agent` provide continuous capture of new .NET + AI patterns.
+- PR #16 remains open and ready for human review/merge. No further functional code changes required.
+
 ## Unreleased — Grok Optimizations (2026-08-12)
 
 ### Status (this session)
@@ -83,7 +94,7 @@
 - **Category error: user-facing guides were placed in `skills/dotnet-workflow/references/`** — The `skills/` directory is for AI-agent-facing reference files. User guides for human developers belong at the project root.
 - **Moved** `plugin-usage-best-practices.zh.md` → `GUIDE.md` (Chinese, root)
 - **Moved** `plugin-usage-best-practices.md` → `GUIDE.en.md` (English, root)
-- **Removed** routing table entries from dotnet-workflow SKILL.md and INDEX.md
+- **Removed** routing table entries from `dotnet-workflow` SKILL.md and INDEX.md
 - **Updated** reference counts: workflow 3→1, total 176→174
 - **Updated** README "Further Reading" sections to link to new GUIDE files
 
