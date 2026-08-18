@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-08-18)
+
+### Status (this session)
+- Full re-analysis via GitHub MCP (repository tree, branches, commits, plugin.json, marketplace.json, README, CLAUDE.md, hooks, skills including `dotnet-grok`, open PRs).
+- Confirmed `grok_update` branch + open **PR #16** already contain the complete set of improvements for the three work goals.
+- No remaining blocking deficiencies on main vs. this branch:
+  1. **Help humans use the plugin** — bilingual README/GUIDE, clear install steps (`claude plugins marketplace add` + install), explicit “plugin runs normally” verification checklist (ask .NET version after opening .csproj).
+  2. **Plugin can run normally** — all changes additive; hooks at official path `hooks/hooks.json`; skills/agents/zero-config decision-maker preserved; version 1.0.3; `dotnet-grok` skill present and documented.
+  3. **Help the project learn new knowledge** — `dotnet-grok` (MCP playbook + learning loop) + enhanced `dotnet-ai` + `dotnet-learning-agent` provide continuous capture of new .NET + AI patterns.
+- PR #16 remains open and ready for human review/merge. No further functional code changes required.
+
 ## Unreleased — Grok Optimizations (2026-08-16)
 
 ### Status (this session)
