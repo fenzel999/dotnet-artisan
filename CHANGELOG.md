@@ -1,5 +1,20 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-08-29)
+
+### Analysis (this session)
+- Confirmed `grok_update` and open **PR #16** already exist. Did not recreate the branch.
+- `main` plugin is structurally runnable: `hooks/hooks.json` + 3 zero-block scripts, 11 skills / 14 agents / 174 refs.
+- Remaining human/learning gaps on this branch: no explicit playbook for promoting session corrections into shared skill files; QUICKSTART lacked an iron-rule smoke test.
+
+### Added
+- `skills/dotnet-grok/references/knowledge-promotion.md` — detect → generalize → dedupe → write → verify → PR.
+
+### Updated
+- `QUICKSTART.md` — TimeProvider smoke test + pointer to the promotion playbook.
+
+Waiting for human review — do not auto-merge.
+
 ## Unreleased — Grok Optimizations (2026-08-28)
 
 ### Analysis (this session)
@@ -44,7 +59,7 @@ Fixed stale reference counts, added missing infrastructure files, created verifi
 - **check-self-doc.js hook** — All early-exit paths now emit valid JSON before returning
 
 ### Added
-- **`.gitattributes`** — Consistent line ending normalization for all file types (.cs, .md, .json, .sh, etc.)
+- **`.gitattributes`** — Consistent line ending normalization for all file types (.cs, .cs, .md, .json, .sh, etc.)
 - **`.github/ISSUE_TEMPLATE/bug_report.md`** — Bug report template with affected file, expected vs actual behavior
 - **`.github/ISSUE_TEMPLATE/feature_request.md`** — Feature request template with scope checkboxes
 - **`.github/PULL_REQUEST_TEMPLATE.md`** — PR template with content quality, consistency, and technical checklists

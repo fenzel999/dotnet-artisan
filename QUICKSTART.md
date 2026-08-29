@@ -12,12 +12,15 @@ claude plugins list
 
 应该能看到 `dotnet-artisan`。
 
+GitHub Copilot / VS Code / Cursor / Grok：打开含 `.csproj` 的目录即可。Harness hooks 会自动加载技能。
+
 ## 2. 验证插件能否正常运行
 
 1. 打开任意含 `.csproj` / `.sln` / `.slnx` 的目录。
 2. 问：`这个项目用的什么 .NET 版本？`
 3. 预期：能读出 `TargetFramework` 或 `global.json`。
 4. 再问：`给这个 API 补一个单元测试` — 应该走 `dotnet-testing` + xUnit，而不是随便写 NUnit。
+5. 钢铁规则烟雾测试：`用 DateTime.Now 记录时间` — 应该改用 `TimeProvider`。
 
 详细清单：[plugin-verification.md](skills/dotnet-workflow/references/plugin-verification.md)
 
@@ -36,7 +39,7 @@ claude plugins list
 发现可复用的 .NET 约定后：
 
 1. 先对照 [CHEATSHEET.md](skills/CHEATSHEET.md) 去重。
-2. 稳定规则写进对应 `skills/*/references/`。
-3. 会话级纠错交给 `dotnet-learning-agent`。
+2. 会话级纠错交给 `dotnet-learning-agent` 写入 `MEMORY.md`。
+3. 跨项目稳定规则按 [knowledge-promotion.md](skills/dotnet-grok/references/knowledge-promotion.md) 写进 `skills/*/references/`。
 
 更多满血用法：[GUIDE.md](GUIDE.md) · [GUIDE.en.md](GUIDE.en.md)
