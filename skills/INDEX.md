@@ -210,4 +210,5 @@ Quick navigation for all reference files. Each file contains implementation patt
 ## Grok / xAI
 | File | Topic |
 |------|-------|
-| [dotnet-grok/SKILL.md](dotnet-grok/SKILL.md) | Grok + xAI MCP tools, sandbox, GitHub integration for .NET plugin maintenance & learning |
+| [dotnet-grok/SKILL.md](dotnet-grok/SKILL.md) | Grok + xAI MCP tools, sandbox, GitHub integration for plugin maintenance |
+| [knowledge-promotion.md](dotnet-grok/references/knowledge-promotion.md) | Promote session corrections into shared skill references |
