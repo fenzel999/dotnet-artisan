@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-08-31)
+
+### Analysis (this session)
+- Re-analyzed `main` via GitHub MCP. Plugin on `main` is already structurally runnable: official `hooks/hooks.json` + 3 zero-block hook scripts, 11 skills, 14 agents, 174 references.
+- Confirmed branch `grok_update` and open **PR #16** already exist. Did not recreate the branch or open a second PR.
+- This commit only polishes human onboarding: QUICKSTART troubleshooting table, README link, reference count 175 (includes `knowledge-promotion.md`).
+
+Waiting for human review — do not auto-merge.
+
 ## Unreleased — Grok Optimizations (2026-08-30)
 
 ### Analysis (this session)

@@ -24,7 +24,18 @@ GitHub Copilot / VS Code / Cursor / Grok：打开含 `.csproj` 的目录即可�
 
 详细清单：[plugin-verification.md](skills/dotnet-workflow/references/plugin-verification.md)
 
-## 3. 每日用法（不用记技能名）
+## 3. 排障（装上了但“没感觉”）
+
+| 现象 | 先查 |
+|------|------|
+| `plugins list` 没有插件 | 重跑两条安装命令；确认 marketplace 源是 `fenzel999/dotnet-artisan` |
+| 问版本却不读 csproj | 当前目录有没有 `.csproj` / `.sln`；hooks 只在 .NET 项目里注入上下文 |
+| 常用 DateTime.Now / FluentValidation | 看 [CHEATSHEET.md](skills/CHEATSHEET.md)；这是决策者的钢铁规则 |
+| 想改插件本身 | 走 `dotnet-grok`，只在 `grok_update` 上改，PR 到 `main` 等审核 |
+
+Hooks 位置必须是 `hooks/hooks.json`（官方 spec）。失败时零阻塞，不会拦住你写代码。
+
+## 4. 每日用法（不用记技能名）
 
 | 你说 | 决策者会路由到 |
 |------|----------------|
@@ -34,7 +45,7 @@ GitHub Copilot / VS Code / Cursor / Grok：打开含 `.csproj` 的目录即可�
 | 记住：用 TimeProvider | `dotnet-learning-agent` |
 | Grok / GitHub MCP 维护本仓库 | `dotnet-grok` |
 
-## 4. 帮项目学新知识
+## 5. 帮项目学新知识
 
 发现可复用的 .NET 约定后：
 
