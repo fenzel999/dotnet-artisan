@@ -4,7 +4,7 @@
 
 ## What This Repo Is
 
-A Claude Code plugin containing **12 skills** + 14 agents + 174 reference files for .NET development. It teaches AI coding agents how to write correct, idiomatic .NET code. Optimized for Claude Code and Grok (xAI) MCP environments.
+A Claude Code plugin containing **12 skills** + 14 agents + **175** reference files for .NET development. It teaches AI coding agents how to write correct, idiomatic .NET code. Optimized for Claude Code and Grok (xAI) MCP environments.
 
 ## Session Recovery Protocol (read in this order)
 
@@ -17,7 +17,7 @@ A Claude Code plugin containing **12 skills** + 14 agents + 174 reference files 
 | 5 | `BEHAVIORS.md` | 2 min | 30+ behavior catalog + decision-maker routing |
 | 6 | `skills/CHEATSHEET.md` | 2 min | All rules in one page |
 
-That's ~10 minutes to full context recovery. No session history needed.
+That's ~10 minutes to full context recovery. No session history needed. Humans who only need install + "does it run?" start at `QUICKSTART.md`.
 
 ## Architecture (one sentence)
 
@@ -30,6 +30,7 @@ dotnet-artisan/
 ├── CLAUDE.md              ← You are here. Reconnection entry point.
 ├── AGENTS.md              ← Iron rules. Read second.
 ├── USAGE.md               ← How to use skills. Read third.
+├── QUICKSTART.md          ← Humans: 2-minute install + health check
 ├── README.md              ← Chinese (default). README.en.md for English.
 ├── GUIDE.md / GUIDE.en.md ← Human-facing full usage guide
 ├── .claude-plugin/
@@ -38,7 +39,7 @@ dotnet-artisan/
 ├── skills/
 │   ├── CHEATSHEET.md      ← One-page all-rules
 │   ├── DECISIONS.md       ← "When to use what"
-│   ├── INDEX.md           ← 174 references by domain
+│   ├── INDEX.md           ← 175 references by domain
 │   ├── using-dotnet/      ← Gateway skill (auto-loaded)
 │   ├── dotnet-advisor/    ← Router skill (auto-loaded)
 │   ├── dotnet-csharp/     ← Baseline C# (always loaded, 27 refs)
@@ -50,7 +51,7 @@ dotnet-artisan/
 │   ├── dotnet-debugging/  ← WinDbg/crash dumps (17 refs)
 │   ├── dotnet-ai/         ← MCP/Semantic Kernel/RAG + xAI Grok
 │   ├── dotnet-workflow/   ← Parallel worktrees, context, verification (1 ref)
-│   └── dotnet-grok/       ← Grok MCP playbook, plugin health, learning loop
+│   └── dotnet-grok/       ← Grok MCP playbook, plugin health, learning loop (1 ref)
 ├── agents/                ← 14 specialist agent .md files
 ├── docs/                  ← GitHub Pages (index.html = Chinese, index.en.html = English)
 ├── scripts/hooks/         ← Node.js hook scripts
@@ -104,4 +105,4 @@ model: sonnet  # haiku, sonnet, or opus
 - **Adding an agent**: Create `agents/<name>.md` (agents dir is auto-discovered)
 - **All generated code must be self-documenting**: one-sentence file purpose at top, WHY comments for non-obvious decisions, domain terms in class names
 - **Project must be understandable by a fresh AI in 30 seconds**: solution file → Program.cs → any .cs file → config
-- **Plugin health (humans)**: Install → open any `.csproj` → ask “What .NET version?” → see GUIDE.md and `dotnet-workflow/references/plugin-verification.md`
+- **Plugin health (humans)**: Install → open any `.csproj` → ask “What .NET version?” → see QUICKSTART.md, GUIDE.md and `dotnet-workflow/references/plugin-verification.md`
