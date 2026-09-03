@@ -51,6 +51,6 @@ Hooks 位置必须是 `hooks/hooks.json`（官方 spec）。失败时零阻塞�
 
 1. 先对照 [CHEATSHEET.md](skills/CHEATSHEET.md) 去重。
 2. 会话级纠错交给 `dotnet-learning-agent` 写入 `MEMORY.md`。
-3. 跨项目稳定规则按 [knowledge-promotion.md](skills/dotnet-grok/references/knowledge-promotion.md) 写进 `skills/*/references/`。
+3. 跨项目稳定规则按 [LEARNING.md](LEARNING.md) 和 [knowledge-promotion.md](skills/dotnet-grok/references/knowledge-promotion.md) 写进 `skills/*/references/`。
 
 更多满血用法：[GUIDE.md](GUIDE.md) · [GUIDE.en.md](GUIDE.en.md)
