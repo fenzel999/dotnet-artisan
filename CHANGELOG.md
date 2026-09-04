@@ -1,5 +1,21 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-09-04)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` still has marketplace owner `fenzel` (not `fenzel999`) and USAGE.md with no human quickstart / Grok route.
+
+### Fixed
+- `marketplace.json` owner now `fenzel999` + GitHub URL (matches plugin.json author).
+- USAGE.md lunch-order example cutoff wording restored to “下午3点”.
+
+### Updated
+- `USAGE.md` — humans pointed to QUICKSTART/LEARNING; routing tree includes `dotnet-grok`.
+- `.github/workflows/plugin-validate.yml` — require ≥12 skills, ≥14 agents, ≥175 reference files, author URL contains fenzel999.
+
+Waiting for human review — do not auto-merge.
+
 ## Unreleased — Grok Optimizations (2026-09-03)
 
 ### Analysis (this session)
