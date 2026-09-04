@@ -17,32 +17,46 @@ jobs:
       - name: Parse plugin JSON
         run: |
           python - <<'PY'
-          import json, pathlib, sys
+          import json, pathlib
           files = [
             pathlib.Path('.claude-plugin/plugin.json'),
             pathlib.Path('.claude-plugin/marketplace.json'),
             pathlib.Path('hooks/hooks.json'),
           ]
           for p in files:
-              json.loads(p.read_text())
+              data = json.loads(p.read_text())
               print(f'OK json {p}')
+          plugin = json.loads(pathlib.Path('.claude-plugin/plugin.json').read_text())
+          assert plugin.get('name') == 'dotnet-artisan'
+          author_url = (plugin.get('author') or {}).get('url', '')
+          assert 'fenzel999' in author_url, author_url
+          print('OK plugin author url')
           PY
       - name: Require SKILL.md in every skill folder
         run: |
           missing=0
+          count=0
           for d in skills/*; do
             [ -d "$d" ] || continue
+            count=$((count+1))
             if [ ! -f "$d/SKILL.md" ]; then
               echo "Missing SKILL.md in $d"
               missing=1
             fi
           done
+          echo "skill folders: $count"
+          test "$count" -ge 12
           exit $missing
       - name: Require agent markdown files
         run: |
           count=$(find agents -name '*.md' | wc -l)
           echo "agent files: $count"
           test "$count" -ge 14
+      - name: Count skill reference files
+        run: |
+          count=$(find skills -path '*/references/*.md' | wc -l)
+          echo "reference files: $count"
+          test "$count" -ge 175
       - name: Syntax-check hook scripts
         run: |
           node --check scripts/hooks/session-start-context.js
