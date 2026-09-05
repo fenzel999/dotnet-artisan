@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-09-05)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` still ships 11 skills / 174 refs and marketplace owner `fenzel`; humans land on the long GUIDE first.
+- Remaining gap: GUIDE.md on this branch still had no pointer to QUICKSTART / LEARNING / dotnet-grok.
+
+### Updated
+- `GUIDE.md` — top-of-file 2-minute path; install section links QUICKSTART; §4.10 `dotnet-grok`; learning promotion points to LEARNING.md.
+
+Waiting for human review — do not auto-merge.
+
 ## Unreleased — Grok Optimizations (2026-09-04)
 
 ### Analysis (this session)
