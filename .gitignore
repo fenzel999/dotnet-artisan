@@ -7,4 +7,12 @@ node_modules/
 .vs/
 *.user
 *.suo
-
+bin/
+obj/
+packages/
+TestResults/
+*.userosscache
+*.sln.docstates
+*.nupkg
+.dotnet/
+artifacts/

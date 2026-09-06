@@ -1,5 +1,67 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-09-06)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` is still 11 skills / 174 refs; humans land on the long GUIDE first; marketplace owner on `main` is still `fenzel`.
+- Remaining gap: README “了解更多” listed QUICKSTART but not LEARNING.md.
+
+### Updated
+- `README.md` — further reading now includes [LEARNING.md](LEARNING.md) (three-layer memory).
+
+Waiting for human review — do not auto-merge.
+
+## Unreleased — Grok Optimizations (2026-09-05)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` still ships 11 skills / 174 refs and marketplace owner `fenzel`; humans land on the long GUIDE first.
+- Remaining gap: GUIDE.md on this branch still had no pointer to QUICKSTART / LEARNING / dotnet-grok.
+
+### Updated
+- `GUIDE.md` — top-of-file 2-minute path; install section links QUICKSTART; §4.10 `dotnet-grok`; learning promotion points to LEARNING.md.
+
+Waiting for human review — do not auto-merge.
+
+## Unreleased — Grok Optimizations (2026-09-04)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` still has marketplace owner `fenzel` (not `fenzel999`) and USAGE.md with no human quickstart / Grok route.
+
+### Fixed
+- `marketplace.json` owner now `fenzel999` + GitHub URL (matches plugin.json author).
+- USAGE.md lunch-order example cutoff wording restored to “下午3点”.
+
+### Updated
+- `USAGE.md` — humans pointed to QUICKSTART/LEARNING; routing tree includes `dotnet-grok`.
+- `.github/workflows/plugin-validate.yml` — require ≥12 skills, ≥14 agents, ≥175 reference files, author URL contains fenzel999.
+
+Waiting for human review — do not auto-merge.
+
+## Unreleased — Grok Optimizations (2026-09-03)
+
+### Analysis (this session)
+- Re-analyzed `main` via GitHub MCP. Plugin on `main` is already structurally runnable: official `hooks/hooks.json` + 3 zero-block hook scripts, 11 skills, 14 agents, 174 references.
+- Confirmed branch `grok_update` and open **PR #16** already exist. Did not recreate the branch or open a second PR.
+- Remaining human/learning gap: `BEHAVIORS.md` still matched `main` (no Grok / knowledge-promotion routes); humans had QUICKSTART but no dedicated teach-the-plugin page.
+
+### Added
+- `LEARNING.md` — three-layer memory (MEMORY.md → shared skills → plugin maintenance).
+
+### Updated
+- `BEHAVIORS.md` — Level Up + routing examples for `dotnet-grok` and knowledge promotion.
+- `QUICKSTART.md` — points to LEARNING.md.
+
+Waiting for human review — do not auto-merge.
+
+## Unreleased — Grok Optimizations (2026-09-01)
+
+### Fixed
+- README / README.en / AGENTS / CLAUDE reference counts → **12 skills · 14 agents · 175 refs**.
+- README further reading includes [QUICKSTART.md](QUICKSTART.md).
+
 ## 1.0.2 (2026-05-31) — Fix: move user guides out of skills/ to root
 
 ### Fixed
