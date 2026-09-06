@@ -103,7 +103,7 @@ AI：我会先做战略设计——Event Storming 发现领域事件，
 ```
 你：我的应用在生产环境一直崩溃——OutOfMemoryException
 AI：有 .dmp 文件吗？
-你：有，C:\dumps\crash.dmp
+你：有，C:\\dumps\\crash.dmp
 
 行为链：dotnet-debugging → 打开转储（WinDbg/dotnet-dump）→
        !analyze -v → !dumpheap -stat 发现 850MB byte[] →
@@ -268,6 +268,7 @@ AI：已捕获规则：TimeProvider 构造函数注入优先。
 ## 了解更多
 
 - [QUICKSTART.md](QUICKSTART.md) — **2 分钟验证插件能不能跑**：安装、排障、学习闭环
+- [LEARNING.md](LEARNING.md) — **帮项目学新知识**：三层记忆（MEMORY.md → skills/references → 插件维护）
 - [USAGE.md](USAGE.md) — 先理解再动手：7 项检查清单、4 轮提问框架、领域驱动分析
 - [设计原则](skills/CHEATSHEET.md) — DbContext 即仓储、禁止 FluentValidation、TimeProvider 等核心规范
 - [BEHAVIORS.md](BEHAVIORS.md) — 全部行为目录、决策者路由逻辑、代理触发词
