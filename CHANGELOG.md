@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-09-06)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` is still 11 skills / 174 refs; humans land on the long GUIDE first; marketplace owner on `main` is still `fenzel`.
+- Remaining gap: README “了解更多” listed QUICKSTART but not LEARNING.md.
+
+### Updated
+- `README.md` — further reading now includes [LEARNING.md](LEARNING.md) (three-layer memory).
+
+Waiting for human review — do not auto-merge.
+
 ## Unreleased — Grok Optimizations (2026-09-05)
 
 ### Analysis (this session)
