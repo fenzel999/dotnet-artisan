@@ -1,5 +1,21 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-09-07)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- Remaining English-doc gap: `GUIDE.en.md` still pointed at a broken `plugin-verification.md` path and had no 2-minute / `dotnet-grok` path; `README.en.md` badge still said 174 refs and omitted QUICKSTART/LEARNING.
+
+### Fixed
+- `GUIDE.en.md` verification link → `skills/dotnet-workflow/references/plugin-verification.md`.
+- `README.en.md` badge and reference table → **175** refs + Grok domain row.
+
+### Updated
+- `GUIDE.en.md` — 2-minute path, smoke tests, Pattern 6 plugin maintenance, `dotnet-grok` tips.
+- `README.en.md` further reading now includes QUICKSTART.md and LEARNING.md.
+
+Waiting for human review — do not auto-merge.
+
 ## Unreleased — Grok Optimizations (2026-09-06)
 
 ### Analysis (this session)
