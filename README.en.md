@@ -2,7 +2,7 @@
 
 **Makes your AI coding agent actually good at .NET.** Install and go. Zero config.
 
-[![中文](https://img.shields.io/badge/中文-README-red)](README.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 12 skills · 14 agents · 174 references · 30+ behaviors
+[![中文](https://img.shields.io/badge/中文-README-red)](README.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 12 skills · 14 agents · 175 references · 30+ behaviors
 
 > **Grok / xAI optimized**: Full support for Grok tool calling (GitHub MCP, sandbox bash, file ops), stronger plugin reliability under AI agents, and continuous learning of new .NET + AI knowledge.
 
@@ -36,7 +36,7 @@ Compatible with GitHub Copilot, VS Code, Cursor, and Grok (via MCP tool calling)
 1. Open any directory that contains a `.csproj` or `.sln`.
 2. Ask: `What .NET version is this project targeting?`
 3. Expected: the AI detects TargetFramework and answers correctly.
-4. More checks: [GUIDE.en.md](GUIDE.en.md) and [skills/dotnet-workflow/references/plugin-verification.md](skills/dotnet-workflow/references/plugin-verification.md).
+4. More checks: [QUICKSTART.md](QUICKSTART.md), [GUIDE.en.md](GUIDE.en.md) and [plugin-verification.md](skills/dotnet-workflow/references/plugin-verification.md).
 
 ---
 
@@ -116,7 +116,7 @@ You: Audit this code for security vulnerabilities
 AI: Read-only audit, no code changes. Checking OWASP Top 10.
 
 Chain: dotnet-security-reviewer (read-only) → scan → finds
-       SQL injection + hardcoded key + missing JWT Audience → report
+       SQL injection + hardcoded key → missing JWT Audience → report
 ```
 
 ### 4. Writing Tests for Existing Code
@@ -179,13 +179,13 @@ Chain: dotnet-learning-agent → detect correction → generalize rule →
 | | [dotnet-tooling](skills/dotnet-tooling/SKILL.md) | Project structure, AOT, CLI, performance, quality, templates | 41 |
 | Augment | [dotnet-ai](skills/dotnet-ai/SKILL.md) | MCP servers, Semantic Kernel, RAG, **xAI Grok** | — |
 | | [dotnet-workflow](skills/dotnet-workflow/SKILL.md) | Parallel workflows, context management, verification loops | 1 |
-| | [dotnet-grok](skills/dotnet-grok/SKILL.md) | Grok MCP tools, plugin maintenance, learning loop, health checks | — |
+| | [dotnet-grok](skills/dotnet-grok/SKILL.md) | Grok MCP tools, plugin maintenance, learning loop, health checks | 1 |
 
 ---
 
 ## Reference Files
 
-174 reference files across 9 domains. Each file: Core Principles → Patterns → Anti-patterns → Decision Guide.
+175 reference files across 10 domains. Each file: Core Principles → Patterns → Anti-patterns → Decision Guide.
 
 | Domain | Skill | Count | Covers |
 |--------|------|-------|--------|
@@ -198,6 +198,7 @@ Chain: dotnet-learning-agent → detect correction → generalize rule →
 | UI | dotnet-ui | 20 | Blazor, MAUI, Uno, WPF, WinUI, WinForms |
 | Routing | dotnet-advisor | 2 | Requirements alignment, architecture discovery |
 | Workflow | dotnet-workflow | 1 | Plugin verification |
+| Grok / xAI | dotnet-grok | 1 | Knowledge promotion into shared skills |
 
 Full index: [INDEX.md](skills/INDEX.md)
 
@@ -216,6 +217,7 @@ Full index: [INDEX.md](skills/INDEX.md)
 | Ship | CI/CD / containerize / NuGet publish / deploy | dotnet-devops + cloud-specialist |
 | Upgrade | .NET version migration / AOT migration | dotnet-devops + dotnet-tooling |
 | Learn | Remember conventions / capture corrections | dotnet-learning-agent |
+| Plugin | Maintain this repo / promote knowledge | dotnet-grok + learning-agent |
 
 Full catalog and routing logic: [BEHAVIORS.md](BEHAVIORS.md)
 
@@ -257,17 +259,17 @@ Execute specific technical deep-dives. Focus on a single domain.
 
 - **Tool compatibility**: Designed to work with Grok MCP tools (GitHub, sandbox, web_search). The decision-maker can inspect repos, run `dotnet` commands, and validate builds.
 - **Learning new knowledge**: `dotnet-learning-agent` + `dotnet-grok` + Grok tools can capture new .NET patterns and update skills/references.
-- **Runs normally**: Hooks are non-blocking; skills are additive/read-mostly and do not break existing projects. See GUIDE.en.md.
+- **Runs normally**: Hooks are non-blocking; skills are additive/read-mostly and do not break existing projects. See [QUICKSTART.md](QUICKSTART.md).
 - **Human-friendly**: Bilingual docs, scenario examples, and verification checklists help people confirm the plugin works.
 
 ---
 
 ## Further Reading
 
+- [QUICKSTART.md](QUICKSTART.md) — 2-minute install + “does it run?” + troubleshooting
+- [LEARNING.md](LEARNING.md) — three-layer memory: session → shared skills → plugin maintenance
 - [USAGE.md](USAGE.md) — Understand before building: 7-item checklist, 4-round questioning, domain-driven analysis
 - [Design Principles](skills/CHEATSHEET.md) — DbContext as repository, no FluentValidation, TimeProvider everywhere
 - [BEHAVIORS.md](BEHAVIORS.md) — Full behavior catalog, routing logic, agent triggers
 - [CLAUDE.md](CLAUDE.md) — Plugin architecture, file map, session recovery protocol
 - [GUIDE.en.md](GUIDE.en.md) — **Plugin best practices guide**: installation, verification, per-skill tips, advanced techniques, real-world scenarios
-
----
