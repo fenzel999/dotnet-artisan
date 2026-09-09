@@ -6,7 +6,9 @@
     "name": "Yatao Feng",
     "url": "https://github.com/fenzel999"
   },
+  "homepage": "https://github.com/fenzel999/dotnet-artisan",
   "repository": "https://github.com/fenzel999/dotnet-artisan",
   "license": "MIT",
-  "agents": ["./agents/"]
+  "agents": "./agents/",
+  "hooks": "./hooks/hooks.json"
 }
