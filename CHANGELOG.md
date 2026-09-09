@@ -1,5 +1,17 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-09-09)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` is still 11 skills / 174 refs, marketplace owner `fenzel`, plugin.json 1.0.2 without an explicit `hooks` field.
+- Official spec: hooks live at `hooks/hooks.json` *or* `plugin.json` `hooks` path. Branch already had the file; manifest now points at it so loaders that skip directory auto-discovery still activate harness.
+
+### Fixed
+- `.claude-plugin/plugin.json` — added `"hooks": "./hooks/hooks.json"` and `homepage`.
+
+Waiting for human review — do not auto-merge.
+
 ## Unreleased — Grok Optimizations (2026-09-07)
 
 ### Analysis (this session)
