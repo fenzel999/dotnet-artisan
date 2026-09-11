@@ -2,7 +2,9 @@
 
 **让你的 AI 编码代理真正精通 .NET。** 即装即用，零配置。
 
-[![English](https://img.shields.io/badge/English-README-blue)](README.en.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 11 技能 · 14 代理 · 174 参考文件 · 30+ 行为
+[![English](https://img.shields.io/badge/English-README-blue)](README.en.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 12 技能 · 14 代理 · 175 参考文件 · 30+ 行为
+
+> **Grok / xAI 兼容优化版**：完整支持 Grok 的工具调用（GitHub MCP、sandbox bash、文件操作等）、增强插件在 AI 代理环境下的正常运行，并帮助项目持续学习新的 .NET + AI 知识。
 
 ---
 
@@ -16,6 +18,8 @@ dotnet-artisan 是一个 Claude Code 插件，让 AI 编码代理能够正确地
 
 本项目学习并整合了 [dotnet/skills](https://github.com/dotnet/skills) 和 [novotnyllc/dotnet-artisan](https://github.com/novotnyllc/dotnet-artisan) 的优秀实践，在此致谢。
 
+同时针对 **xAI Grok** 进行了优化：插件可在 Grok 的 sandbox + MCP 工具环境下稳定运行，支持自动学习新 .NET 特性到 skills/references，帮助人类用户高效上手。
+
 ---
 
 ## 安装
@@ -25,7 +29,16 @@ claude plugins marketplace add fenzel999/dotnet-artisan
 claude plugins install dotnet-artisan
 ```
 
-兼容 GitHub Copilot、VS Code、Cursor。装完打开任意 .NET 项目即用，Harness 自动激活（加载技能、路由提示、检查 30 秒法则）。
+兼容 GitHub Copilot、VS Code、Cursor，以及 Grok（通过 MCP 工具调用）。装完打开任意 .NET 项目即用，Harness 自动激活（加载技能、路由提示、检查 30 秒法则）。
+
+**2 分钟上手：** [QUICKSTART.md](QUICKSTART.md)
+
+### 快速验证插件是否正常运行
+
+1. 打开任意含 `.csproj` 或 `.sln` 的目录。
+2. 输入：`这个项目用的什么 .NET 版本？`
+3. 预期：AI 自动检测 TargetFramework 并回答。
+4. 更多验证见 [GUIDE.md](GUIDE.md) 和 [skills/dotnet-workflow/references/plugin-verification.md](skills/dotnet-workflow/references/plugin-verification.md)。
 
 ---
 
@@ -55,6 +68,8 @@ flowchart TD
 ```
 
 **你不需要记任何技能名。** 决策者自动分析项目、对齐需求、加载规范、路由到正确的技能和代理。
+
+在 Grok 环境下，决策者可利用 MCP 工具（GitHub、sandbox bash、file ops）进一步增强上下文获取与验证能力。
 
 ---
 
@@ -88,7 +103,7 @@ AI：我会先做战略设计——Event Storming 发现领域事件，
 ```
 你：我的应用在生产环境一直崩溃——OutOfMemoryException
 AI：有 .dmp 文件吗？
-你：有，C:\dumps\crash.dmp
+你：有，C:\\dumps\\crash.dmp
 
 行为链：dotnet-debugging → 打开转储（WinDbg/dotnet-dump）→
        !analyze -v → !dumpheap -stat 发现 850MB byte[] →
@@ -163,14 +178,15 @@ AI：已捕获规则：TimeProvider 构造函数注入优先。
 | | [dotnet-debugging](skills/dotnet-debugging/SKILL.md) | WinDbg / dotnet-dump 崩溃诊断 | 17 |
 | 运维 | [dotnet-devops](skills/dotnet-devops/SKILL.md) | CI/CD、容器、版本迁移、Git 工作流 | 19 |
 | | [dotnet-tooling](skills/dotnet-tooling/SKILL.md) | 项目结构、AOT、CLI、性能、代码质量、模板引擎 | 41 |
-| 增强 | [dotnet-ai](skills/dotnet-ai/SKILL.md) | MCP 服务器、Semantic Kernel、RAG | — |
+| 增强 | [dotnet-ai](skills/dotnet-ai/SKILL.md) | MCP 服务器、Semantic Kernel、RAG、**xAI Grok 集成** | — |
 | | [dotnet-workflow](skills/dotnet-workflow/SKILL.md) | 并行工作流、上下文管理、验证循环 | 1 |
+| | [dotnet-grok](skills/dotnet-grok/SKILL.md) | Grok MCP 工具、插件维护、学习闭环、健康检查 | 1 |
 
 ---
 
 ## 参考文件
 
-174 个参考文件，横跨 9 个领域。每个文件：核心原则 → 模式 → 反模式 → 决策指南。
+175 个参考文件，横跨 10 个领域。每个文件：核心原则 → 模式 → 反模式 → 决策指南。
 
 | 领域 | 技能 | 数量 | 覆盖 |
 |------|------|------|------|
@@ -183,6 +199,7 @@ AI：已捕获规则：TimeProvider 构造函数注入优先。
 | UI | dotnet-ui | 20 | Blazor、MAUI、Uno、WPF、WinUI、WinForms |
 | 路由 | dotnet-advisor | 2 | 需求对齐、架构发现 |
 | 工作流 | dotnet-workflow | 1 | 插件验证 |
+| Grok | dotnet-grok | 1 | 知识晋升 / MCP 维护 |
 
 完整索引：[INDEX.md](skills/INDEX.md)
 
@@ -201,6 +218,7 @@ AI：已捕获规则：TimeProvider 构造函数注入优先。
 | 交付 | CI/CD / 容器化 / NuGet 发布 / 部署 | dotnet-devops + cloud-specialist |
 | 升级 | .NET 版本迁移 / AOT 迁移 | dotnet-devops + dotnet-tooling |
 | 学习 | 记住项目约定 / 捕获纠错 | dotnet-learning-agent |
+| 维护 | Grok/MCP 维护本插件 | dotnet-grok |
 
 全部行为及路由逻辑：[BEHAVIORS.md](BEHAVIORS.md)
 
@@ -238,8 +256,19 @@ AI：已捕获规则：TimeProvider 构造函数注入优先。
 
 ---
 
+## Grok / xAI 特别说明
+
+- **工具兼容**：插件设计与 Grok 的 MCP 工具（GitHub、sandbox、web_search 等）天然兼容。决策者可调用这些工具获取仓库状态、执行 `dotnet` 命令、验证构建。
+- **学习新知识**：通过 `dotnet-learning-agent` + `dotnet-grok` + Grok 工具，可自动捕获新 .NET 特性、反模式，并更新 skills/references。
+- **正常运行保障**：Hooks 零阻塞；所有技能为只读/增量修改，不会破坏现有项目。详见 GUIDE.md。
+- **人类友好**：完整中文/英文文档、场景示例、验证清单，帮助人类快速上手插件。
+
+---
+
 ## 了解更多
 
+- [QUICKSTART.md](QUICKSTART.md) — **2 分钟验证插件能不能跑**：安装、排障、学习闭环
+- [LEARNING.md](LEARNING.md) — **帮项目学新知识**：三层记忆（MEMORY.md → skills/references → 插件维护）
 - [USAGE.md](USAGE.md) — 先理解再动手：7 项检查清单、4 轮提问框架、领域驱动分析
 - [设计原则](skills/CHEATSHEET.md) — DbContext 即仓储、禁止 FluentValidation、TimeProvider 等核心规范
 - [BEHAVIORS.md](BEHAVIORS.md) — 全部行为目录、决策者路由逻辑、代理触发词

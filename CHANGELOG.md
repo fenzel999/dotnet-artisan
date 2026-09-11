@@ -1,5 +1,119 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-09-11)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / **PR #16** via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` is still 11 skills / 174 refs, marketplace owner `fenzel`, plugin.json 1.0.2 without explicit `hooks`/`skills` paths.
+- Plugin on `main` is structurally runnable (official `hooks/hooks.json` + 3 zero-block scripts). Humans should use QUICKSTART after install.
+- Remaining gap: loaders that skip directory auto-discovery may miss `skills/` if only `agents`/`hooks` are declared.
+
+### Updated
+- `.claude-plugin/plugin.json` — declare `"skills": "./skills/"` alongside agents and hooks.
+- `.github/workflows/plugin-validate.yml` — assert hooks path and skills path in the manifest.
+
+Waiting for human review — do not auto-merge.
+
+## Unreleased — Grok Optimizations (2026-09-10)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / **PR #16** via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` is still 11 skills / 174 refs, marketplace owner `fenzel`, plugin.json 1.0.2 without explicit `hooks`.
+- `grok_update` already contains the human path (QUICKSTART / LEARNING), `dotnet-grok` skill, plugin-validate CI, plugin.json 1.0.3 + hooks field, marketplace owner `fenzel999`.
+- Plugin remains structurally runnable on `main` (hooks at `hooks/hooks.json` + zero-block scripts). Humans should still use QUICKSTART smoke tests after install.
+
+Waiting for human review — do not auto-merge.
+
+## Unreleased — Grok Optimizations (2026-09-09)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` is still 11 skills / 174 refs, marketplace owner `fenzel`, plugin.json 1.0.2 without an explicit `hooks` field.
+- Official spec: hooks live at `hooks/hooks.json` *or* `plugin.json` `hooks` path. Branch already had the file; manifest now points at it so loaders that skip directory auto-discovery still activate harness.
+
+### Fixed
+- `.claude-plugin/plugin.json` — added `"hooks": "./hooks/hooks.json"` and `homepage`.
+
+Waiting for human review — do not auto-merge.
+
+## Unreleased — Grok Optimizations (2026-09-07)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- Remaining English-doc gap: `GUIDE.en.md` still pointed at a broken `plugin-verification.md` path and had no 2-minute / `dotnet-grok` path; `README.en.md` badge still said 174 refs and omitted QUICKSTART/LEARNING.
+
+### Fixed
+- `GUIDE.en.md` verification link → `skills/dotnet-workflow/references/plugin-verification.md`.
+- `README.en.md` badge and reference table → **175** refs + Grok domain row.
+
+### Updated
+- `GUIDE.en.md` — 2-minute path, smoke tests, Pattern 6 plugin maintenance, `dotnet-grok` tips.
+- `README.en.md` further reading now includes QUICKSTART.md and LEARNING.md.
+
+Waiting for human review — do not auto-merge.
+
+## Unreleased — Grok Optimizations (2026-09-06)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` is still 11 skills / 174 refs; humans land on the long GUIDE first; marketplace owner on `main` is still `fenzel`.
+- Remaining gap: README “了解更多” listed QUICKSTART but not LEARNING.md.
+
+### Updated
+- `README.md` — further reading now includes [LEARNING.md](LEARNING.md) (three-layer memory).
+
+Waiting for human review — do not auto-merge.
+
+## Unreleased — Grok Optimizations (2026-09-05)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` still ships 11 skills / 174 refs and marketplace owner `fenzel`; humans land on the long GUIDE first.
+- Remaining gap: GUIDE.md on this branch still had no pointer to QUICKSTART / LEARNING / dotnet-grok.
+
+### Updated
+- `GUIDE.md` — top-of-file 2-minute path; install section links QUICKSTART; §4.10 `dotnet-grok`; learning promotion points to LEARNING.md.
+
+Waiting for human review — do not auto-merge.
+
+## Unreleased — Grok Optimizations (2026-09-04)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / PR #16 via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` still has marketplace owner `fenzel` (not `fenzel999`) and USAGE.md with no human quickstart / Grok route.
+
+### Fixed
+- `marketplace.json` owner now `fenzel999` + GitHub URL (matches plugin.json author).
+- USAGE.md lunch-order example cutoff wording restored to “下午3点”.
+
+### Updated
+- `USAGE.md` — humans pointed to QUICKSTART/LEARNING; routing tree includes `dotnet-grok`.
+- `.github/workflows/plugin-validate.yml` — require ≥12 skills, ≥14 agents, ≥175 reference files, author URL contains fenzel999.
+
+Waiting for human review — do not auto-merge.
+
+## Unreleased — Grok Optimizations (2026-09-03)
+
+### Analysis (this session)
+- Re-analyzed `main` via GitHub MCP. Plugin on `main` is already structurally runnable: official `hooks/hooks.json` + 3 zero-block hook scripts, 11 skills, 14 agents, 174 references.
+- Confirmed branch `grok_update` and open **PR #16** already exist. Did not recreate the branch or open a second PR.
+- Remaining human/learning gap: `BEHAVIORS.md` still matched `main` (no Grok / knowledge-promotion routes); humans had QUICKSTART but no dedicated teach-the-plugin page.
+
+### Added
+- `LEARNING.md` — three-layer memory (MEMORY.md → shared skills → plugin maintenance).
+
+### Updated
+- `BEHAVIORS.md` — Level Up + routing examples for `dotnet-grok` and knowledge promotion.
+- `QUICKSTART.md` — points to LEARNING.md.
+
+Waiting for human review — do not auto-merge.
+
+## Unreleased — Grok Optimizations (2026-09-01)
+
+### Fixed
+- README / README.en / AGENTS / CLAUDE reference counts → **12 skills · 14 agents · 175 refs**.
+- README further reading includes [QUICKSTART.md](QUICKSTART.md).
+
 ## 1.0.2 (2026-05-31) — Fix: move user guides out of skills/ to root
 
 ### Fixed
