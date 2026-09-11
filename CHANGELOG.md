@@ -1,5 +1,19 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-09-11)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / **PR #16** via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` is still 11 skills / 174 refs, marketplace owner `fenzel`, plugin.json 1.0.2 without explicit `hooks`/`skills` paths.
+- Plugin on `main` is structurally runnable (official `hooks/hooks.json` + 3 zero-block scripts). Humans should use QUICKSTART after install.
+- Remaining gap: loaders that skip directory auto-discovery may miss `skills/` if only `agents`/`hooks` are declared.
+
+### Updated
+- `.claude-plugin/plugin.json` — declare `"skills": "./skills/"` alongside agents and hooks.
+- `.github/workflows/plugin-validate.yml` — assert hooks path and skills path in the manifest.
+
+Waiting for human review — do not auto-merge.
+
 ## Unreleased — Grok Optimizations (2026-09-10)
 
 ### Analysis (this session)

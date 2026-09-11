@@ -30,7 +30,11 @@ jobs:
           assert plugin.get('name') == 'dotnet-artisan'
           author_url = (plugin.get('author') or {}).get('url', '')
           assert 'fenzel999' in author_url, author_url
-          print('OK plugin author url')
+          hooks = plugin.get('hooks') or ''
+          assert 'hooks/hooks.json' in hooks.replace('\\', '/'), hooks
+          skills = plugin.get('skills') or ''
+          assert 'skills' in skills.replace('\\', '/'), skills
+          print('OK plugin author url, hooks, skills')
           PY
       - name: Require SKILL.md in every skill folder
         run: |

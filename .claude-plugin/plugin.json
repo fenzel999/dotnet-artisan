@@ -9,6 +9,7 @@
   "homepage": "https://github.com/fenzel999/dotnet-artisan",
   "repository": "https://github.com/fenzel999/dotnet-artisan",
   "license": "MIT",
+  "skills": "./skills/",
   "agents": "./agents/",
   "hooks": "./hooks/hooks.json"
 }
