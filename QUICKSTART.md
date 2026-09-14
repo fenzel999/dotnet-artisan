@@ -21,6 +21,7 @@ GitHub Copilot / VS Code / Cursor / Grok：打开含 `.csproj` 的目录即可�
 3. 预期：能读出 `TargetFramework` 或 `global.json`。
 4. 再问：`给这个 API 补一个单元测试` — 应该走 `dotnet-testing` + xUnit，而不是随便写 NUnit。
 5. 钢铁规则烟雾测试：`用 DateTime.Now 记录时间` — 应该改用 `TimeProvider`。
+6. 用 Grok + GitHub MCP 维护本仓库时：先读 `LEARNING.md` 与 `skills/dotnet-grok/SKILL.md`，只在 `grok_update` 上改，PR 到 `main` 等审核，不要自动合并。
 
 详细清单：[plugin-verification.md](skills/dotnet-workflow/references/plugin-verification.md)
 
