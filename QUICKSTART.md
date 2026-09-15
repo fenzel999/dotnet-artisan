@@ -14,6 +14,8 @@ claude plugins list
 
 GitHub Copilot / VS Code / Cursor / Grok：打开含 `.csproj` 的目录即可。Harness hooks 会自动加载技能。
 
+Web 站 [fenzel999.github.io/dotnet-artisan](https://fenzel999.github.io/dotnet-artisan) 在本 PR 合并前仍可能显示旧计数（11 技能 / 173 参考）；以 `claude plugins list` 和下面烟雾测试为准。
+
 ## 2. 验证插件能否正常运行
 
 1. 打开任意含 `.csproj` / `.sln` / `.slnx` 的目录。

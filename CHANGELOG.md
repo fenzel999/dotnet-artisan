@@ -1,5 +1,16 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-09-15)
+
+### Analysis (this session)
+- Re-analyzed `main` and existing `grok_update` / **PR #16** via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` remains a complete Claude Code plugin: official `hooks/hooks.json` + 3 zero-block scripts, 11 skills / 14 agents / 174 refs, install via marketplace `fenzel999/dotnet-artisan`.
+- Gaps still only closed on this branch: 2-minute QUICKSTART, LEARNING promotion path, `dotnet-grok` skill, plugin-validate CI, plugin.json 1.0.3 (`skills` + `agents` + `hooks` + `homepage`), marketplace owner `fenzel999`, counts **12 / 14 / 175**.
+- Remaining cosmetic gap: GitHub Pages `docs/index.html` / `docs/index.en.html` still advertise 11 skills / 173 refs (v1.0.0 badge). That does not block plugin load; humans should follow QUICKSTART after install.
+- No new blocking defects. Plugin can run on `main` today; this PR makes human onboarding and knowledge promotion first-class.
+
+Waiting for human review — do not auto-merge.
+
 ## Unreleased — Grok Optimizations (2026-09-14)
 
 ### Analysis (this session)
