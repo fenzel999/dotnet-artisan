@@ -1,12 +1,15 @@
 {
   "name": "dotnet-artisan",
-  "version": "1.0.2",
-  "description": "Comprehensive .NET development skills and agents for Claude Code — covering C#, ASP.NET Core, Blazor, MAUI, EF Core, testing, debugging, DevOps, and more",
+  "version": "1.0.3",
+  "description": "Comprehensive .NET development skills and agents for Claude Code and Grok (xAI) — covering C#, ASP.NET Core, Blazor, MAUI, EF Core, testing, debugging, DevOps, AI/MCP, and more. Zero-config decision-maker orchestration.",
   "author": {
     "name": "Yatao Feng",
-    "url": "https://github.com/fenzel"
+    "url": "https://github.com/fenzel999"
   },
+  "homepage": "https://github.com/fenzel999/dotnet-artisan",
   "repository": "https://github.com/fenzel999/dotnet-artisan",
   "license": "MIT",
-  "agents": ["./agents/"]
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "hooks": "./hooks/hooks.json"
 }

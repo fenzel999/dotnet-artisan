@@ -2,6 +2,8 @@
 
 How to get the most out of the dotnet-artisan plugin for .NET development.
 
+**2-minute human path:** [QUICKSTART.md](QUICKSTART.md) → install → ask “What .NET version is this project targeting?” → [LEARNING.md](LEARNING.md) if you want the plugin to remember conventions.
+
 ## Getting Started
 
 ### Installation
@@ -10,13 +12,20 @@ How to get the most out of the dotnet-artisan plugin for .NET development.
 # One-time setup
 claude plugins marketplace add fenzel999/dotnet-artisan
 claude plugins install dotnet-artisan
+claude plugins list
 ```
 
-No further configuration needed. Open any .NET project and the plugin auto-activates via harness hooks.
+No further configuration needed. Open any .NET project and the plugin auto-activates via harness hooks. Full checklist: [QUICKSTART.md](QUICKSTART.md).
 
 ### Verify It's Working
 
-See [plugin-verification.md](plugin-verification.md) for a step-by-step verification guide.
+See [plugin-verification.md](skills/dotnet-workflow/references/plugin-verification.md) for a step-by-step verification guide.
+
+Smoke tests:
+
+1. Open a folder with a `.csproj` / `.sln` / `.slnx`.
+2. Ask: `What .NET version is this project targeting?` — expect TargetFramework / `global.json`.
+3. Ask: `Use DateTime.Now to record time` — expect `TimeProvider` instead.
 
 ## Daily Workflow Patterns
 
@@ -61,6 +70,8 @@ Routes to `dotnet-learning-agent`. The agent:
 2. Stores it in `.claude/MEMORY.md`
 3. Applies it in future sessions
 
+Promote a rule that should apply to **every** user of this plugin via [LEARNING.md](LEARNING.md) and [knowledge-promotion.md](skills/dotnet-grok/references/knowledge-promotion.md).
+
 **Do**: Teach patterns as you go — the plugin compounds knowledge over time.
 
 ### Pattern 4: Debugging a Crash
@@ -83,6 +94,14 @@ Routes to `dotnet-code-lifecycle-agent`. Runs the 7-step pipeline:
 1. Formatting → 2. Unused usings → 3. Fix warnings → 4. Remove dead code → 5. Resolve TODOs → 6. Seal classes → 7. CancellationToken audit
 
 Each step is verified with `dotnet build && dotnet test` before proceeding.
+
+### Pattern 6: Maintaining this plugin (Grok / MCP)
+
+```
+You: "Analyze this repo, optimize on grok_update, open a PR to main"
+```
+
+Routes to `dotnet-grok` without replacing `dotnet-advisor`. Work stays additive; PRs wait for human review.
 
 ## Skill-Specific Tips
 
@@ -115,6 +134,11 @@ Each step is verified with `dotnet build && dotnet test` before proceeding.
 - Ask about Blazor render modes explicitly (Server vs WASM vs Auto vs Hybrid)
 - For MAUI, specify target platforms (iOS, Android, Windows, macOS)
 - For cross-platform beyond MAUI's reach, ask about Uno Platform
+
+### dotnet-grok
+- Load when working under Grok/xAI MCP, verifying plugin health, or promoting knowledge into `skills/`
+- Never auto-merge PRs whose goal is human review
+- Keep hooks at `hooks/hooks.json` and keep the advisor as the primary router
 
 ## Combining Skills for Complex Tasks
 
@@ -179,4 +203,4 @@ Use the learning agent explicitly:
 ```
 "Remember that this project uses custom IResult types instead of TypedResults"
 ```
-This stores the rule in MEMORY.md for future sessions.
+This stores the rule in MEMORY.md for future sessions. Cross-user rules: [LEARNING.md](LEARNING.md).
