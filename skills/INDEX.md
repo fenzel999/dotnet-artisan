@@ -1,7 +1,7 @@
 # Skill Reference Index
 Quick navigation for all reference files. Each file contains implementation patterns + anti-patterns.
 
-**Jump to:** [API & Backend](#api--backend) · [C# Language](#c-language) · [Debugging](#debugging) · [DevOps](#devops) · [Testing](#testing) · [Tooling](#tooling) · [UI](#ui) · [Workflow](#workflow)
+**Jump to:** [API & Backend](#api--backend) · [C# Language](#c-language) · [Debugging](#debugging) · [DevOps](#devops) · [Testing](#testing) · [Tooling](#tooling) · [UI](#ui) · [Workflow](#workflow) · [Grok / xAI](#grok--xai)
 
 ## API & Backend
 | File | Topic |
@@ -206,3 +206,9 @@ Quick navigation for all reference files. Each file contains implementation patt
 | File | Topic |
 |------|-------|
 | [plugin-verification.md](dotnet-workflow/references/plugin-verification.md) | Plugin installation verification and troubleshooting |
+
+## Grok / xAI
+| File | Topic |
+|------|-------|
+| [dotnet-grok/SKILL.md](dotnet-grok/SKILL.md) | Grok + xAI MCP tools, sandbox, GitHub integration for plugin maintenance |
+| [knowledge-promotion.md](dotnet-grok/references/knowledge-promotion.md) | Promote session corrections into shared skill references |
