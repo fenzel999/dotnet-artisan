@@ -2,7 +2,7 @@
 
 目标：让人类在 2 分钟内确认插件能装上、能跑、能学习。
 
-最近复核：2026-09-28。分支 `grok_update` → PR #16 → `main`，**等待人审，不要自动合并**。
+最近复核：2026-09-29。分支 `grok_update` → PR #16 → `main`，**等待人审，不要自动合并**。
 
 ## 1. 安装
 
@@ -16,7 +16,7 @@ claude plugins list
 
 GitHub Copilot / VS Code / Cursor / Grok：打开含 `.csproj` 的目录即可。Harness hooks 会自动加载技能。
 
-Web 站 [fenzel999.github.io/dotnet-artisan](https://fenzel999.github.io/dotnet-artisan) 在本 PR 合并前仍可能显示旧计数（11 技能 / 173 参考）；以 `claude plugins list` 和下面烟雾测试为准。
+合并后 GitHub Pages 展示 **12 技能 / 14 代理 / 175 参考**。合并前若站点仍显示旧计数，以 `claude plugins list` 和下面烟雾测试为准。
 
 ## 2. 验证插件能否正常运行
 
