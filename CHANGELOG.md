@@ -1,17 +1,17 @@
 # Changelog
 
-## Unreleased — Grok Optimizations (2026-09-28)
+## Unreleased — Grok Optimizations (2026-09-30)
 
 ### Analysis (this session)
-- Re-analyzed `main` and existing `grok_update` / **PR #16** via GitHub MCP as `fenzel999`. Did not recreate the branch or open a second PR.
-- `main` SHA `55647e56` is still a complete Claude Code plugin: official `hooks/hooks.json` + 3 zero-block scripts, 11 skills / 14 agents / 174 refs, install via `claude plugins marketplace add fenzel999/dotnet-artisan` then `claude plugins install dotnet-artisan`.
-- `grok_update` already closes human + learning gaps: QUICKSTART, LEARNING, CONTRIBUTING, SECURITY, `dotnet-grok` + knowledge-promotion, plugin-validate CI, plugin.json 1.0.3 (`skills` + `agents` + `hooks` + `homepage`), marketplace owner `fenzel999`, counts **12 / 14 / 175**.
-- Remaining cosmetic gap: GitHub Pages `docs/index.html` on `main` still advertises older counts until this PR merges. Humans should trust `claude plugins list` + QUICKSTART smoke tests.
-- No new blocking defects. Plugin can run on `main` today; this PR makes human onboarding and knowledge promotion first-class.
+- Re-analyzed `main` and existing `grok_update` / **PR #16** via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` SHA `55647e56` remains a complete Claude Code plugin: official `hooks/hooks.json` + 3 zero-block scripts, 11 skills / 14 agents / 174 refs.
+- Install: `claude plugins marketplace add fenzel999/dotnet-artisan` then `claude plugins install dotnet-artisan`.
+- `grok_update` already closes human + learning gaps: QUICKSTART, LEARNING, CONTRIBUTING, SECURITY, `dotnet-grok` + knowledge-promotion, plugin-validate CI, counts **12 / 14 / 175**.
+- No new blocking defects found on 2026-09-30. Plugin can run on `main` today; this PR makes human onboarding and knowledge promotion first-class.
 
 Waiting for human review — do not auto-merge.
 
-## Unreleased — Grok Optimizations (2026-09-27 … 2026-09-01)
+## Unreleased — Grok Optimizations (2026-09-29 … 2026-09-01)
 
 Daily re-audits on existing `grok_update` / PR #16. Did not recreate the branch or open a second PR. Added/confirmed:
 
