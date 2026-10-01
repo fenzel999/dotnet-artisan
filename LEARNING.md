@@ -28,6 +28,10 @@
 4. **写入** — 会话级 `MEMORY.md`；稳定规则走 promotion playbook。
 5. **验证** — 插件本身的改动只提 PR 到 `main`，等待人审。
 
+## 已学会的维护规则（2026-10-01）
+
+Claude Code 插件的 `SessionStart` matcher 匹配会话来源（`startup|resume|clear|compact|fork`），不是文件名。写成 `*.cs` 时钩子不会跑，插件看起来已安装但不会注入 .NET 上下文。脚本应读 stdin 里的 `cwd`，并输出 `hookSpecificOutput.additionalContext`。来源：[Hooks reference](https://code.claude.com/docs/en/hooks)。
+
 ## 不要做的
 
 - 不要把人类指南塞进 `skills/`（人看的放仓库根：QUICKSTART / GUIDE / LEARNING）。
