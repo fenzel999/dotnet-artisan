@@ -28,9 +28,13 @@
 4. **写入** — 会话级 `MEMORY.md`；稳定规则走 promotion playbook。
 5. **验证** — 插件本身的改动只提 PR 到 `main`，等待人审。
 
-## 已学会的维护规则（2026-10-01）
+## 已学会的维护规则（2026-10-02）
 
-Claude Code 插件的 `SessionStart` matcher 匹配会话来源（`startup|resume|clear|compact|fork`），不是文件名。写成 `*.cs` 时钩子不会跑，插件看起来已安装但不会注入 .NET 上下文。脚本应读 stdin 里的 `cwd`，并输出 `hookSpecificOutput.additionalContext`。来源：[Hooks reference](https://code.claude.com/docs/en/hooks)。
+Claude Code 插件的 `SessionStart` matcher 匹配会话来源（`startup|resume|clear|compact|fork`），不是文件名。写成 `*.cs` 时钩子不会跑，插件看起来已安装但不会注入 .NET 上下文。
+
+`SessionStart` 和 `UserPromptSubmit` 都要读 stdin 里的 `cwd`，不能只用 `process.cwd()`。进程工作目录和会话目录不一致时，提示钩子会把 .NET 仓库判成非 .NET，路由提醒不会出现。输出必须是 `hookSpecificOutput.additionalContext`，且始终 exit 0。来源：[Hooks reference](https://code.claude.com/docs/en/hooks)。
+
+F# 项目（`.fsproj` / `.fs`）也算 .NET 仓库，检测不能只看 `.csproj`。
 
 ## 不要做的
 
