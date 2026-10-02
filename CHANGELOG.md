@@ -1,13 +1,19 @@
 # Changelog
 
+## Unreleased — Grok Optimizations (2026-10-02)
+
+### Fixed
+- **UserPromptSubmit scanned the wrong directory.** `user-prompt-dotnet-reminder.js` parsed the prompt from hook stdin but still walked `process.cwd()`. If the hook process cwd is not the session cwd, a .NET repo got no routing reminder. It now uses stdin `cwd` (fallback `process.cwd()`), skips `bin`/`obj`, and treats `.fsproj` / `.fs` as .NET.
+- Recorded the rule in `LEARNING.md` so the next maintenance pass does not regress it.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
 ## Unreleased — Grok Optimizations (2026-10-01)
 
 ### Fixed
 - **SessionStart never matched.** `hooks/hooks.json` used file globs (`*.cs|*.csproj|...`). Official SessionStart matchers filter session source (`startup|resume|clear|compact|fork`), so the harness did not inject .NET context after install. Matcher is now `startup|resume|clear|compact|fork`.
 - **Hook cwd and output schema.** `session-start-context.js` now reads `cwd` from hook stdin (falls back to `process.cwd()`) and prints `hookSpecificOutput.additionalContext` so Claude Code actually receives the routing reminder. Still exits 0.
 - CI asserts the SessionStart matcher contains session sources and not `*.`.
-
-Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
 
 ## Unreleased — Grok Optimizations (2026-09-30)
 
