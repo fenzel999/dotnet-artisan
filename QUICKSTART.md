@@ -2,7 +2,7 @@
 
 目标：让人类在 2 分钟内确认插件能装上、能跑、能学习。
 
-最近复核：2026-09-30。分支 `grok_update` → PR #16 → `main`，**等待人审，不要自动合并**。
+最近复核：2026-10-02。分支 `grok_update` → PR #16 → `main`，**等待人审，不要自动合并**。
 
 ## 1. 安装
 
@@ -20,11 +20,11 @@ GitHub Copilot / VS Code / Cursor / Grok：打开含 `.csproj` 的目录即可�
 
 ## 2. 验证插件能否正常运行
 
-1. 打开任意含 `.csproj` / `.sln` / `.slnx` 的目录。
+1. 打开任意含 `.csproj` / `.fsproj` / `.sln` / `.slnx` 的目录。
 2. 问：`这个项目用的什么 .NET 版本？`
-3. 预期：能读出 `TargetFramework` 或 `global.json`。
+3. 预期：能读出 `TargetFramework` 或 `global.json`。新会话应该能看到 SessionStart 注入的路由提醒（`using-dotnet` → `dotnet-advisor`）。
 4. 再问：`给这个 API 补一个单元测试` — 应该走 `dotnet-testing` + xUnit，而不是随便写 NUnit。
-5. 钢铁规则烟雾测试：`用 DateTime.Now 记录时间` — 应该改用 `TimeProvider`。
+5. 钢铁规则烟雾测试：`用 DateTime.Now 记录时间` — 应该改用 `TimeProvider`。net10.0+ 不要新加 FluentValidation，用 `AddValidation()`。
 6. 用 Grok + GitHub MCP 维护本仓库时：先读 `LEARNING.md` 与 `skills/dotnet-grok/SKILL.md`，只在 `grok_update` 上改，PR 到 `main` 等审核，不要自动合并。
 
 详细清单：[plugin-verification.md](skills/dotnet-workflow/references/plugin-verification.md)
@@ -34,7 +34,8 @@ GitHub Copilot / VS Code / Cursor / Grok：打开含 `.csproj` 的目录即可�
 | 现象 | 先查 |
 |------|------|
 | `plugins list` 没有插件 | 重跑两条安装命令；确认 marketplace 源是 `fenzel999/dotnet-artisan` |
-| 问版本却不读 csproj | 当前目录有没有 `.csproj` / `.sln`；hooks 只在 .NET 项目里注入上下文 |
+| 问版本却不读 csproj | 当前目录有没有 `.csproj` / `.sln`；SessionStart matcher 必须是 `startup\|resume\|clear\|compact\|fork`，不能是文件名 glob |
+| 提示钩子没触发 | 脚本必须读 stdin 的 `cwd`，不能只扫 `process.cwd()`；输出必须是 `hookSpecificOutput.additionalContext` |
 | 常用 DateTime.Now / FluentValidation | 看 [CHEATSHEET.md](skills/CHEATSHEET.md)；这是决策者的钢铁规则 |
 | 想改插件本身 | 走 `dotnet-grok`，只在 `grok_update` 上改，PR 到 `main` 等审核 |
 
