@@ -2,7 +2,7 @@
 
 **让你的 AI 编码代理真正精通 .NET。** 即装即用，零配置。
 
-[![English](https://img.shields.io/badge/English-README-blue)](README.en.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 12 技能 · 14 代理 · 175 参考文件 · 30+ 行为
+[![English](https://img.shields.io/badge/English-README-blue)](README.en.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 13 技能 · 14 代理 · 176 参考文件 · 30+ 行为
 
 > **Grok / xAI 兼容优化版**：完整支持 Grok 的工具调用（GitHub MCP、sandbox bash、文件操作等）、增强插件在 AI 代理环境下的正常运行，并帮助项目持续学习新的 .NET + AI 知识。
 

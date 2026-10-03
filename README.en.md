@@ -2,7 +2,7 @@
 
 **Makes your AI coding agent actually good at .NET.** Install and go. Zero config.
 
-[![中文](https://img.shields.io/badge/中文-README-red)](README.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 12 skills · 14 agents · 175 references · 30+ behaviors
+[![中文](https://img.shields.io/badge/中文-README-red)](README.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 13 skills · 14 agents · 176 references · 30+ behaviors
 
 > **Grok / xAI optimized**: Full support for Grok tool calling (GitHub MCP, sandbox bash, file ops), stronger plugin reliability under AI agents, and continuous learning of new .NET + AI knowledge.
 
@@ -185,7 +185,7 @@ Chain: dotnet-learning-agent → detect correction → generalize rule →
 
 ## Reference Files
 
-175 reference files across 10 domains. Each file: Core Principles → Patterns → Anti-patterns → Decision Guide.
+176 reference files across 10 domains. Each file: Core Principles → Patterns → Anti-patterns → Decision Guide.
 
 | Domain | Skill | Count | Covers |
 |--------|------|-------|--------|

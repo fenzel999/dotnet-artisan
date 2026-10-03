@@ -72,5 +72,7 @@ jobs:
           node --check scripts/hooks/session-start-context.js
           node --check scripts/hooks/user-prompt-dotnet-reminder.js
           node --check scripts/hooks/check-self-doc.js
+      - name: Smoke-test harness hooks
+        run: node scripts/hooks/smoke-test.js
       - name: Hooks path must match official plugin spec
         run: test -f hooks/hooks.json

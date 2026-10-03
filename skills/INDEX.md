@@ -1,7 +1,7 @@
 # Skill Reference Index
 Quick navigation for all reference files. Each file contains implementation patterns + anti-patterns.
 
-**Jump to:** [API & Backend](#api--backend) · [C# Language](#c-language) · [Debugging](#debugging) · [DevOps](#devops) · [Testing](#testing) · [Tooling](#tooling) · [UI](#ui) · [Workflow](#workflow) · [Grok / xAI](#grok--xai)
+**Jump to:** [API & Backend](#api--backend) · [C# Language](#c-language) · [Debugging](#debugging) · [DevOps](#devops) · [Testing](#testing) · [Tooling](#tooling) · [UI](#ui) · [Workflow](#workflow) · [Learning](#learning) · [Grok / xAI](#grok--xai)
 
 ## API & Backend
 | File | Topic |
@@ -212,3 +212,9 @@ Quick navigation for all reference files. Each file contains implementation patt
 |------|-------|
 | [dotnet-grok/SKILL.md](dotnet-grok/SKILL.md) | Grok + xAI MCP tools, sandbox, GitHub integration for plugin maintenance |
 | [knowledge-promotion.md](dotnet-grok/references/knowledge-promotion.md) | Promote session corrections into shared skill references |
+
+
+## Learning
+| File | Topic |
+|------|-------|
+| [capture-template.md](dotnet-learning/references/capture-template.md) | How to store a correction or verified fact in MEMORY.md |

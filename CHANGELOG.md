@@ -1,5 +1,18 @@
 # Changelog
 
+## 1.0.4 (2026-10-03) — Learning skill and harness smoke test
+
+### Added
+- **dotnet-learning skill** — human-facing capture flow for corrections and verified facts, with `references/capture-template.md`. The learning agent previously pointed at workflow memory with no skill of its own.
+- **scripts/hooks/smoke-test.js** — creates a temporary `net10.0` project and checks SessionStart reports the TFM and UserPromptSubmit routes to `using-dotnet` without repeating after the skill is requested.
+- CI step runs the hook smoke test on pull requests.
+
+### Fixed
+- Marketplace and README skill/reference counts now include `dotnet-learning` (13 skills, 176 reference files, 14 agents).
+
+
+
+
 ## Unreleased — Grok Optimizations (2026-10-02)
 
 ### Fixed
