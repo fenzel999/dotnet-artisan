@@ -1,5 +1,52 @@
 # Changelog
 
+## 1.0.4 (2026-10-03) — Learning skill and harness smoke test
+
+### Added
+- **dotnet-learning skill** — human-facing capture flow for corrections and verified facts, with `references/capture-template.md`. The learning agent previously pointed at workflow memory with no skill of its own.
+- **scripts/hooks/smoke-test.js** — creates a temporary `net10.0` project and checks SessionStart reports the TFM and UserPromptSubmit routes to `using-dotnet` without repeating after the skill is requested.
+- CI step runs the hook smoke test on pull requests.
+
+### Fixed
+- Marketplace and README skill/reference counts now include `dotnet-learning` (13 skills, 176 reference files, 14 agents).
+
+
+
+
+## Unreleased — Grok Optimizations (2026-10-02)
+
+### Fixed
+- **UserPromptSubmit scanned the wrong directory.** `user-prompt-dotnet-reminder.js` parsed the prompt from hook stdin but still walked `process.cwd()`. If the hook process cwd is not the session cwd, a .NET repo got no routing reminder. It now uses stdin `cwd` (fallback `process.cwd()`), skips `bin`/`obj`, and treats `.fsproj` / `.fs` as .NET.
+- Recorded the rule in `LEARNING.md` so the next maintenance pass does not regress it.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
+## Unreleased — Grok Optimizations (2026-10-01)
+
+### Fixed
+- **SessionStart never matched.** `hooks/hooks.json` used file globs (`*.cs|*.csproj|...`). Official SessionStart matchers filter session source (`startup|resume|clear|compact|fork`), so the harness did not inject .NET context after install. Matcher is now `startup|resume|clear|compact|fork`.
+- **Hook cwd and output schema.** `session-start-context.js` now reads `cwd` from hook stdin (falls back to `process.cwd()`) and prints `hookSpecificOutput.additionalContext` so Claude Code actually receives the routing reminder. Still exits 0.
+- CI asserts the SessionStart matcher contains session sources and not `*.`.
+
+## Unreleased — Grok Optimizations (2026-09-30)
+
+### Analysis
+- Re-analyzed `main` and existing `grok_update` / **PR #16** via GitHub MCP. Did not recreate the branch or open a second PR.
+- `main` remains a complete Claude Code plugin: official `hooks/hooks.json` + 3 zero-block scripts, 11 skills / 14 agents / 174 refs.
+- Install: `claude plugins marketplace add fenzel999/dotnet-artisan` then `claude plugins install dotnet-artisan`.
+- `grok_update` closes human + learning gaps: QUICKSTART, LEARNING, CONTRIBUTING, SECURITY, `dotnet-grok` + knowledge-promotion, plugin-validate CI, counts **12 / 14 / 175**.
+
+## Unreleased — Grok Optimizations (2026-09-29 … 2026-09-01)
+
+Added/confirmed on existing `grok_update` / PR #16:
+
+- QUICKSTART / LEARNING / CONTRIBUTING / SECURITY
+- `skills/dotnet-grok` + knowledge-promotion playbook
+- plugin-validate CI (≥12 skills / ≥14 agents / ≥175 refs + manifest path asserts)
+- plugin.json 1.0.3 with `skills`, `agents`, `hooks`, `homepage`
+- marketplace owner `fenzel999`, counts **12 / 14 / 175**
+- GUIDE / README / BEHAVIORS / USAGE routes for humans and Grok
+
 ## 1.0.2 (2026-05-31) — Fix: move user guides out of skills/ to root
 
 ### Fixed

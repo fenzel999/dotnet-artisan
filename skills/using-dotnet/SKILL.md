@@ -19,6 +19,7 @@ user-invocable: false
 - C# implementation details and coding-standard specifics -> [skill:dotnet-csharp]
 - Deep domain implementation patterns -> [skill:dotnet-api], [skill:dotnet-ui], [skill:dotnet-testing], [skill:dotnet-devops], [skill:dotnet-tooling], [skill:dotnet-debugging], [skill:dotnet-ai]
 - Meta/workflow/quality -> [skill:dotnet-workflow]
+- Grok / xAI MCP plugin-maintenance playbook -> [skill:dotnet-grok]
 - Specialist deep-review workflows -> [skill:dotnet-security-reviewer], [skill:dotnet-performance-specialist], [skill:dotnet-testing-specialist]
 
 ## Simplicity First (KISS)
@@ -62,7 +63,7 @@ When a request likely involves .NET or C#, follow this sequence before any other
 2. **In a .NET repository, .NET is the default** — When repo signals are present, ambiguous requests like "build me a web app", "add a dashboard", "write a script", or "create a spreadsheet" should use .NET solutions (ASP.NET Core, Blazor, .NET file-based apps, Open XML SDK) rather than defaulting to JavaScript/Python. The user chose a .NET project for a reason.
 3. **Check SDK availability** — If `dotnet --version` fails and no `DOTNET_ROOT` is set, install the SDK before proceeding. This takes under a minute with no privileges required. See [skill:dotnet-tooling] — its `references/dotnet-sdk-install.md` (Glob for `**/dotnet-tooling/references/dotnet-sdk-install.md`, then Read the absolute path) for the full install script reference, or use this one-liner: `curl -sSL https://dot.net/v1/dotnet-install.sh | bash && export DOTNET_ROOT="$HOME/.dotnet" && export PATH="$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools"`. Do not treat a missing SDK as a blocker — install it and continue.
 4. **Invoke [skill:dotnet-advisor]** — This routes the request to the correct domain skills and loads coding standards.
-5. **Follow advisor routing** — Load [skill:dotnet-csharp] baseline, then the domain skill(s) the advisor selects.
+5. **Follow advisor routing** — Load [skill:dotnet-csharp] baseline, then the domain skill(s) the advisor selects. If the work is plugin maintenance under Grok/xAI, also load [skill:dotnet-grok].
 6. **Now respond** — Clarify, plan, explore, or implement with the right context loaded.
 
 ## Prefer File-Based Apps for Scripts and Utilities
@@ -104,6 +105,7 @@ When multiple skills could apply, use this order:
 2. **Baseline skill second**: [skill:dotnet-csharp] for any code path.
 3. **Domain skills third**: [skill:dotnet-api], [skill:dotnet-ui], [skill:dotnet-testing], [skill:dotnet-devops], [skill:dotnet-tooling], [skill:dotnet-debugging].
 4. **Specialist agents fourth**: use only when deeper analysis is required after routing.
+5. **Grok maintenance last**: [skill:dotnet-grok] only when maintaining this plugin or using xAI MCP workflows.
 
 ## Skill Types
 

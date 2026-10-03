@@ -3,7 +3,7 @@
 // user-prompt-dotnet-reminder.js -- UserPromptSubmit hook (cross-platform).
 //
 // Silently injects XML routing reminder via additionalContext when the
-// current directory is a .NET repo or the prompt mentions .NET keywords.
+// session cwd is a .NET repo or the prompt mentions .NET keywords.
 //
 // Output: JSON with hookSpecificOutput on stdout.
 // Exit code: always 0 (never blocks).
@@ -29,7 +29,7 @@ function findFiles(dir, maxDepth, test) {
         results.push(full);
         return; // first hit only
       }
-      if (entry.isDirectory() && !entry.name.startsWith(".") && entry.name !== "node_modules") {
+      if (entry.isDirectory() && !entry.name.startsWith(".") && entry.name !== "node_modules" && entry.name !== "bin" && entry.name !== "obj") {
         walk(full, depth + 1);
         if (results.length > 0) return;
       }
@@ -39,15 +39,19 @@ function findFiles(dir, maxDepth, test) {
   return results;
 }
 
-function extractPromptText(jsonPayload) {
-  if (!jsonPayload) return "";
-  let payload;
+function readHookInput() {
   try {
-    payload = JSON.parse(jsonPayload);
+    if (process.stdin.isTTY) return {};
+    const raw = fs.readFileSync(0, "utf8");
+    if (!raw || !raw.trim()) return {};
+    return JSON.parse(raw);
   } catch {
-    return "";
+    return {};
   }
-  if (typeof payload !== "object" || payload === null) return "";
+}
+
+function extractPromptText(payload) {
+  if (!payload || typeof payload !== "object") return "";
 
   const candidates = [
     payload.prompt,
@@ -81,29 +85,19 @@ function emit(ctx) {
 }
 
 try {
-  // Read optional hook payload from stdin.
-  let inputJson = "";
-  if (!process.stdin.isTTY) {
-    try {
-      inputJson = fs.readFileSync(0, "utf8");
-    } catch {
-      // no stdin or read failure
-    }
-  }
+  const input = readHookInput();
+  const promptText = extractPromptText(input);
+  const cwd = input.cwd && fs.existsSync(input.cwd) ? input.cwd : process.cwd();
 
-  const promptText = extractPromptText(inputJson);
-  const cwd = process.cwd();
-
-  // Check if current directory looks like a .NET repo.
   const hasSolution = findFiles(cwd, 3, (n) => n.endsWith(".sln") || n.endsWith(".slnx")).length > 0;
-  const hasCsproj = findFiles(cwd, 3, (n) => n.endsWith(".csproj")).length > 0;
-  const hasCs = findFiles(cwd, 4, (n) => n.endsWith(".cs")).length > 0;
+  const hasCsproj = findFiles(cwd, 3, (n) => n.endsWith(".csproj") || n.endsWith(".fsproj")).length > 0;
+  const hasCs = findFiles(cwd, 4, (n) => n.endsWith(".cs") || n.endsWith(".fs")).length > 0;
   const hasGlobalJson = fs.existsSync(path.join(cwd, "global.json"));
 
   const isDotnetRepo = hasSolution || hasCsproj || hasCs || hasGlobalJson;
 
   const dotnetPattern =
-    /(^|[^a-zA-Z0-9_])(dotnet|\.net|c#|csproj|slnx?|msbuild|nuget|roslyn|xunit|asp\.?net|blazor|maui|winui|wpf|winforms|entity framework|ef core|benchmarkdotnet|f#)([^a-zA-Z0-9_]|$)/i;
+    /(^|[^a-zA-Z0-9_])(dotnet|\.net|c#|f#|csproj|fsproj|slnx?|msbuild|nuget|roslyn|xunit|asp\.?net|blazor|maui|winui|wpf|winforms|entity framework|ef core|benchmarkdotnet)([^a-zA-Z0-9_]|$)/i;
   const dotnetPrompt = promptText ? dotnetPattern.test(promptText) : false;
 
   const usingDotnetPattern =
@@ -128,7 +122,6 @@ try {
 
   emit(msg);
 } catch {
-  // Never block -- emit empty context on any error.
   emit("");
 }
 
