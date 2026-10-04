@@ -36,6 +36,12 @@ Claude Code 插件的 `SessionStart` matcher 匹配会话来源（`startup|resum
 
 F# 项目（`.fsproj` / `.fs`）也算 .NET 仓库，检测不能只看 `.csproj`。
 
+## 已学会的维护规则（2026-10-04）
+
+`PostToolUse` 的工具参数在 stdin JSON 的 `tool_input.file_path`，不在 `CLAUDE_TOOL_INPUT` 环境变量。只读环境变量时，新建领域文件的“一行用途注释”提醒永远不会出现，30 秒自说明规则看起来失效。脚本应先读 stdin，再回退环境变量；输出仍用 `hookSpecificOutput`，并始终 exit 0。`Program.cs` 等脚手架文件继续跳过。
+
+本地验证：`node scripts/hooks/smoke-test.js`（覆盖 SessionStart TFM、`.fsproj`、路由去重、PostToolUse 提醒与 Program.cs 跳过）。
+
 ## 不要做的
 
 - 不要把人类指南塞进 `skills/`（人看的放仓库根：QUICKSTART / GUIDE / LEARNING）。

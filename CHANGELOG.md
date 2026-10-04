@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.5 (2026-10-04) — PostToolUse stdin fix
+
+### Fixed
+- **check-self-doc.js ignored official hook input.** It only read `CLAUDE_TOOL_INPUT`. Claude Code passes `tool_input` on stdin, so the 30-second purpose-comment reminder never fired after Write/Edit. The script now reads stdin first, falls back to the env var, and emits `hookSpecificOutput`.
+- Smoke test covers F# `.fsproj` detection, PostToolUse reminder, and `Program.cs` skip.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
 ## 1.0.4 (2026-10-03) — Learning skill and harness smoke test
 
 ### Added
@@ -10,16 +18,11 @@
 ### Fixed
 - Marketplace and README skill/reference counts now include `dotnet-learning` (13 skills, 176 reference files, 14 agents).
 
-
-
-
 ## Unreleased — Grok Optimizations (2026-10-02)
 
 ### Fixed
 - **UserPromptSubmit scanned the wrong directory.** `user-prompt-dotnet-reminder.js` parsed the prompt from hook stdin but still walked `process.cwd()`. If the hook process cwd is not the session cwd, a .NET repo got no routing reminder. It now uses stdin `cwd` (fallback `process.cwd()`), skips `bin`/`obj`, and treats `.fsproj` / `.fs` as .NET.
 - Recorded the rule in `LEARNING.md` so the next maintenance pass does not regress it.
-
-Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
 
 ## Unreleased — Grok Optimizations (2026-10-01)
 
@@ -117,7 +120,7 @@ Initial release. Synthesized from [dotnet-artisan](https://github.com/novotnyllc
 
 **Role-based (6)**: `dotnet-architect`, `dotnet-code-review-agent`, `dotnet-security-reviewer`, `dotnet-testing-specialist`, `dotnet-docs-generator`, `dotnet-refactor-cleaner`
 
-**Tool-based (10)**: `dotnet-aspnetcore-specialist`, `dotnet-async-performance-specialist`, `dotnet-benchmark-designer`, `dotnet-blazor-specialist`, `dotnet-build-error-resolver`, `dotnet-cloud-specialist`, `dotnet-csharp-concurrency-specialist`, `dotnet-maui-specialist`, `dotnet-performance-analyst`, `dotnet-uno-specialist`
+**Tool-based (10)**: `dotnet-aspnetcore-specialist`, `dotnet-async-performance-specialist`, `dotnet-benchmark-designer`, `dotnet-blazor-specialist`, `dotnet-build-error-resolver`, `dotnet-cloud-specialist`, `dotnet-csharp-concurrency-specialist`, `dotnet-performance-analyst`, `dotnet-uno-specialist`
 
 **Workflow (1)**: `dotnet-pr-workflow` — full PR lifecycle: create → validate → review → merge → release
 

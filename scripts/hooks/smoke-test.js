@@ -28,15 +28,29 @@ function run(script, payload) {
   return parsed;
 }
 
+function contextOf(parsed) {
+  return (parsed.hookSpecificOutput && parsed.hookSpecificOutput.additionalContext) || "";
+}
+
 fs.writeFileSync(
   path.join(tmp, "Demo.csproj"),
   '<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net10.0</TargetFramework></PropertyGroup></Project>\n'
 );
 
 const session = run("session-start-context.js", { cwd: tmp, source: "startup" });
-const sessionText = session.hookSpecificOutput && session.hookSpecificOutput.additionalContext;
-if (!sessionText || !sessionText.includes("net10.0")) {
+if (!contextOf(session).includes("net10.0")) {
   console.error("SessionStart did not report target framework", session);
+  process.exit(1);
+}
+
+const fsprojDir = fs.mkdtempSync(path.join(os.tmpdir(), "dotnet-artisan-fs-"));
+fs.writeFileSync(
+  path.join(fsprojDir, "App.fsproj"),
+  '<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net9.0</TargetFramework></PropertyGroup></Project>\n'
+);
+const fsSession = run("session-start-context.js", { cwd: fsprojDir, source: "startup" });
+if (!contextOf(fsSession).includes("net9.0")) {
+  console.error("SessionStart did not treat .fsproj as .NET", fsSession);
   process.exit(1);
 }
 
@@ -44,8 +58,7 @@ const prompt = run("user-prompt-dotnet-reminder.js", {
   cwd: tmp,
   prompt: "add an order endpoint",
 });
-const promptText = prompt.hookSpecificOutput && prompt.hookSpecificOutput.additionalContext;
-if (!promptText || !promptText.includes("using-dotnet")) {
+if (!contextOf(prompt).includes("using-dotnet")) {
   console.error("UserPromptSubmit did not route", prompt);
   process.exit(1);
 }
@@ -54,9 +67,24 @@ const quiet = run("user-prompt-dotnet-reminder.js", {
   cwd: tmp,
   prompt: "please invoke using-dotnet first",
 });
-const quietText = (quiet.hookSpecificOutput && quiet.hookSpecificOutput.additionalContext) || "";
-if (quietText.includes("Mandatory first action")) {
+if (contextOf(quiet).includes("Mandatory first action")) {
   console.error("UserPromptSubmit repeated routing after skill was requested");
+  process.exit(1);
+}
+
+const orderPath = path.join(tmp, "OrderService.cs");
+fs.writeFileSync(orderPath, "namespace Shop;\npublic class OrderService { }\n");
+const doc = run("check-self-doc.js", { tool_name: "Write", tool_input: { file_path: orderPath } });
+if (!contextOf(doc).includes("one-line comment")) {
+  console.error("PostToolUse did not remind about a purpose comment", doc);
+  process.exit(1);
+}
+
+const programPath = path.join(tmp, "Program.cs");
+fs.writeFileSync(programPath, "public class Program { }\n");
+const skipped = run("check-self-doc.js", { tool_name: "Write", tool_input: { file_path: programPath } });
+if (contextOf(skipped).includes("one-line comment")) {
+  console.error("PostToolUse should skip Program.cs", skipped);
   process.exit(1);
 }
 
