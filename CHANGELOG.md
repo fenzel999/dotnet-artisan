@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.6 (2026-10-05) — Support window the harness can say out loud
+
+### Added
+- `skills/dotnet-devops/references/dotnet-support-window.md` — verified support dates: net10.0 LTS through 2028-11-14; net8.0 and net9.0 end 2026-11-10; net11 is still RC. Source: Microsoft support policy updated 2026-09-08.
+- SessionStart now appends that note when it detects the TFM, so a human can see the plugin actually read the project. `.vbproj` is treated as .NET alongside `.csproj` / `.fsproj`.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
 ## 1.0.5 (2026-10-04) — PostToolUse stdin fix
 
 ### Fixed
