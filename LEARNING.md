@@ -34,13 +34,23 @@ Claude Code 插件的 `SessionStart` matcher 匹配会话来源（`startup|resum
 
 `SessionStart` 和 `UserPromptSubmit` 都要读 stdin 里的 `cwd`，不能只用 `process.cwd()`。进程工作目录和会话目录不一致时，提示钩子会把 .NET 仓库判成非 .NET，路由提醒不会出现。输出必须是 `hookSpecificOutput.additionalContext`，且始终 exit 0。来源：[Hooks reference](https://code.claude.com/docs/en/hooks)。
 
-F# 项目（`.fsproj` / `.fs`）也算 .NET 仓库，检测不能只看 `.csproj`。
+F# 项目（`.fsproj` / `.fs`）也算 .NET 仓库，检测不能只看 `.csproj`。VB 的 `.vbproj` 同样算。
 
 ## 已学会的维护规则（2026-10-04）
 
 `PostToolUse` 的工具参数在 stdin JSON 的 `tool_input.file_path`，不在 `CLAUDE_TOOL_INPUT` 环境变量。只读环境变量时，新建领域文件的“一行用途注释”提醒永远不会出现，30 秒自说明规则看起来失效。脚本应先读 stdin，再回退环境变量；输出仍用 `hookSpecificOutput`，并始终 exit 0。`Program.cs` 等脚手架文件继续跳过。
 
 本地验证：`node scripts/hooks/smoke-test.js`（覆盖 SessionStart TFM、`.fsproj`、路由去重、PostToolUse 提醒与 Program.cs 跳过）。
+
+## 已学会的平台事实（2026-10-05）
+
+官方支持窗口（[support policy](https://dotnet.microsoft.com/en-us/platform/support/policy)，页面更新于 2026-09-08）：
+
+- `net10.0` 是当前 LTS，支持到 2028-11-14。新项目默认用它。
+- `net8.0` 和 `net9.0` 都在 2026-11-10 停更。只提醒，不得未经询问就升级。
+- `net11` 在 2026-10-05 仍是 RC（`11.0.0-rc.1`），不是生产默认。
+
+写入 `skills/dotnet-devops/references/dotnet-support-window.md`。SessionStart 在检到对应 TFM 时把同一句话注入上下文，让人能看到插件真的读到了项目。
 
 ## 不要做的
 
