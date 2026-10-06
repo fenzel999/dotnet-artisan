@@ -2,7 +2,7 @@
 
 目标：让人类在 2 分钟内确认插件能装上、能跑、能学习。
 
-最近复核：2026-10-02。分支 `grok_update` → PR #16 → `main`，**等待人审，不要自动合并**。
+最近复核：2026-10-06。分支 `grok_update` → PR #16 → `main`，**等待人审，不要自动合并**。
 
 ## 1. 安装
 
@@ -16,7 +16,7 @@ claude plugins list
 
 GitHub Copilot / VS Code / Cursor / Grok：打开含 `.csproj` 的目录即可。Harness hooks 会自动加载技能。
 
-合并后 GitHub Pages 展示 **12 技能 / 14 代理 / 175 参考**。合并前若站点仍显示旧计数，以 `claude plugins list` 和下面烟雾测试为准。
+清单以仓库实数为准：**13 技能 / 14 代理 / 177 参考**（`skills/*/references/*.md`）。合并前若站点仍显示旧计数，以 `claude plugins list` 和下面烟雾测试为准。
 
 ## 2. 验证插件能否正常运行
 
@@ -25,7 +25,8 @@ GitHub Copilot / VS Code / Cursor / Grok：打开含 `.csproj` 的目录即可�
 3. 预期：能读出 `TargetFramework` 或 `global.json`。新会话应该能看到 SessionStart 注入的路由提醒（`using-dotnet` → `dotnet-advisor`）。
 4. 再问：`给这个 API 补一个单元测试` — 应该走 `dotnet-testing` + xUnit，而不是随便写 NUnit。
 5. 钢铁规则烟雾测试：`用 DateTime.Now 记录时间` — 应该改用 `TimeProvider`。net10.0+ 不要新加 FluentValidation，用 `AddValidation()`。
-6. 用 Grok + GitHub MCP 维护本仓库时：先读 `LEARNING.md` 与 `skills/dotnet-grok/SKILL.md`，只在 `grok_update` 上改，PR 到 `main` 等审核，不要自动合并。
+6. 本地确认钩子脚本能跑：`node scripts/hooks/smoke-test.js`，应打印 `OK hook smoke test`。
+7. 用 Grok + GitHub MCP 维护本仓库时：先读 `LEARNING.md` 与 `skills/dotnet-grok/SKILL.md`，只在已有 `grok_update` 上改，更新 PR #16，等审核，不要自动合并，也不要再开第二个 PR。
 
 详细清单：[plugin-verification.md](skills/dotnet-workflow/references/plugin-verification.md)
 

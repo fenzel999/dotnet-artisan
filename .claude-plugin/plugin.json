@@ -1,6 +1,6 @@
 {
   "name": "dotnet-artisan",
-  "version": "1.0.6",
+  "version": "1.0.7",
   "description": "Comprehensive .NET development skills and agents for Claude Code and Grok (xAI) — covering C#, ASP.NET Core, Blazor, MAUI, EF Core, testing, debugging, DevOps, AI/MCP, and more. Zero-config decision-maker orchestration.",
   "author": {
     "name": "Yatao Feng",

@@ -52,6 +52,15 @@ F# 项目（`.fsproj` / `.fs`）也算 .NET 仓库，检测不能只看 `.csproj
 
 写入 `skills/dotnet-devops/references/dotnet-support-window.md`。SessionStart 在检到对应 TFM 时把同一句话注入上下文，让人能看到插件真的读到了项目。
 
+
+## 已学会的维护规则（2026-10-06）
+
+计数漂移会让人以为插件坏了。以目录实数为准，不要抄旧 changelog：13 个 `skills/*/SKILL.md`、14 个 `agents/*.md`、177 个 `skills/*/references/*.md`。README / AGENTS / QUICKSTART 必须跟这个数走。
+
+`node scripts/hooks/smoke-test.js` 在 2026-10-06 通过（SessionStart TFM、`.fsproj`、路由去重、PostToolUse）。钩子脚本本身能跑；Claude Code 里是否注入，仍要人开一次新会话确认。
+
+支持窗口没有新补丁：官方政策页仍是 2026-09-08 更新，`net10.0` 最新补丁仍是 10.0.12。2026-10 的 Patch Tuesday 是 10 月 13 日，在那之前不要把 10.0.12 写成过期。
+
 ## 不要做的
 
 - 不要把人类指南塞进 `skills/`（人看的放仓库根：QUICKSTART / GUIDE / LEARNING）。

@@ -4,7 +4,7 @@
 
 ## What This Repo Is
 
-A Claude Code plugin containing **12 skills** + 14 agents + **175** reference files for .NET development. It teaches AI coding agents how to write correct, idiomatic .NET code. Optimized for Claude Code and Grok (xAI) MCP environments.
+A Claude Code plugin containing **13 skills** + 14 agents + **177** reference files for .NET development. It teaches AI coding agents how to write correct, idiomatic .NET code. Optimized for Claude Code and Grok (xAI) MCP environments.
 
 ## Session Recovery Protocol (read in this order)
 

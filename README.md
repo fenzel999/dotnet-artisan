@@ -2,7 +2,7 @@
 
 **让你的 AI 编码代理真正精通 .NET。** 即装即用，零配置。
 
-[![English](https://img.shields.io/badge/English-README-blue)](README.en.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 13 技能 · 14 代理 · 176 参考文件 · 30+ 行为
+[![English](https://img.shields.io/badge/English-README-blue)](README.en.md) [![MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE) 13 技能 · 14 代理 · 177 参考文件 · 30+ 行为
 
 > **Grok / xAI 兼容优化版**：完整支持 Grok 的工具调用（GitHub MCP、sandbox bash、文件操作等）、增强插件在 AI 代理环境下的正常运行，并帮助项目持续学习新的 .NET + AI 知识。
 
@@ -181,12 +181,13 @@ AI：已捕获规则：TimeProvider 构造函数注入优先。
 | 增强 | [dotnet-ai](skills/dotnet-ai/SKILL.md) | MCP 服务器、Semantic Kernel、RAG、**xAI Grok 集成** | — |
 | | [dotnet-workflow](skills/dotnet-workflow/SKILL.md) | 并行工作流、上下文管理、验证循环 | 1 |
 | | [dotnet-grok](skills/dotnet-grok/SKILL.md) | Grok MCP 工具、插件维护、学习闭环、健康检查 | 1 |
+| | [dotnet-learning](skills/dotnet-learning/SKILL.md) | 把纠错和已核实事实写进技能，而不是只留在会话里 | 1 |
 
 ---
 
 ## 参考文件
 
-175 个参考文件，横跨 10 个领域。每个文件：核心原则 → 模式 → 反模式 → 决策指南。
+177 个参考文件，横跨 11 个领域。每个文件：核心原则 → 模式 → 反模式 → 决策指南。
 
 | 领域 | 技能 | 数量 | 覆盖 |
 |------|------|------|------|
@@ -200,6 +201,7 @@ AI：已捕获规则：TimeProvider 构造函数注入优先。
 | 路由 | dotnet-advisor | 2 | 需求对齐、架构发现 |
 | 工作流 | dotnet-workflow | 1 | 插件验证 |
 | Grok | dotnet-grok | 1 | 知识晋升 / MCP 维护 |
+| 学习 | dotnet-learning | 1 | 纠错捕获模板 |
 
 完整索引：[INDEX.md](skills/INDEX.md)
 

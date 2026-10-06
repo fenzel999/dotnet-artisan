@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.7 (2026-10-06) — Counts match the tree; harness smoke test is green
+
+### Fixed
+- Docs disagreed with the tree: marketplace said 177 references, README said 176, AGENTS/QUICKSTART still said 12 skills / 175 references. Aligned to **13 skills / 14 agents / 177 references**. README skill table now lists `dotnet-learning`.
+- QUICKSTART tells humans to run `node scripts/hooks/smoke-test.js`. That script passed on 2026-10-06.
+
+### Learned
+- .NET support policy page is still the 2026-09-08 update. `net10.0` patch remains 10.0.12 until Patch Tuesday 2026-10-13. Do not upgrade net8/net9 without asking; both end 2026-11-10.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
+
 ## 1.0.6 (2026-10-05) — Support window the harness can say out loud
 
 ### Added
@@ -128,7 +140,7 @@ Initial release. Synthesized from [dotnet-artisan](https://github.com/novotnyllc
 
 **Role-based (6)**: `dotnet-architect`, `dotnet-code-review-agent`, `dotnet-security-reviewer`, `dotnet-testing-specialist`, `dotnet-docs-generator`, `dotnet-refactor-cleaner`
 
-**Tool-based (10)**: `dotnet-aspnetcore-specialist`, `dotnet-async-performance-specialist`, `dotnet-benchmark-designer`, `dotnet-blazor-specialist`, `dotnet-build-error-resolver`, `dotnet-cloud-specialist`, `dotnet-csharp-concurrency-specialist`, `dotnet-performance-analyst`, `dotnet-uno-specialist`
+**Tool-based (10)**: `dotnet-aspnetcore-specialist`, `dotnet-async-performance-specialist`, `dotnet-benchmark-designer`, `dotnet-blazor-specialist`, `dotnet-build-error-resolver`, `dotnet-cloud-specialist`, `dotnet-csharp-concurrency-specialist`, `dotnet-maui-specialist`, `dotnet-performance-analyst`, `dotnet-uno-specialist`
 
 **Workflow (1)**: `dotnet-pr-workflow` — full PR lifecycle: create → validate → review → merge → release
 
