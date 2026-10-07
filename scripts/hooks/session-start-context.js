@@ -53,13 +53,13 @@ function findFiles(dir, maxDepth, test) {
 function supportNote(tfm) {
   const id = (tfm || "").toLowerCase();
   if (id.startsWith("net8") || id.startsWith("net9")) {
-    return " Support note (verified 2026-10-05): net8.0 and net9.0 leave support on 2026-11-10. Current LTS is net10.0 through 2028-11-14. Ask before upgrading.";
+    return " Support note (verified 2026-10-07): net8.0 and net9.0 leave support on 2026-11-10 (34 days). Current LTS is net10.0 through 2028-11-14. Ask before upgrading.";
   }
   if (id.startsWith("net10")) {
-    return " Support note: net10.0 is the current LTS (through 2028-11-14).";
+    return " Support note (verified 2026-10-07): net10.0 is the current LTS (through 2028-11-14). Latest patch seen is 10.0.12; next Patch Tuesday is 2026-10-13.";
   }
   if (id.startsWith("net11")) {
-    return " Support note: net11 is RC as of 2026-10-05; do not treat it as the production default.";
+    return " Support note (verified 2026-10-07): net11 is still 11.0.0-rc.1; do not treat it as the production default.";
   }
   if (id.startsWith("net6") || id.startsWith("net7") || id.startsWith("net5")) {
     return " Support note: this TFM is out of support. Ask before upgrading to net10.0.";
