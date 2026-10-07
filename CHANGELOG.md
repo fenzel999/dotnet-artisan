@@ -1,5 +1,16 @@
 # Changelog
 
+## 1.0.8 (2026-10-07) — Support window rechecked; say what "running" means
+
+### Learned
+- Official policy and download pages are still dated 2026-09-08. `net10.0` remains 10.0.12, `net8.0` is 8.0.31, `net9.0` is 9.0.20. Both net8 and net9 end 2026-11-10 (34 days from this note). `net11` is still `11.0.0-rc.1`. Next Patch Tuesday is 2026-10-13; do not invent a newer patch.
+- SessionStart support note now says the 2026-10-07 verification date and the 34-day countdown.
+
+### Fixed
+- QUICKSTART splits "hook script runs" from "Claude Code injected context". Grok cannot run `claude plugins install` for the human. Marketplace install still tracks `main` until PR #16 is merged.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
 ## 1.0.7 (2026-10-06) — Counts match the tree; harness smoke test is green
 
 ### Fixed
@@ -10,7 +21,6 @@
 - .NET support policy page is still the 2026-09-08 update. `net10.0` patch remains 10.0.12 until Patch Tuesday 2026-10-13. Do not upgrade net8/net9 without asking; both end 2026-11-10.
 
 Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
-
 
 ## 1.0.6 (2026-10-05) — Support window the harness can say out loud
 
