@@ -52,14 +52,21 @@ F# 项目（`.fsproj` / `.fs`）也算 .NET 仓库，检测不能只看 `.csproj
 
 写入 `skills/dotnet-devops/references/dotnet-support-window.md`。SessionStart 在检到对应 TFM 时把同一句话注入上下文，让人能看到插件真的读到了项目。
 
-
 ## 已学会的维护规则（2026-10-06）
 
 计数漂移会让人以为插件坏了。以目录实数为准，不要抄旧 changelog：13 个 `skills/*/SKILL.md`、14 个 `agents/*.md`、177 个 `skills/*/references/*.md`。README / AGENTS / QUICKSTART 必须跟这个数走。
 
 `node scripts/hooks/smoke-test.js` 在 2026-10-06 通过（SessionStart TFM、`.fsproj`、路由去重、PostToolUse）。钩子脚本本身能跑；Claude Code 里是否注入，仍要人开一次新会话确认。
 
-支持窗口没有新补丁：官方政策页仍是 2026-09-08 更新，`net10.0` 最新补丁仍是 10.0.12。2026-10 的 Patch Tuesday 是 10 月 13 日，在那之前不要把 10.0.12 写成过期。
+## 已学会的平台事实（2026-10-07）
+
+再次打开官方支持政策页与下载页，仍是 2026-09-08 更新，没有新补丁：
+
+- `net10.0` 最新补丁仍是 10.0.12。下一个 Patch Tuesday 是 2026-10-13，在那之前不要写 10.0.13。
+- `net8.0` / `net9.0` 停更日仍是 2026-11-10。从 2026-10-07 算还有 34 天。只提醒，先问再升。
+- `net11` 仍是 Go-live RC `11.0.0-rc.1`，不是生产默认。不要编造 GA 日期。
+
+Grok 不能替人执行 `claude plugins install`。钩子脚本能跑，不等于 Claude Code 会话里已经注入。两层都要写进 QUICKSTART，避免把“仓库健康”说成“插件已在用户机器上生效”。
 
 ## 不要做的
 
