@@ -68,6 +68,12 @@ F# 项目（`.fsproj` / `.fs`）也算 .NET 仓库，检测不能只看 `.csproj
 
 Grok 不能替人执行 `claude plugins install`。钩子脚本能跑，不等于 Claude Code 会话里已经注入。两层都要写进 QUICKSTART，避免把“仓库健康”说成“插件已在用户机器上生效”。
 
+## 已学会的维护规则（2026-10-08）
+
+SessionStart 认 `.vbproj` 不够。`UserPromptSubmit` 之前只扫 `.csproj` / `.fsproj` 和 `.cs` / `.fs`。纯 VB 仓库里，人问“加一个折扣计算”这种不带 .NET 关键词的话，路由提醒不会出现，插件看起来没装上。提示钩子现在同样认 `.vbproj` / `.vb`，关键词补上 `vb.net` / `vbproj`。烟雾测试用不含 .NET 字样的提示覆盖这条。
+
+支持窗口没有新官方页：从 2026-10-08 算，net8/net9 距 2026-11-10 还有 33 天。在 2026-10-13 Patch Tuesday 之前不要写 10.0.13。
+
 ## 不要做的
 
 - 不要把人类指南塞进 `skills/`（人看的放仓库根：QUICKSTART / GUIDE / LEARNING）。
