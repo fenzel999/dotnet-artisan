@@ -65,6 +65,15 @@ if (!contextOf(vbSession).includes("net8.0")) {
   process.exit(1);
 }
 
+const vbPrompt = run("user-prompt-dotnet-reminder.js", {
+  cwd: vbDir,
+  prompt: "add a discount calculator",
+});
+if (!contextOf(vbPrompt).includes("using-dotnet")) {
+  console.error("UserPromptSubmit ignored a VB-only repo", vbPrompt);
+  process.exit(1);
+}
+
 const prompt = run("user-prompt-dotnet-reminder.js", {
   cwd: tmp,
   prompt: "add an order endpoint",
