@@ -1,5 +1,17 @@
 # Changelog
 
+## 1.0.9 (2026-10-08) — VB-only repos get the prompt reminder
+
+### Fixed
+- `user-prompt-dotnet-reminder.js` treated only `.csproj` / `.fsproj` and `.cs` / `.fs` as a .NET repo. A folder with only `App.vbproj` and a prompt that does not say ".NET" never received `using-dotnet` routing. It now also matches `.vbproj` / `.vb`, and the keyword list includes `vb.net` / `vbproj`.
+- Smoke test covers that VB-only case with a non-.NET prompt.
+
+### Learned
+- SessionStart detecting `.vbproj` is not enough. Prompt routing is a second gate. Recorded in `LEARNING.md`.
+- Support window unchanged as of 2026-10-08: net8/net9 still end 2026-11-10 (33 days). Do not invent 10.0.13 before Patch Tuesday 2026-10-13.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
 ## 1.0.8 (2026-10-07) — Support window rechecked; say what "running" means
 
 ### Learned
