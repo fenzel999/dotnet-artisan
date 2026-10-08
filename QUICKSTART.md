@@ -2,7 +2,7 @@
 
 目标：让人类在 2 分钟内确认插件能装上、能跑、能学习。
 
-最近复核：2026-10-07。分支 `grok_update` → PR #16 → `main`，**等待人审，不要自动合并**。插件版本 1.0.8。
+最近复核：2026-10-08。分支 `grok_update` → PR #16 → `main`，**等待人审，不要自动合并**。插件版本 1.0.9。
 
 ## 1. 安装
 
@@ -29,10 +29,11 @@ GitHub Copilot / VS Code / Cursor：打开含 `.csproj` 的目录即可。Grok �
 
 1. 打开任意含 `.csproj` / `.fsproj` / `.vbproj` / `.sln` / `.slnx` 的目录。
 2. 问：`这个项目用的什么 .NET 版本？`
-3. 预期：能读出 `TargetFramework` 或 `global.json`。`net8` / `net9` 应该提到 2026-11-10 停更（距 2026-10-07 还有 34 天），并先问再升级。
+3. 预期：能读出 `TargetFramework` 或 `global.json`。`net8` / `net9` 应该提到 2026-11-10 停更（距 2026-10-08 还有 33 天），并先问再升级。
 4. 再问：`给这个 API 补一个单元测试` — 应该走 `dotnet-testing` + xUnit，而不是随便写 NUnit。
 5. 钢铁规则烟雾测试：`用 DateTime.Now 记录时间` — 应该改用 `TimeProvider`。net10.0+ 不要新加 FluentValidation，用 `AddValidation()`。
-6. 用 Grok + GitHub MCP 维护本仓库时：先读 `LEARNING.md` 与 `skills/dotnet-grok/SKILL.md`，只在已有 `grok_update` 上改，更新 PR #16，等审核，不要自动合并，也不要再开第二个 PR。
+6. VB 仓库即使提示里没有“.NET”也应该走 `using-dotnet`（例如“加一个折扣计算”）。
+7. 用 Grok + GitHub MCP 维护本仓库时：先读 `LEARNING.md` 与 `skills/dotnet-grok/SKILL.md`，只在已有 `grok_update` 上改，更新 PR #16，等审核，不要自动合并，也不要再开第二个 PR。
 
 详细清单：[plugin-verification.md](skills/dotnet-workflow/references/plugin-verification.md)
 
@@ -42,7 +43,7 @@ GitHub Copilot / VS Code / Cursor：打开含 `.csproj` 的目录即可。Grok �
 |------|------|
 | `plugins list` 没有插件 | 重跑两条安装命令；确认 marketplace 源是 `fenzel999/dotnet-artisan` |
 | 问版本却不读 csproj | 当前目录有没有 `.csproj` / `.sln`；SessionStart matcher 必须是 `startup\|resume\|clear\|compact\|fork`，不能是文件名 glob |
-| 提示钩子没触发 | 脚本必须读 stdin 的 `cwd`，不能只扫 `process.cwd()`；输出必须是 `hookSpecificOutput.additionalContext` |
+| 提示钩子没触发 | 脚本必须读 stdin 的 `cwd`，不能只扫 `process.cwd()`；输出必须是 `hookSpecificOutput.additionalContext`；VB 仓库要有 `.vbproj` 检测 |
 | 常用 DateTime.Now / FluentValidation | 看 [CHEATSHEET.md](skills/CHEATSHEET.md)；这是决策者的钢铁规则 |
 | 想改插件本身 | 走 `dotnet-grok`，只在 `grok_update` 上改，PR 到 `main` 等审核 |
 
@@ -65,6 +66,6 @@ Hooks 位置必须是 `hooks/hooks.json`（官方 spec）。失败时零阻塞�
 1. 先对照 [CHEATSHEET.md](skills/CHEATSHEET.md) 去重。
 2. 会话级纠错交给 `dotnet-learning-agent` 写入 `MEMORY.md`。
 3. 跨项目稳定规则按 [LEARNING.md](LEARNING.md) 和 [knowledge-promotion.md](skills/dotnet-grok/references/knowledge-promotion.md) 写进 `skills/*/references/`。
-4. 平台事实（支持窗口、补丁号）只写官方页上能看到的数字。截止 2026-10-07：`net10.0` 仍是 10.0.12，`net11` 仍是 `11.0.0-rc.1`。
+4. 平台事实（支持窗口、补丁号）只写官方页上能看到的数字。截止 2026-10-08：没有新的官方补丁页，`net10.0` 仍按 10.0.12 对待，`net11` 仍是 `11.0.0-rc.1`。
 
 更多满血用法：[GUIDE.md](GUIDE.md) · [GUIDE.en.md](GUIDE.en.md)
