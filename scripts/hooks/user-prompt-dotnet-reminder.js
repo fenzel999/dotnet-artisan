@@ -90,14 +90,14 @@ try {
   const cwd = input.cwd && fs.existsSync(input.cwd) ? input.cwd : process.cwd();
 
   const hasSolution = findFiles(cwd, 3, (n) => n.endsWith(".sln") || n.endsWith(".slnx")).length > 0;
-  const hasCsproj = findFiles(cwd, 3, (n) => n.endsWith(".csproj") || n.endsWith(".fsproj")).length > 0;
-  const hasCs = findFiles(cwd, 4, (n) => n.endsWith(".cs") || n.endsWith(".fs")).length > 0;
+  const hasProject = findFiles(cwd, 3, (n) => n.endsWith(".csproj") || n.endsWith(".fsproj") || n.endsWith(".vbproj")).length > 0;
+  const hasSource = findFiles(cwd, 4, (n) => n.endsWith(".cs") || n.endsWith(".fs") || n.endsWith(".vb")).length > 0;
   const hasGlobalJson = fs.existsSync(path.join(cwd, "global.json"));
 
-  const isDotnetRepo = hasSolution || hasCsproj || hasCs || hasGlobalJson;
+  const isDotnetRepo = hasSolution || hasProject || hasSource || hasGlobalJson;
 
   const dotnetPattern =
-    /(^|[^a-zA-Z0-9_])(dotnet|\.net|c#|f#|csproj|fsproj|slnx?|msbuild|nuget|roslyn|xunit|asp\.?net|blazor|maui|winui|wpf|winforms|entity framework|ef core|benchmarkdotnet)([^a-zA-Z0-9_]|$)/i;
+    /(^|[^a-zA-Z0-9_])(dotnet|\.net|c#|f#|vb\.net|visual basic|csproj|fsproj|vbproj|slnx?|msbuild|nuget|roslyn|xunit|asp\.?net|blazor|maui|winui|wpf|winforms|entity framework|ef core|benchmarkdotnet)([^a-zA-Z0-9_]|$)/i;
   const dotnetPrompt = promptText ? dotnetPattern.test(promptText) : false;
 
   const usingDotnetPattern =
