@@ -42,6 +42,10 @@ if (!contextOf(session).includes("net10.0") || !contextOf(session).includes("cur
   console.error("SessionStart did not report target framework and LTS note", session);
   process.exit(1);
 }
+if (contextOf(session).includes("10.0.13")) {
+  console.error("SessionStart invented a patch that is not on the policy page", session);
+  process.exit(1);
+}
 
 const fsprojDir = fs.mkdtempSync(path.join(os.tmpdir(), "dotnet-artisan-fs-"));
 fs.writeFileSync(
@@ -49,8 +53,17 @@ fs.writeFileSync(
   '<Project Sdk="Microsoft.NET.Sdk"><PropertyGroup><TargetFramework>net9.0</TargetFramework></PropertyGroup></Project>\n'
 );
 const fsSession = run("session-start-context.js", { cwd: fsprojDir, source: "startup" });
-if (!contextOf(fsSession).includes("net9.0") || !contextOf(fsSession).includes("2026-11-10")) {
+const fsContext = contextOf(fsSession);
+if (!fsContext.includes("net9.0") || !fsContext.includes("2026-11-10")) {
   console.error("SessionStart did not treat .fsproj as .NET or missed support date", fsSession);
+  process.exit(1);
+}
+if (!fsContext.includes("days left") && !fsContext.includes("support ended")) {
+  console.error("SessionStart support note is not a computed countdown", fsSession);
+  process.exit(1);
+}
+if (fsContext.includes("34 days")) {
+  console.error("SessionStart still has the frozen 2026-10-07 countdown", fsSession);
   process.exit(1);
 }
 
