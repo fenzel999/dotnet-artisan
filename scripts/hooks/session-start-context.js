@@ -13,6 +13,11 @@
 const fs = require("fs");
 const path = require("path");
 
+const NET8_NET9_EOS = "2026-11-10";
+const NET10_EOS = "2028-11-14";
+const NEXT_PATCH_TUESDAY = "2026-10-13";
+const POLICY_CHECKED = "2026-10-09";
+
 function readHookInput() {
   try {
     if (process.stdin.isTTY) return {};
@@ -50,16 +55,25 @@ function findFiles(dir, maxDepth, test) {
   return results;
 }
 
+function utcDaysUntil(isoDate) {
+  const end = Date.parse(isoDate + "T00:00:00Z");
+  const now = new Date();
+  const start = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate());
+  return Math.round((end - start) / 86400000);
+}
+
 function supportNote(tfm) {
   const id = (tfm || "").toLowerCase();
+  const left = utcDaysUntil(NET8_NET9_EOS);
+  const leftText = left > 0 ? left + " days left" : "support ended";
   if (id.startsWith("net8") || id.startsWith("net9")) {
-    return " Support note (verified 2026-10-07): net8.0 and net9.0 leave support on 2026-11-10 (34 days). Current LTS is net10.0 through 2028-11-14. Ask before upgrading.";
+    return " Support note (policy page still 2026-09-08, rechecked " + POLICY_CHECKED + "): net8.0 and net9.0 leave support on " + NET8_NET9_EOS + " (" + leftText + "). Current LTS is net10.0 through " + NET10_EOS + ". Ask before upgrading.";
   }
   if (id.startsWith("net10")) {
-    return " Support note (verified 2026-10-07): net10.0 is the current LTS (through 2028-11-14). Latest patch seen is 10.0.12; next Patch Tuesday is 2026-10-13.";
+    return " Support note (policy page still 2026-09-08, rechecked " + POLICY_CHECKED + "): net10.0 is the current LTS (through " + NET10_EOS + "). Latest patch seen is 10.0.12; do not invent 10.0.13 before Patch Tuesday " + NEXT_PATCH_TUESDAY + ".";
   }
   if (id.startsWith("net11")) {
-    return " Support note (verified 2026-10-07): net11 is still 11.0.0-rc.1; do not treat it as the production default.";
+    return " Support note (rechecked " + POLICY_CHECKED + "): net11 is still 11.0.0-rc.1; do not treat it as the production default.";
   }
   if (id.startsWith("net6") || id.startsWith("net7") || id.startsWith("net5")) {
     return " Support note: this TFM is out of support. Ask before upgrading to net10.0.";
