@@ -1,5 +1,15 @@
 # Changelog
 
+## 1.0.11 (2026-10-10) — Smoke test no longer false-positives on the 10.0.13 warning
+
+### Fixed
+- `scripts/hooks/smoke-test.js` treated the expected phrase "do not invent 10.0.13" as an invented patch, so CI failed even though the support note was correct. The assertion now only fails when the note claims 10.0.13 (or higher) is the current/latest patch.
+
+### Learned
+- Official policy page still dated 2026-09-08 (rechecked 2026-10-10). `net10.0` remains 10.0.12. Patch Tuesday 2026-10-13 has not yet occurred. From 2026-10-10, net8/net9 have 31 days left until 2026-11-10.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
 ## 1.0.10 (2026-10-09) — Live support countdown; Copilot route when hooks do not run
 
 ### Fixed
