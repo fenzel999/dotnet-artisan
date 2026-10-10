@@ -42,7 +42,9 @@ if (!contextOf(session).includes("net10.0") || !contextOf(session).includes("cur
   console.error("SessionStart did not report target framework and LTS note", session);
   process.exit(1);
 }
-if (contextOf(session).includes("10.0.13")) {
+// Fail only if the note claims 10.0.13 (or higher) is the current/latest patch.
+// The warning text "do not invent 10.0.13" is expected and must not fail the test.
+if (/latest patch seen is 10\.0\.1[3-9]|is 10\.0\.1[3-9](?! before)/.test(contextOf(session))) {
   console.error("SessionStart invented a patch that is not on the policy page", session);
   process.exit(1);
 }
