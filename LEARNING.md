@@ -80,6 +80,16 @@ SessionStart 认 `.vbproj` 不够。`UserPromptSubmit` 之前只扫 `.csproj` / 
 
 Copilot 和 Cursor 不跑 Claude Code 钩子。README 说兼容，但之前没有代理入口，所以装上了也不会走 `using-dotnet`。补上 `.github/copilot-instructions.md`，指向 `AGENTS.md` 和决策者。钩子能跑仍不等于 Copilot 里已注入。
 
+## 已学会的平台事实（2026-10-12）
+
+再次打开官方支持政策页与下载页，仍是 2026-09-08 更新，没有新补丁：
+
+- `net10.0` 最新补丁仍是 10.0.12。下一个 Patch Tuesday 是 2026-10-13，在那之前不要写 10.0.13。
+- `net8.0` / `net9.0` 停更日仍是 2026-11-10。从 2026-10-12 算还有 29 天。只提醒，先问再升。
+- `net11` 仍是 Go-live RC `11.0.0-rc.1`，不是生产默认。不要编造 GA 日期。
+
+SessionStart 的 POLICY_CHECKED 已更新到 2026-10-12，倒计时仍按 UTC 活计算。
+
 ## 不要做的
 
 - 不要把人类指南塞进 `skills/`（人看的放仓库根：QUICKSTART / GUIDE / LEARNING）。
