@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.12 (2026-10-12) — Support window rechecked; live countdown remains correct
+
+### Learned
+- Official policy page still dated 2026-09-08 (rechecked 2026-10-12). `net10.0` remains 10.0.12. Patch Tuesday 2026-10-13 has not yet occurred. From 2026-10-12, net8/net9 have 29 days left until 2026-11-10. `net11` is still `11.0.0-rc.1`.
+- POLICY_CHECKED in SessionStart updated so the injected note reflects the latest recheck. Days left continue to be computed live from UTC midnight.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
 ## 1.0.11 (2026-10-10) — Smoke test no longer false-positives on the 10.0.13 warning
 
 ### Fixed

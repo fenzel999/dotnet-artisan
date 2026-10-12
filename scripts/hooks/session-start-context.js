@@ -16,7 +16,7 @@ const path = require("path");
 const NET8_NET9_EOS = "2026-11-10";
 const NET10_EOS = "2028-11-14";
 const NEXT_PATCH_TUESDAY = "2026-10-13";
-const POLICY_CHECKED = "2026-10-09";
+const POLICY_CHECKED = "2026-10-12";
 
 function readHookInput() {
   try {
