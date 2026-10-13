@@ -16,7 +16,7 @@ const path = require("path");
 const NET8_NET9_EOS = "2026-11-10";
 const NET10_EOS = "2028-11-14";
 const NEXT_PATCH_TUESDAY = "2026-10-13";
-const POLICY_CHECKED = "2026-10-12";
+const POLICY_CHECKED = "2026-10-13";
 
 function readHookInput() {
   try {
@@ -70,7 +70,7 @@ function supportNote(tfm) {
     return " Support note (policy page still 2026-09-08, rechecked " + POLICY_CHECKED + "): net8.0 and net9.0 leave support on " + NET8_NET9_EOS + " (" + leftText + "). Current LTS is net10.0 through " + NET10_EOS + ". Ask before upgrading.";
   }
   if (id.startsWith("net10")) {
-    return " Support note (policy page still 2026-09-08, rechecked " + POLICY_CHECKED + "): net10.0 is the current LTS (through " + NET10_EOS + "). Latest patch seen is 10.0.12; do not invent 10.0.13 before Patch Tuesday " + NEXT_PATCH_TUESDAY + ".";
+    return " Support note (policy page still 2026-09-08, rechecked " + POLICY_CHECKED + "): net10.0 is the current LTS (through " + NET10_EOS + "). Latest patch seen is 10.0.12; Patch Tuesday " + NEXT_PATCH_TUESDAY + " has occurred but no newer official patch is published yet. Do not invent 10.0.13.";
   }
   if (id.startsWith("net11")) {
     return " Support note (rechecked " + POLICY_CHECKED + "): net11 is still 11.0.0-rc.1; do not treat it as the production default.";
