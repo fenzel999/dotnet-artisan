@@ -1,5 +1,13 @@
 # Changelog
 
+## 1.0.13 (2026-10-13) — Patch Tuesday rechecked; still no new official patch
+
+### Learned
+- Official policy and download pages still dated 2026-09-08 (rechecked 2026-10-13 after Patch Tuesday). `net10.0` remains 10.0.12. Do not invent 10.0.13. From 2026-10-13, net8/net9 have 28 days left until 2026-11-10. `net11` is still `11.0.0-rc.1`.
+- POLICY_CHECKED and the net10 support note in SessionStart updated to reflect that Patch Tuesday has passed with no newer patch published yet. Days left continue to be computed live from UTC midnight.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
 ## 1.0.12 (2026-10-12) — Support window rechecked; live countdown remains correct
 
 ### Learned
