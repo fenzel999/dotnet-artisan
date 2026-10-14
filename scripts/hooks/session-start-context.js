@@ -15,8 +15,7 @@ const path = require("path");
 
 const NET8_NET9_EOS = "2026-11-10";
 const NET10_EOS = "2028-11-14";
-const NEXT_PATCH_TUESDAY = "2026-10-13";
-const POLICY_CHECKED = "2026-10-13";
+const POLICY_CHECKED = "2026-10-14";
 
 function readHookInput() {
   try {
@@ -67,13 +66,13 @@ function supportNote(tfm) {
   const left = utcDaysUntil(NET8_NET9_EOS);
   const leftText = left > 0 ? left + " days left" : "support ended";
   if (id.startsWith("net8") || id.startsWith("net9")) {
-    return " Support note (policy page still 2026-09-08, rechecked " + POLICY_CHECKED + "): net8.0 and net9.0 leave support on " + NET8_NET9_EOS + " (" + leftText + "). Current LTS is net10.0 through " + NET10_EOS + ". Ask before upgrading.";
+    return " Support note (rechecked " + POLICY_CHECKED + "): net8.0 and net9.0 leave support on " + NET8_NET9_EOS + " (" + leftText + "). Latest patches: net8.0.32 / net9.0.21 (2026-10-13). Current LTS is net10.0 (10.0.13) through " + NET10_EOS + ". Ask before upgrading.";
   }
   if (id.startsWith("net10")) {
-    return " Support note (policy page still 2026-09-08, rechecked " + POLICY_CHECKED + "): net10.0 is the current LTS (through " + NET10_EOS + "). Latest patch seen is 10.0.12; Patch Tuesday " + NEXT_PATCH_TUESDAY + " has occurred but no newer official patch is published yet. Do not invent 10.0.13.";
+    return " Support note (rechecked " + POLICY_CHECKED + "): net10.0 is the current LTS (through " + NET10_EOS + "). Latest patch is 10.0.13 (released 2026-10-13). Prefer the latest patch.";
   }
   if (id.startsWith("net11")) {
-    return " Support note (rechecked " + POLICY_CHECKED + "): net11 is still 11.0.0-rc.1; do not treat it as the production default.";
+    return " Support note (rechecked " + POLICY_CHECKED + "): net11 is still Go-live RC (11.0.0-rc.2 as of 2026-10-13); do not treat it as the production default.";
   }
   if (id.startsWith("net6") || id.startsWith("net7") || id.startsWith("net5")) {
     return " Support note: this TFM is out of support. Ask before upgrading to net10.0.";
