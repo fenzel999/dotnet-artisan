@@ -100,6 +100,18 @@ Patch Tuesday 2026-10-13 已经发生。再次打开官方支持政策页与下�
 
 SessionStart 的 POLICY_CHECKED 已更新到 2026-10-13，倒计时仍按 UTC 活计算；注释已说明 Patch Tuesday 已过但官方仍是 10.0.12。
 
+## 已学会的平台事实（2026-10-14）
+
+下载页与 [October 2026 servicing blog](https://devblogs.microsoft.com/dotnet/dotnet-and-dotnet-framework-october-2026-servicing-updates/) 确认 2026-10-13 补丁已发布（政策页可能滞后）：
+
+- `net10.0` 最新补丁是 10.0.13。
+- `net9.0` 最新是 9.0.21。
+- `net8.0` 最新是 8.0.32。
+- `net8.0` / `net9.0` 停更日仍是 2026-11-10。从 2026-10-14 算还有 27 天。只提醒，先问再升。
+- `net11` 仍是 Go-live RC `11.0.0-rc.2`，不是生产默认。
+
+SessionStart 的 POLICY_CHECKED 已更新到 2026-10-14，支持注释现在引用实际发布的补丁号。倒计时仍按 UTC 活计算。
+
 ## 不要做的
 
 - 不要把人类指南塞进 `skills/`（人看的放仓库根：QUICKSTART / GUIDE / LEARNING）。
