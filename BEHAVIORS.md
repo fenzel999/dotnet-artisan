@@ -13,6 +13,8 @@ Before any behavior executes, two gateway skills bridge the gap between your wor
 
 The decision-maker doesn't just route — it **analyzes**: your prompt, your project files, your .NET version. Then it asks clarifying questions before delegating. You get the right skill, in the right order, for the right .NET version.
 
+Plugin-maintenance and Grok/MCP work is an extra path: `using-dotnet` may load `dotnet-grok` without replacing the advisor.
+
 ---
 
 ## Behavior Categories
@@ -92,6 +94,8 @@ The decision-maker doesn't just route — it **analyzes**: your prompt, your pro
 | **Upgrade .NET version** | `dotnet-devops` | net8→net9→net10→net11 step by step, breaking change assessment |
 | **Migrate to Native AOT** | `dotnet-tooling` + `dotnet-devops` | Reflection audit, source-gen replacement, publish validation |
 | **Learn from corrections** | `dotnet-learning-agent` | Captures your corrections, generalizes into rules, stores in MEMORY.md |
+| **Promote knowledge into skills** | `dotnet-grok` + `dotnet-learning-agent` | Dedupe vs CHEATSHEET, write shared references, open PR to main |
+| **Maintain this plugin (Grok/MCP)** | `dotnet-grok` | Health check, GitHub MCP branch/PR loop, wait for human review |
 | **Optimize workflow** | `dotnet-workflow` | Parallel worktrees, token budget management, plan-mode strategy |
 
 ---
@@ -123,25 +127,26 @@ How the decision-maker chooses:
 
 ```
 Your prompt
-    │
-    ▼
-┌──────────────────┐
-│ using-dotnet     │  Is this .NET? No → stop. Yes → continue.
-└──────┬───────────┘
-       ▼
-┌──────────────────┐
-│ dotnet-advisor   │  THE DECISION-MAKER
-│                  │
-│ 1. Detect .NET   │  Reads .csproj / global.json
-│    version       │
-│ 2. Load baseline │  Always loads dotnet-csharp
-│ 3. Analyze intent│  Matches keywords to behaviors
-│ 4. Route         │  Invokes right skills in right order
-│ 5. Ask if unsure │  "Did you mean X or Y?"
-└──────────────────┘
-       │
-       ▼
+    |
+    v
++------------------+
+| using-dotnet     |  Is this .NET? No → stop. Yes → continue.
++------+-----------+
+       v
++------------------+
+| dotnet-advisor   |  THE DECISION-MAKER
+|                  |
+| 1. Detect .NET   |  Reads .csproj / global.json
+|    version       |
+| 2. Load baseline |  Always loads dotnet-csharp
+| 3. Analyze intent|  Matches keywords to behaviors
+| 4. Route         |  Invokes right skills in right order
+| 5. Ask if unsure |  "Did you mean X or Y?"
++------------------+
+       |
+       v
   Domain skills + specialist agents (if needed)
+  Plugin-self work → also load dotnet-grok
 ```
 
 **Example routing decisions:**
@@ -154,3 +159,5 @@ Your prompt
 | "Upgrade to .NET 10" | "Migration. Current: net8.0 → upgrade path: 8→9→10" | devops + tooling |
 | "Make this faster" | "Performance. Has benchmarks? No → suggest writing. Yes → analyze" | performance-specialist |
 | "Deploy this" | "DevOps. Has Dockerfile? No → suggest creating. Yes → CI/CD setup" | devops + cloud-specialist |
+| "Remember TimeProvider" | "Correction / convention → learning agent" | learning-agent |
+| "Optimize this plugin / open grok_update PR" | "Plugin maintenance → Grok skill, do not replace advisor" | grok + learning |
