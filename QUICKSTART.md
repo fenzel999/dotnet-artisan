@@ -2,7 +2,7 @@
 
 目标：让人类在 2 分钟内确认插件能装上、能跑、能学习。
 
-最近复核：2026-10-16。分支 `grok_update` → PR #16 → `main`，**等待人审，不要自动合并**。插件版本 1.0.15。
+最近复核：2026-10-18。分支 `grok_update` → PR #16 → `main`，**等待人审，不要自动合并**。插件版本 1.0.16。
 
 ## 1. 安装
 
@@ -29,7 +29,7 @@ GitHub Copilot / VS Code / Cursor：打开含 `.csproj` 的目录即可。这些
 
 1. 打开任意含 `.csproj` / `.fsproj` / `.vbproj` / `.sln` / `.slnx` 的目录。
 2. 问：`这个项目用的什么 .NET 版本？`
-3. 预期：能读出 `TargetFramework` 或 `global.json`。`net8` / `net9` 应该提到 2026-11-10 停更，天数由钩子按当天 UTC 计算（从 2026-10-16 算还有 25 天），并先问再升级。最新补丁：net10.0.13 / net9.0.21 / net8.0.32（2026-10-13）。
+3. 预期：能读出 `TargetFramework` 或 `global.json`。`net8` / `net9` 应该提到 2026-11-10 停更，天数由钩子按当天 UTC 计算（从 2026-10-18 算还有 23 天），并先问再升级。最新补丁：net10.0.13 / net9.0.21 / net8.0.32（2026-10-13）。
 4. 再问：`给这个 API 补一个单元测试` — 应该走 `dotnet-testing` + xUnit，而不是随便写 NUnit。
 5. 钢铁规则烟雾测试：`用 DateTime.Now 记录时间` — 应该改用 `TimeProvider`。net10.0+ 不要新加 FluentValidation，用 `AddValidation()`。
 6. VB 仓库即使提示里没有“.NET”也应该走 `using-dotnet`（例如“加一个折扣计算”）。
@@ -67,6 +67,6 @@ Hooks 位置必须是 `hooks/hooks.json`（官方 spec）。失败时零阻塞�
 1. 先对照 [CHEATSHEET.md](skills/CHEATSHEET.md) 去重。
 2. 会话级纠错交给 `dotnet-learning-agent` 写入 `MEMORY.md`。
 3. 跨项目稳定规则按 [LEARNING.md](LEARNING.md) 和 [knowledge-promotion.md](skills/dotnet-grok/references/knowledge-promotion.md) 写进 `skills/*/references/`。
-4. 平台事实（支持窗口、补丁号）只写官方页上能看到的数字。截止 2026-10-16：`net10.0` 最新 10.0.13，`net9.0` 9.0.21，`net8.0` 8.0.32（均 2026-10-13 发布）；`net11` 仍是 `11.0.0-rc.2`。停更倒计时由钩子按天计算，不要再写死。
+4. 平台事实（支持窗口、补丁号）只写官方页上能看到的数字。截止 2026-10-18：`net10.0` 最新 10.0.13，`net9.0` 9.0.21，`net8.0` 8.0.32（均 2026-10-13 发布）；`net11` 仍是 `11.0.0-rc.2`。停更倒计时由钩子按天计算，不要再写死。
 
 更多满血用法：[GUIDE.md](GUIDE.md) · [GUIDE.en.md](GUIDE.en.md)
