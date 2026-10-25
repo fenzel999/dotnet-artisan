@@ -15,7 +15,7 @@ const path = require("path");
 
 const NET8_NET9_EOS = "2026-11-10";
 const NET10_EOS = "2028-11-14";
-const POLICY_CHECKED = "2026-10-23";
+const POLICY_CHECKED = "2026-10-25";
 
 function readHookInput() {
   try {
@@ -66,10 +66,10 @@ function supportNote(tfm) {
   const left = utcDaysUntil(NET8_NET9_EOS);
   const leftText = left > 0 ? left + " days left" : "support ended";
   if (id.startsWith("net8") || id.startsWith("net9")) {
-    return " Support note (rechecked " + POLICY_CHECKED + "): net8.0 and net9.0 leave support on " + NET8_NET9_EOS + " (" + leftText + "). Latest patches: net8.0.32 / net9.0.21 (2026-10-13). Current LTS is net10.0 (10.0.13) through " + NET10_EOS + ". Ask before upgrading.";
+    return " Support note (rechecked " + POLICY_CHECKED + "): net8.0 and net9.0 leave support on " + NET8_NET9_EOS + " (" + leftText + "). Latest patches: net8.0.32 / net9.0.21 (2026-10-13). Current LTS is net10.0 (10.0.13) through " + NET10_EOS + ". Ask before upgrading. For humans: see QUICKSTART.md to verify plugin activation.";
   }
   if (id.startsWith("net10")) {
-    return " Support note (rechecked " + POLICY_CHECKED + "): net10.0 is the current LTS (through " + NET10_EOS + "). Latest patch is 10.0.13 (released 2026-10-13). Prefer the latest patch.";
+    return " Support note (rechecked " + POLICY_CHECKED + "): net10.0 is the current LTS (through " + NET10_EOS + "). Latest patch is 10.0.13 (released 2026-10-13). Prefer the latest patch. Plugin ready for Grok/Claude Code.";
   }
   if (id.startsWith("net11")) {
     return " Support note (rechecked " + POLICY_CHECKED + "): net11 is still Go-live RC (11.0.0-rc.2 as of 2026-10-13); do not treat it as the production default.";
@@ -112,7 +112,7 @@ try {
   let context = "";
   if (hasSolution || hasCsproj || hasGlobalJson) {
     context =
-      "Mandatory first action: invoke [skill:using-dotnet]. Mandatory second action: invoke [skill:dotnet-advisor]. IMPORTANT: before invoking skills, you MUST read root behavior files in order: CLAUDE.md → AGENTS.md → USAGE.md → SELF_DOCUMENTING.md → BEHAVIORS.md → skills/CHEATSHEET.md. Do not plan, reason, design, or implement until both routing skills have been invoked and root files read, then follow advisor routing to load additional skills and apply their standards.";
+      "Mandatory first action: invoke [skill:using-dotnet]. Mandatory second action: invoke [skill:dotnet-advisor]. IMPORTANT: before invoking skills, you MUST read root behavior files in order: CLAUDE.md → AGENTS.md → USAGE.md → SELF_DOCUMENTING.md → BEHAVIORS.md → skills/CHEATSHEET.md. Do not plan, reason, design, or implement until both routing skills have been invoked and root files read, then follow advisor routing to load additional skills and apply their standards. For human users: confirm plugin is active via QUICKSTART.md; learning loop via LEARNING.md.";
 
     let projectContext = "This is a .NET project";
     if (tfm) projectContext += ` (${tfm})`;
