@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.21 (2026-10-26) — Oct 25 OOB security patches learned (10.0.14 / 9.0.22 / 8.0.33 / net11 rc.3)
+
+### Learned
+- Official download page, support policy, and OOB blog rechecked 2026-10-26. New out-of-band security updates released 2026-10-25: `net10.0` 10.0.14, `net9.0` 9.0.22, `net8.0` 8.0.33. `net11` now `11.0.0-rc.3`. Addresses Brotli CVE-2026-111497 and incomplete Oct 13 fixes for other CVEs.
+- From 2026-10-26, net8/net9 have 15 days left until 2026-11-10. SessionStart continues to compute the countdown live from UTC midnight; POLICY_CHECKED updated. No invented patches.
+- Human-facing docs (QUICKSTART, LEARNING, support-window) refreshed so users and agents see accurate platform facts.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
 ## 1.0.20 (2026-10-25) — Support facts rechecked; still 10.0.13 / 16 days left; human usability notes enhanced
 
 ### Learned
