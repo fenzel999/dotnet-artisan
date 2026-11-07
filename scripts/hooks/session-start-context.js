@@ -15,7 +15,7 @@ const path = require("path");
 
 const NET8_NET9_EOS = "2026-11-10";
 const NET10_EOS = "2028-11-14";
-const POLICY_CHECKED = "2026-11-06";
+const POLICY_CHECKED = "2026-11-07";
 
 function readHookInput() {
   try {
@@ -112,7 +112,7 @@ try {
   let context = "";
   if (hasSolution || hasCsproj || hasGlobalJson) {
     context =
-      "Mandatory first action: invoke [skill:using-dotnet]. Mandatory second action: invoke [skill:dotnet-advisor]. IMPORTANT: before invoking skills, you MUST read root behavior files in order: CLAUDE.md → AGENTS.md → USAGE.md → SELF_DOCUMENTING.md → BEHAVIORS.md → skills/CHEATSHEET.md. Do not plan, reason, design, or implement until both routing skills have been invoked and root files read, then follow advisor routing to load additional skills and apply their standards. For human users: confirm plugin is active via QUICKSTART.md; learning loop via LEARNING.md.";
+      "Mandatory first action: invoke [skill:using-dotnet]. Mandatory second action: invoke [skill:dotnet-advisor]. IMPORTANT: before invoking skills, you MUST read root behavior files in order: CLAUDE.md \u2192 AGENTS.md \u2192 USAGE.md \u2192 SELF_DOCUMENTING.md \u2192 BEHAVIORS.md \u2192 skills/CHEATSHEET.md. Do not plan, reason, design, or implement until both routing skills have been invoked and root files read, then follow advisor routing to load additional skills and apply their standards. For human users: confirm plugin is active via QUICKSTART.md; learning loop via LEARNING.md.";
 
     let projectContext = "This is a .NET project";
     if (tfm) projectContext += ` (${tfm})`;
