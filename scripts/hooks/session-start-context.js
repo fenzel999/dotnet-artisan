@@ -15,7 +15,7 @@ const path = require("path");
 
 const NET8_NET9_EOS = "2026-11-10";
 const NET10_EOS = "2028-11-14";
-const POLICY_CHECKED = "2026-11-09";
+const POLICY_CHECKED = "2026-11-10";
 
 function readHookInput() {
   try {
@@ -72,7 +72,7 @@ function supportNote(tfm) {
     return " Support note (rechecked " + POLICY_CHECKED + "): net10.0 is the current LTS (through " + NET10_EOS + "). Latest patch is 10.0.14 (released 2026-10-25 OOB security). Prefer the latest patch. Plugin ready for Grok/Claude Code.";
   }
   if (id.startsWith("net11")) {
-    return " Support note (rechecked " + POLICY_CHECKED + "): net11 is still Go-live RC (11.0.0-rc.3 as of 2026-10-25); do not treat it as the production default.";
+    return " Support note (rechecked " + POLICY_CHECKED + "): net11 is still Go-live RC (11.0.0-rc.3 as of 2026-10-25); do not treat it as the production default. Official launch expected around this date via .NET Conf.";
   }
   if (id.startsWith("net6") || id.startsWith("net7") || id.startsWith("net5")) {
     return " Support note: this TFM is out of support. Ask before upgrading to net10.0.";
