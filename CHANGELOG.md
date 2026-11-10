@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.34 (2026-11-10) — Support facts rechecked; net8/net9 EOS day / 0 days left
+
+### Learned
+- Official download and support policy pages rechecked 2026-11-10. Latest patches unchanged: `net10.0` 10.0.14, `net9.0` 9.0.22, `net8.0` 8.0.33 (all released 2026-10-25 OOB). `net11` still `11.0.0-rc.3` (Go-live). Policy page last updated October 25, 2026. Download page confirms EOS today for 8/9.
+- Today is the official end-of-support day for net8.0 and net9.0 (2026-11-10). SessionStart computes 0 days left / "support ended" live from UTC midnight; POLICY_CHECKED updated so the injected note reflects this recheck. No invented patches. Recommend planning upgrade to current LTS net10.0.
+- Human-facing docs (QUICKSTART, LEARNING) refreshed so users and agents see accurate platform facts. Helps humans verify the plugin runs and continues the learning loop. plugin.json version synced to 1.0.34.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
 ## 1.0.33 (2026-11-09) — Support facts rechecked; still 10.0.14 / 1 day left
 
 ### Learned
