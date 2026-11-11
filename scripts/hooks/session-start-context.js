@@ -15,7 +15,8 @@ const path = require("path");
 
 const NET8_NET9_EOS = "2026-11-10";
 const NET10_EOS = "2028-11-14";
-const POLICY_CHECKED = "2026-11-10";
+const NET11_EOS = "2028-11-14";
+const POLICY_CHECKED = "2026-11-11";
 
 function readHookInput() {
   try {
@@ -66,16 +67,16 @@ function supportNote(tfm) {
   const left = utcDaysUntil(NET8_NET9_EOS);
   const leftText = left > 0 ? left + " days left" : "support ended";
   if (id.startsWith("net8") || id.startsWith("net9")) {
-    return " Support note (rechecked " + POLICY_CHECKED + "): net8.0 and net9.0 leave support on " + NET8_NET9_EOS + " (" + leftText + "). Latest patches: net8.0.33 / net9.0.22 (2026-10-25 OOB). Current LTS is net10.0 (10.0.14) through " + NET10_EOS + ". Ask before upgrading. For humans: see QUICKSTART.md to verify plugin activation.";
+    return " Support note (rechecked " + POLICY_CHECKED + "): net8.0 and net9.0 left support on " + NET8_NET9_EOS + " (" + leftText + "). Latest final patches: net8.0.34 / net9.0.23 (2026-11-10). Current LTS is net10.0 (10.0.15) through " + NET10_EOS + ". .NET 11.0 is now GA (11.0.0). Ask before upgrading. For humans: see QUICKSTART.md to verify plugin activation.";
   }
   if (id.startsWith("net10")) {
-    return " Support note (rechecked " + POLICY_CHECKED + "): net10.0 is the current LTS (through " + NET10_EOS + "). Latest patch is 10.0.14 (released 2026-10-25 OOB security). Prefer the latest patch. Plugin ready for Grok/Claude Code.";
+    return " Support note (rechecked " + POLICY_CHECKED + "): net10.0 is the current LTS (through " + NET10_EOS + "). Latest patch is 10.0.15 (released 2026-11-10). Prefer the latest patch. .NET 11.0 (11.0.0) is also GA (STS through " + NET11_EOS + "). Plugin ready for Grok/Claude Code.";
   }
   if (id.startsWith("net11")) {
-    return " Support note (rechecked " + POLICY_CHECKED + "): net11 is still Go-live RC (11.0.0-rc.3 as of 2026-10-25); do not treat it as the production default. Official launch expected around this date via .NET Conf.";
+    return " Support note (rechecked " + POLICY_CHECKED + "): net11.0 is now GA (11.0.0 released 2026-11-10, STS through " + NET11_EOS + "). Prefer for new projects when appropriate; LTS remains net10.0.";
   }
   if (id.startsWith("net6") || id.startsWith("net7") || id.startsWith("net5")) {
-    return " Support note: this TFM is out of support. Ask before upgrading to net10.0.";
+    return " Support note: this TFM is out of support. Ask before upgrading to net10.0 or net11.0.";
   }
   return "";
 }
