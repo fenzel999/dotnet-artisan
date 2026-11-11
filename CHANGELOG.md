@@ -1,5 +1,14 @@
 # Changelog
 
+## 1.0.35 (2026-11-11) — .NET 11 GA + latest patches; net8/net9 support ended
+
+### Learned
+- Official download and support policy pages rechecked 2026-11-11. .NET 11 is now GA: `11.0.0` (released 2026-11-10, STS through 2028-11-14). Latest patches: `net10.0` 10.0.15, `net9.0` 9.0.23, `net8.0` 8.0.34 (all released 2026-11-10). Policy page last updated ~November 10, 2026.
+- net8.0 and net9.0 reached end of support on 2026-11-10 (yesterday). SessionStart computes "support ended" live from UTC midnight; POLICY_CHECKED updated so the injected note reflects this recheck. No invented patches. Recommend planning upgrade to current LTS net10.0 (or net11 for new work where appropriate).
+- Human-facing docs (QUICKSTART, LEARNING) refreshed so users and agents see accurate platform facts. Helps humans verify the plugin runs and continues the learning loop. plugin.json version synced to 1.0.35.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
 ## 1.0.34 (2026-11-10) — Support facts rechecked; net8/net9 EOS day / 0 days left
 
 ### Learned
