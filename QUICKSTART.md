@@ -2,7 +2,7 @@
 
 目标：让人类在 2 分钟内确认插件能装上、能跑、能学习。帮助人类使用这个插件，确保插件正常运行。
 
-最近复核：2026-11-11。分支 `grok_update` → PR #16 → `main`，**等待人审，不要自动合并**。插件版本 1.0.35。
+最近复核：2026-11-13。分支 `grok_update` → PR #16 → `main`，**等待人审，不要自动合并**。插件版本 1.0.36。
 
 ## 1. 安装
 
@@ -67,6 +67,6 @@ Hooks 位置必须是 `hooks/hooks.json`（官方 spec）。失败时零阻塞�
 1. 先对照 [CHEATSHEET.md](skills/CHEATSHEET.md) 去重。
 2. 会话级纠错交给 `dotnet-learning-agent` 写入 `MEMORY.md`。
 3. 跨项目稳定规则按 [LEARNING.md](LEARNING.md) 和 [knowledge-promotion.md](skills/dotnet-grok/references/knowledge-promotion.md) 写进 `skills/*/references/`。
-4. 平台事实（支持窗口、补丁号）只写官方页上能看到的数字。截止 2026-11-11：`net11.0` GA 11.0.0，`net10.0` 最新 10.0.15，`net9.0` 9.0.23，`net8.0` 8.0.34（均 2026-11-10 发布）。停更倒计时由钩子按天计算，不要再写死。net8/net9 支持已结束。
+4. 平台事实（支持窗口、补丁号）只写官方页上能看到的数字。截止 2026-11-13：`net11.0` GA 11.0.0，`net10.0` 最新 10.0.15，`net9.0` 9.0.23，`net8.0` 8.0.34（均 2026-11-10 发布）。停更倒计时由钩子按天计算，不要再写死。net8/net9 支持已结束。
 
 更多满血用法：[GUIDE.md](GUIDE.md) · [GUIDE.en.md](GUIDE.en.md)

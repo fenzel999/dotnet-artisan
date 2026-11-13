@@ -28,7 +28,7 @@
 4. **写入** — 会话级 `MEMORY.md`；稳定规则走 promotion playbook。
 5. **验证** — 插件本身的改动只提 PR 到 `main`，等待人审。确保插件在 Grok sandbox + MCP 下正常运行。
 
-## 已学会的平台事实（2026-11-11）
+## 已学会的平台事实（2026-11-13）
 
 再次打开官方下载页与支持政策页：
 
@@ -38,7 +38,7 @@
 - `net8.0` 最新是 8.0.34（2026-11-10，支持已结束）。
 - `net8.0` / `net9.0` 停更日是 2026-11-10（支持已结束）。只提醒，先问再升。推荐规划升级到当前 LTS `net10.0`（或新项目考虑 net11）。
 
-SessionStart 的 POLICY_CHECKED 已更新到 2026-11-11，支持注释引用实际发布的补丁号。倒计时仍按 UTC 活计算（今天为 support ended）。人类用户可通过 QUICKSTART.md 验证插件运行状态。
+SessionStart 的 POLICY_CHECKED 已更新到 2026-11-13，支持注释引用实际发布的补丁号。倒计时仍按 UTC 活计算（今天为 support ended）。人类用户可通过 QUICKSTART.md 验证插件运行状态。
 
 ## 不要做的
 
