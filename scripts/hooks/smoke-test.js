@@ -42,9 +42,13 @@ if (!contextOf(session).includes("net10.0") || !contextOf(session).includes("cur
   console.error("SessionStart did not report target framework and LTS note", session);
   process.exit(1);
 }
-// 10.0.14 is the published latest as of 2026-10-25 OOB. Fail only on higher invented patches.
-if (/latest patch(?: seen)? is 10\.0\.1[5-9]|is 10\.0\.1[5-9]/.test(contextOf(session))) {
-  console.error("SessionStart invented a patch beyond the published 10.0.14", session);
+// Current published latest as of 2026-11-10: 10.0.15. Fail only on higher invented patches.
+if (/latest patch(?: seen)? is 10\.0\.1[6-9]|is 10\.0\.1[6-9]|is 10\.0\.2[0-9]/.test(contextOf(session))) {
+  console.error("SessionStart invented a patch beyond the published 10.0.15", session);
+  process.exit(1);
+}
+if (!contextOf(session).includes("10.0.15")) {
+  console.error("SessionStart did not mention current 10.0.15 patch", session);
   process.exit(1);
 }
 
