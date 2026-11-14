@@ -4,7 +4,7 @@
   "hooks": {
     "SessionStart": [
       {
-        "matcher": "*.cs|*.csproj|*.sln|*.slnx|*.cshtml|*.razor|*.fs|*.fsproj|*.vb|*.xaml",
+        "matcher": "startup|resume|clear|compact|fork",
         "hooks": [
           {
             "type": "command",

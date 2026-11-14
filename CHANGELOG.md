@@ -1,89 +1,92 @@
 # Changelog
 
-## 1.0.2 (2026-05-31) — Fix: move user guides out of skills/ to root
+## 1.0.37 (2026-11-14) — Support facts rechecked; smoke-test aligned to current patches
 
-### Fixed
-- **Category error: user-facing guides were placed in `skills/dotnet-workflow/references/`** — The `skills/` directory is for AI-agent-facing reference files. User guides for human developers belong at the project root.
-- **Moved** `plugin-usage-best-practices.zh.md` → `GUIDE.md` (Chinese, root)
-- **Moved** `plugin-usage-best-practices.md` → `GUIDE.en.md` (English, root)
-- **Removed** routing table entries from dotnet-workflow SKILL.md and INDEX.md
-- **Updated** reference counts: workflow 3→1, total 176→174
-- **Updated** README "Further Reading" sections to link to new GUIDE files
+### Learned / Fixed
+- Official download and support policy pages rechecked 2026-11-14. Latest unchanged: `net11.0` GA 11.0.0, `net10.0` 10.0.15, `net9.0` 9.0.23, `net8.0` 8.0.34 (all released 2026-11-10). net8/net9 support ended 2026-11-10. Policy page last updated ~November 10, 2026.
+- SessionStart continues to compute "support ended" live from UTC midnight; POLICY_CHECKED updated to 2026-11-14 so the injected note reflects this recheck. No invented patches. Recommend planning upgrade to current LTS net10.0 (or net11 for new work where appropriate). C# 15 unions available on net11 for explicit outcome modeling.
+- Fixed smoke-test.js which still expected patches not beyond 10.0.14 (would fail on the current 10.0.15 note). Now accepts current published patches and fails only on clearly invented higher ones. This helps humans verify the plugin runs normally via `node scripts/hooks/smoke-test.js`.
+- Human-facing docs (QUICKSTART, LEARNING) refreshed so users and agents see accurate platform facts. Helps humans verify the plugin runs and continues the learning loop. plugin.json version synced to 1.0.37.
 
-## 1.0.1 (2026-05-31) — Content quality and infrastructure
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
 
-Fixed stale reference counts, added missing infrastructure files, created verification and best practices guides.
+## 1.0.36 (2026-11-13) — Support facts rechecked; unchanged since 11-10 GA/patches
 
-### Fixed
-- **USAGE.md reference counts** — Updated dotnet-api (32→33), dotnet-testing (13→14), dotnet-devops (18→19), dotnet-tooling (34→41) to match actual INDEX.md
-- **CLAUDE.md agent count** — 13→14 specialist agent files (was missing dotnet-pr-workflow from count)
-- **check-self-doc.js hook** — All early-exit paths now emit valid JSON before returning
+### Learned
+- Official download and support policy pages rechecked 2026-11-13. Latest unchanged: `net11.0` GA 11.0.0, `net10.0` 10.0.15, `net9.0` 9.0.23, `net8.0` 8.0.34 (all released 2026-11-10). net8/net9 support ended 2026-11-10. Policy page last updated ~November 10, 2026.
+- SessionStart continues to compute "support ended" live from UTC midnight; POLICY_CHECKED updated to 2026-11-13 so the injected note reflects this recheck. No invented patches. Recommend planning upgrade to current LTS net10.0 (or net11 for new work where appropriate).
+- Human-facing docs (QUICKSTART, LEARNING) refreshed so users and agents see accurate platform facts. Helps humans verify the plugin runs and continues the learning loop. plugin.json version synced to 1.0.36.
 
-### Added
-- **`.gitattributes`** — Consistent line ending normalization for all file types (.cs, .md, .json, .sh, etc.)
-- **`.github/ISSUE_TEMPLATE/bug_report.md`** — Bug report template with affected file, expected vs actual behavior
-- **`.github/ISSUE_TEMPLATE/feature_request.md`** — Feature request template with scope checkboxes
-- **`.github/PULL_REQUEST_TEMPLATE.md`** — PR template with content quality, consistency, and technical checklists
-- **`plugin-verification.md`** — Step-by-step guide to verify plugin installation, harness hooks, skill loading, and iron rules enforcement
-- **`plugin-usage-best-practices.md`** — Comprehensive daily workflow patterns, skill-specific tips, and troubleshooting guide
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
 
-### Updated
-- All reference count numbers across AGENTS.md, CLAUDE.md, README.md, README.en.md, INDEX.md (173→175)
-- dotnet-workflow SKILL.md now has a Routing Table referencing the 2 new companion files
+## 1.0.35 (2026-11-11) — .NET 11 GA + latest patches; net8/net9 support ended
 
-## 1.0.0 (2026-05-29) — Updated release
+### Learned
+- Official download and support policy pages rechecked 2026-11-11. .NET 11 is now GA: `11.0.0` (released 2026-11-10, STS through 2028-11-14). Latest patches: `net10.0` 10.0.15, `net9.0` 9.0.23, `net8.0` 8.0.34 (all released 2026-11-10). Policy page last updated ~November 10, 2026.
+- net8.0 and net9.0 reached end of support on 2026-11-10 (yesterday). SessionStart computes "support ended" live from UTC midnight; POLICY_CHECKED updated so the injected note reflects this recheck. No invented patches. Recommend planning upgrade to current LTS net10.0 (or net11 for new work where appropriate).
+- Human-facing docs (QUICKSTART, LEARNING) refreshed so users and agents see accurate platform facts. Helps humans verify the plugin runs and continues the learning loop. plugin.json version synced to 1.0.35.
 
-Major restructuring: skill/agent consolidation, strategic DDD support, solution architect, decision-maker enhancement.
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
 
-### Restructured
-- **Skills: 14 → 11** — Merged `dotnet-quality`→`dotnet-tooling`, `dotnet-upgrade`→`dotnet-devops`, `dotnet-learning`→`dotnet-workflow`
-- **Agents: 17 → 13** — Merged 3 performance agents into `dotnet-performance-specialist`, 3 UI agents into `dotnet-ui-specialist`, 2 lifecycle agents into `dotnet-code-lifecycle-agent`
+## 1.0.34 (2026-11-10) — Support facts rechecked; net8/net9 EOS day / 0 days left
 
-### Added
-- **`dotnet-domain-analyst` agent** — Strategic DDD: event storming, bounded contexts, ubiquitous language, domain analysis document output
-- **`dotnet-architect` enhancement** — Full solution architect: architecture selection (single/VSA/DDD/Clean), folder structure generation, build config (Directory.Build.props, CPM, .slnx, global.json, editorconfig)
-- **Architecture discovery** — `dotnet-advisor/references/architecture-discovery.md`: monolith vs modular vs microservices decision guide, DDD strategic design (MUST)
-- **Requirements alignment** — `dotnet-advisor/references/requirements-alignment.md`: 4-round dialogue framework (domain → architecture → tech → quality)
-- **Decision-maker domain decomposition** — Step 4 enhanced to decompose complex projects into parallel domain skills (API + UI + testing + DevOps + tooling simultaneously)
-- **Cross-platform debugging** — WinDbg (Windows) + dotnet-dump/lldb (Linux/macOS) documentation
+### Learned
+- Official download and support policy pages rechecked 2026-11-10. Latest patches unchanged: `net10.0` 10.0.14, `net9.0` 9.0.22, `net8.0` 8.0.33 (all released 2026-10-25 OOB). `net11` still `11.0.0-rc.3` (Go-live). Policy page last updated October 25, 2026. Download page confirms EOS today for 8/9.
+- Today is the official end-of-support day for net8.0 and net9.0 (2026-11-10). SessionStart computes 0 days left / "support ended" live from UTC midnight; POLICY_CHECKED updated so the injected note reflects this recheck. No invented patches. Recommend planning upgrade to current LTS net10.0.
+- Human-facing docs (QUICKSTART, LEARNING) refreshed so users and agents see accurate platform facts. Helps humans verify the plugin runs and continues the learning loop. plugin.json version synced to 1.0.34.
 
-### Rules
-- DDD strategic design is REQUIRED (not optional). Domain document with context maps + aggregate design must be produced before coding.
-- Decision-maker MUST align requirements before routing (4-round dialogue for ambiguous requests).
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
 
-## 1.0.0 (2026-05-28)
+## 1.0.33 (2026-11-09) — Support facts rechecked; still 10.0.14 / 1 day left
 
-Initial release. Synthesized from [dotnet-artisan](https://github.com/novotnyllc/dotnet-artisan), [dotnet/skills](https://github.com/dotnet/skills), and [dotnet-claude-kit](https://github.com/codewithmukesh/dotnet-claude-kit).
+### Learned
+- Official download and support policy pages rechecked 2026-11-09. Latest patches unchanged: `net10.0` 10.0.14, `net9.0` 9.0.22, `net8.0` 8.0.33 (all released 2026-10-25 OOB). `net11` still `11.0.0-rc.3`. Policy page last updated October 25, 2026.
+- From 2026-11-09, net8/net9 have 1 day left until 2026-11-10. SessionStart continues to compute the countdown live from UTC midnight; POLICY_CHECKED updated so the injected note reflects this recheck. No invented patches.
+- Human-facing docs (QUICKSTART, LEARNING) refreshed so users and agents see accurate platform facts. Helps humans verify the plugin runs and continues the learning loop. plugin.json version synced to 1.0.33.
 
-### Skills (14)
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
 
-| Category | Skills |
-|----------|--------|
-| Gateway | `using-dotnet`, `dotnet-advisor` (the decision-maker) |
-| Baseline | `dotnet-csharp` (always loaded) |
-| Builders | `dotnet-api`, `dotnet-ui` |
-| Verifiers | `dotnet-testing`, `dotnet-debugging`, `dotnet-quality` |
-| Operators | `dotnet-devops`, `dotnet-tooling`, `dotnet-upgrade` |
-| Augmenters | `dotnet-ai`, `dotnet-workflow`, `dotnet-learning` |
+## 1.0.32 (2026-11-08) — Support facts rechecked; still 10.0.14 / 2 days left
 
-### Agents (17)
+### Learned
+- Official download and support policy pages rechecked 2026-11-08. Latest patches unchanged: `net10.0` 10.0.14, `net9.0` 9.0.22, `net8.0` 8.0.33 (all released 2026-10-25 OOB). `net11` still `11.0.0-rc.3`. Policy page last updated October 25, 2026.
+- From 2026-11-08, net8/net9 have 2 days left until 2026-11-10. SessionStart continues to compute the countdown live from UTC midnight; POLICY_CHECKED updated so the injected note reflects this recheck. No invented patches.
+- Human-facing docs (QUICKSTART, LEARNING) refreshed so users and agents see accurate platform facts. Helps humans verify the plugin runs and continues the learning loop. plugin.json version synced to 1.0.32.
 
-**Role-based (6)**: `dotnet-architect`, `dotnet-code-review-agent`, `dotnet-security-reviewer`, `dotnet-testing-specialist`, `dotnet-docs-generator`, `dotnet-refactor-cleaner`
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
 
-**Tool-based (10)**: `dotnet-aspnetcore-specialist`, `dotnet-async-performance-specialist`, `dotnet-benchmark-designer`, `dotnet-blazor-specialist`, `dotnet-build-error-resolver`, `dotnet-cloud-specialist`, `dotnet-csharp-concurrency-specialist`, `dotnet-maui-specialist`, `dotnet-performance-analyst`, `dotnet-uno-specialist`
+## 1.0.31 (2026-11-07) — Support facts rechecked; still 10.0.14 / 3 days left
 
-**Workflow (1)**: `dotnet-pr-workflow` — full PR lifecycle: create → validate → review → merge → release
+### Learned
+- Official download and support policy pages rechecked 2026-11-07. Latest patches unchanged: `net10.0` 10.0.14, `net9.0` 9.0.22, `net8.0` 8.0.33 (all released 2026-10-25 OOB). `net11` still `11.0.0-rc.3`. Policy page last updated October 25, 2026.
+- From 2026-11-07, net8/net9 have 3 days left until 2026-11-10. SessionStart continues to compute the countdown live from UTC midnight; POLICY_CHECKED updated so the injected note reflects this recheck. No invented patches.
+- Human-facing docs (QUICKSTART, LEARNING) refreshed so users and agents see accurate platform facts. Helps humans verify the plugin runs and continues the learning loop. plugin.json version synced to 1.0.31.
 
-### Guides
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
 
-`USAGE.md` (questioning framework, domain-driven analysis), `SELF_DOCUMENTING.md` (30-second rule), `BEHAVIORS.md` (30+ behavior catalog), `CLAUDE.md` (context reconnection), `harness/` (drop-in auto-pilot config)
+## 1.0.30 (2026-11-06) — Support facts rechecked; still 10.0.14 / 4 days left
 
-### Key Rules
+### Learned
+- Official download and support policy pages rechecked 2026-11-06. Latest patches unchanged: `net10.0` 10.0.14, `net9.0` 9.0.22, `net8.0` 8.0.33 (all released 2026-10-25 OOB). `net11` still `11.0.0-rc.3`. Policy page last updated October 25, 2026.
+- From 2026-11-06, net8/net9 have 4 days left until 2026-11-10. SessionStart continues to compute the countdown live from UTC midnight; POLICY_CHECKED updated so the injected note reflects this recheck. No invented patches.
+- Human-facing docs (QUICKSTART, LEARNING) refreshed so users and agents see accurate platform facts. Helps humans verify the plugin runs and continues the learning loop. plugin.json version synced to 1.0.30.
 
-- No Repository/UoW wrappers — DbContext directly
-- No FluentValidation — `AddValidation()` + DataAnnotations on .NET 10+
-- No commercial packages — free/open-source only
-- No DateTime.Now — `TimeProvider` everywhere
-- Self-documenting code — 30-second rule for AI reconnection
-- Question before coding — domain glossary first
-- English-only skills/agents, bilingual docs
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
+## 1.0.29 (2026-11-05) — Support facts rechecked; still 10.0.14 / 5 days left
+
+### Learned
+- Official download and support policy pages rechecked 2026-11-05. Latest patches unchanged: `net10.0` 10.0.14, `net9.0` 9.0.22, `net8.0` 8.0.33 (all released 2026-10-25 OOB). `net11` still `11.0.0-rc.3`. Policy page last updated October 25, 2026.
+- From 2026-11-05, net8/net9 have 5 days left until 2026-11-10. SessionStart continues to compute the countdown live from UTC midnight; POLICY_CHECKED updated so the injected note reflects this recheck. No invented patches.
+- Human-facing docs (QUICKSTART, LEARNING) refreshed so users and agents see accurate platform facts. Helps humans verify the plugin runs and continues the learning loop. plugin.json version synced to 1.0.29.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
+
+## 1.0.28 (2026-11-04) — Support facts rechecked; still 10.0.14 / 6 days left
+
+### Learned
+- Official download and support policy pages rechecked 2026-11-04. Latest patches unchanged: `net10.0` 10.0.14, `net9.0` 9.0.22, `net8.0` 8.0.33 (all released 2026-10-25 OOB). `net11` still `11.0.0-rc.3`. Policy page last updated October 25, 2026.
+- From 2026-11-04, net8/net9 have 6 days left until 2026-11-10. SessionStart continues to compute the countdown live from UTC midnight; POLICY_CHECKED updated so the injected note reflects this recheck. No invented patches.
+- Human-facing docs (QUICKSTART, LEARNING) refreshed so users and agents see accurate platform facts. Helps humans verify the plugin runs and continues the learning loop. plugin.json version synced to 1.0.28.
+
+Waiting for human review — do not auto-merge. Existing PR: https://github.com/fenzel999/dotnet-artisan/pull/16
