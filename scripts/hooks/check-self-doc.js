@@ -5,74 +5,89 @@
 // Only checks NEW domain files created by the AI. Does NOT check
 // existing project files where the AI doesn't know the domain.
 //
-// Output: JSON with additionalContext on stdout.
-// Exit code: always 0 (never blocks).
+// Input: official hook JSON on stdin (tool_input.file_path). Falls back to
+// CLAUDE_TOOL_INPUT for older harnesses.
+// Output: hookSpecificOutput.additionalContext. Exit code: always 0.
 
 "use strict";
 
 const fs = require("fs");
 const path = require("path");
 
-try {
-  const toolInputRaw = process.env.CLAUDE_TOOL_INPUT;
-  if (!toolInputRaw) {
-    console.log(JSON.stringify({ additionalContext: "" }));
-    process.exit(0);
-  }
+function emit(context) {
+  console.log(JSON.stringify({
+    hookSpecificOutput: {
+      hookEventName: "PostToolUse",
+      additionalContext: context || ""
+    }
+  }));
+}
 
-  let toolInput;
+function readPayload() {
   try {
-    toolInput = JSON.parse(toolInputRaw);
+    if (!process.stdin.isTTY) {
+      const raw = fs.readFileSync(0, "utf8");
+      if (raw && raw.trim()) return JSON.parse(raw);
+    }
   } catch {
-    console.log(JSON.stringify({ additionalContext: "" }));
-    process.exit(0);
+    // fall through to env
   }
+  if (process.env.CLAUDE_TOOL_INPUT) {
+    try {
+      return { tool_input: JSON.parse(process.env.CLAUDE_TOOL_INPUT) };
+    } catch {
+      return {};
+    }
+  }
+  return {};
+}
 
-  const filePath = toolInput.file_path;
-  if (!filePath || !filePath.endsWith(".cs")) {
-    console.log(JSON.stringify({ additionalContext: "" }));
+try {
+  const payload = readPayload();
+  const toolInput = payload.tool_input || payload.toolInput || {};
+  const filePath = toolInput.file_path || toolInput.filePath || toolInput.path;
+  if (!filePath || !String(filePath).endsWith(".cs")) {
+    emit("");
     process.exit(0);
   }
 
   const fileName = path.basename(filePath);
-
-  // Skip scaffolding / boilerplate files.
   const skipPatterns = [
     "Program.cs", "Startup.cs", "GlobalUsings.cs", "Usings.cs",
     /^.*Extensions\.cs$/, /^.*Registration\.cs$/, /^.*Module\.cs$/,
     /^I[A-Z]\w*Repository\.cs$/, /^[A-Z]\w*DbContext\.cs$/,
     /^.*Configuration\.cs$/, /^.*Middleware\.cs$/,
   ];
-  const shouldSkip = skipPatterns.some(p =>
+  const shouldSkip = skipPatterns.some((p) =>
     (p instanceof RegExp && p.test(fileName)) ||
     (typeof p === "string" && fileName === p)
   );
-  if (shouldSkip) { console.log(JSON.stringify({ additionalContext: "" })); process.exit(0); }
+  if (shouldSkip) {
+    emit("");
+    process.exit(0);
+  }
 
-  // Skip existing project files — if the file has pre-existing namespace
-  // from an established project, the AI didn't create it from scratch.
   let content;
   try {
     content = fs.readFileSync(filePath, "utf8");
   } catch {
-    console.log(JSON.stringify({ additionalContext: "" })); process.exit(0);
+    emit("");
+    process.exit(0);
   }
 
-  // Skip existing project files. Check if this file has a class or record
-  // definition that matches the filename — if it doesn't, the AI likely
-  // created it as a minor edit to an existing file, not a new domain file.
   const className = path.basename(fileName, ".cs");
   const hasMatchingClass = new RegExp(
     `(class |record |struct |interface )\\s*${className}\\b`
   ).test(content);
   if (!hasMatchingClass) {
-    console.log(JSON.stringify({ additionalContext: "" })); process.exit(0);
+    emit("");
+    process.exit(0);
   }
 
-  // At this point it's likely a new domain file created by the AI.
   const hasDomainCode = content.includes(" class ") || content.includes(" record ");
   if (!hasDomainCode) {
-    console.log(JSON.stringify({ additionalContext: "" })); process.exit(0);
+    emit("");
+    process.exit(0);
   }
 
   const lines = content.split("\n").slice(0, 10);
@@ -85,12 +100,12 @@ try {
   );
 
   if (!hasPurposeComment) {
-    const context =
-      "[dotnet-artisan] Suggestion: for new files, add a one-line comment explaining the class purpose. This helps future AI sessions. Skip if unsure about the domain.";
-    console.log(JSON.stringify({ additionalContext: context }));
+    emit("[dotnet-artisan] Suggestion: for new files, add a one-line comment explaining the class purpose. This helps future AI sessions. Skip if unsure about the domain.");
+  } else {
+    emit("");
   }
 } catch {
-  // Silently ignore all errors — never block.
+  emit("");
 }
 
 process.exit(0);

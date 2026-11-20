@@ -2,6 +2,8 @@
 
 This guide teaches AI coding agents how to use these skills. Rule zero: **understand before you build**. If you don't understand the domain, every line of code you write is a guess.
 
+Humans who only need install + “does it run?”: start at [QUICKSTART.md](QUICKSTART.md). Teaching the plugin new knowledge: [LEARNING.md](LEARNING.md).
+
 ## The Hardest Rule in This Repo
 
 **Before you write a single line of code, you MUST be able to answer every item on this checklist with confidence. If any answer is "I don't know" or "I'm guessing" — STOP. Ask more questions. Do not pass Go.**
@@ -211,7 +213,7 @@ Employee: internal staff member (from existing AD/Azure AD, not a new user syste
 
 ```
 .NET request detected (using-dotnet auto-loads)
-  │
+  |
   └─ dotnet-advisor routes:
       ├─ Always loaded: dotnet-csharp (C# patterns, async, DI, LINQ)
       ├─ Backend/API/database   → dotnet-api (33 refs)
@@ -221,10 +223,11 @@ Employee: internal staff member (from existing AD/Azure AD, not a new user syste
       ├─ Project setup/MSBuild  → dotnet-tooling (41 refs)
       ├─ Crash/deadlock/memory  → dotnet-debugging (17 refs)
       ├─ MCP/Semantic Kernel    → dotnet-ai
+      ├─ Grok / plugin health / knowledge promotion → dotnet-grok (1 ref)
       ├─ Framework migration    → dotnet-devops
       ├─ Code quality cleanup   → dotnet-tooling
       ├─ Workflow optimization  → dotnet-workflow
-      ├─ Workflow + learning    → dotnet-workflow
+      └─ Workflow + learning    → dotnet-workflow + LEARNING.md
 ```
 
 ## Context Persistence
@@ -233,11 +236,13 @@ Any AI reconnecting in a fresh session recovers full context in ~10 minutes:
 
 | Step | File | Time |
 |------|------|------|
+| 0 | `QUICKSTART.md` | 2 min — humans: install + health check |
 | 1 | `CLAUDE.md` | 2 min — repo overview, rules, conventions |
 | 2 | `AGENTS.md` | 1 min — iron rules, anti-patterns, key files |
 | 3 | `USAGE.md` (this file) | 3 min — questioning framework, domain analysis |
 | 4 | `SELF_DOCUMENTING.md` | 2 min — how to write code that survives sessions |
 | 5 | `BEHAVIORS.md` | 2 min — 30+ behavior catalog + decision-maker routing |
 | 6 | `skills/CHEATSHEET.md` | 2 min — all rules in one page |
+| 7 | `LEARNING.md` | 1 min — how new knowledge enters skills |
 
 All generated code must follow SELF_DOCUMENTING.md so a fresh AI can understand the project in 30 seconds: solution file → Program.cs → any .cs file → config.
